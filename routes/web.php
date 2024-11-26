@@ -10,3 +10,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('admin.layouts.index');
 });
+
+Route::get('/tables', function () {
+    return view('admin.layouts.tables');
+});
