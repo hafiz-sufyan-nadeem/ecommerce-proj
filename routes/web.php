@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AuthController;
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -31,6 +34,23 @@ Route::get('/sidebar', function () {
     return view('admin.layouts.sidebar');
 });
 
-Route::get('/products', function (){
-    return view('admin.products');
+Route::get('/products', [AuthController::class, 'showProducts']);
+
+
+Route::get('/auth_layout', function (){
+    return view('admin.auth.auth_layout');
 });
+
+Route::get('/login', [AuthController::class, 'showLoginForm']);
+
+Route::get('/register', [AuthController::class, 'showRegisterForm']);
+
+Route::get('/forgot-password', [AuthController::class, 'showForgotPasswordForm']);
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+
+Route::post('/forgot-password', [AuthController::class, 'forgot-Password'])->name('forgot-password');
+
+Route::post('/products', [AuthController::class, 'products'])->name('products');
