@@ -48,6 +48,10 @@ class AuthController extends Controller
     {
         return view('admin.auth.forgotpassword');
     }
+    public function postForgotPassword()
+    {
+        return view('admin.auth.forgotpassword');
+    }
 
     public function products()
     {
