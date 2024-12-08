@@ -11,6 +11,7 @@
                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                 </div>
                 <form class="user" action="{{url('/login')}}" method="post">
+                    @csrf
                     <div class="form-group">
                         <input type="email" class="form-control form-control-user"
                                id="exampleInputEmail" aria-describedby="emailHelp"
@@ -34,7 +35,7 @@
                 </form>
                 <hr>
                 <div class="text-center">
-                    <a class="small" href="{{route('forgot-password')}}">Forgot Password?</a>
+                    <a class="small" href="{{route('forgotpassword')}}">Forgot Password?</a>
                 </div>
                 <div class="text-center">
                     <a class="small" href="{{route('register')}}">Create an Account!</a>

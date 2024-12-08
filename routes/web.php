@@ -34,23 +34,26 @@ Route::get('/sidebar', function () {
     return view('admin.layouts.sidebar');
 });
 
-Route::get('/products', [AuthController::class, 'showProducts']);
+//Route::get('/products', [AuthController::class, 'showProducts']);
 
+Route::get('/products', function () {
+    return view('admin.products');
+});
 
 Route::get('/auth_layout', function (){
     return view('admin.auth.auth_layout');
 });
 
-Route::get('/login', [AuthController::class, 'showLoginForm']);
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
 
-Route::get('/register', [AuthController::class, 'showRegisterForm']);
+Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register.form');
 
-Route::get('/forgot-password', [AuthController::class, 'showForgotPasswordForm']);
+Route::get('/forgotpassword', [AuthController::class, 'showForgotPasswordForm'])->name('forgotpassword.form');
 
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'postLogin'])->name('login');
 
-Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'postRegister'])->name('register');
 
-Route::post('/forgot-password', [AuthController::class, 'forgot-Password'])->name('forgot-password');
+Route::post('/forgotpassword', [AuthController::class, 'postForgotPassword'])->name('forgotpassword');
 
-Route::post('/products', [AuthController::class, 'products'])->name('products');
+Route::post('/products', [AuthController::class, 'postProducts'])->name('products');
