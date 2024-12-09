@@ -57,3 +57,9 @@ Route::post('/register', [AuthController::class, 'postRegister'])->name('registe
 Route::post('/forgotpassword', [AuthController::class, 'postForgotPassword'])->name('forgotpassword');
 
 Route::post('/products', [AuthController::class, 'postProducts'])->name('products');
+
+Route::post('/tables', [AuthController::class, 'postTables'])->name('tables');
+
+
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+

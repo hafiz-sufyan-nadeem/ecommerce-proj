@@ -12,6 +12,18 @@
                             <form class="user" action="{{url('register')}}" method="post">
                                 @csrf
 
+                                @if (session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+
+                                @if (session('error'))
+                                    <div class="alert alert-danger">
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
+
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" name="name" class="form-control form-control-user" id="exampleFirstName"
@@ -61,9 +73,9 @@
 
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </button>
+                                <a href="{{route('login')}}" class="btn btn-primary btn-user btn-block">
+                                    Register
+                                </a>
 
                             </form>
                             <div class="text-center">

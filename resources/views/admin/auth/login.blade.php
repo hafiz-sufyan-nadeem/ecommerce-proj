@@ -12,6 +12,18 @@
                 <!-- Login Form -->
                 <form class="user" action="{{ url('/login') }}" method="post">
                     @csrf
+
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                     <!-- Email Input -->
                     <div class="form-group">
                         <input type="email" name="email" class="form-control form-control-user"
@@ -39,9 +51,9 @@
                         </div>
                     </div>
                     <!-- Submit Button -->
-                    <a href="{{route('products')}}" class="btn btn-primary btn-user btn-block">
+                    <button type="submit" class="btn btn-primary btn-user btn-block">
                         Login
-                    </a>
+                    </button>
                 </form>
                 <hr>
                 <div class="text-center">

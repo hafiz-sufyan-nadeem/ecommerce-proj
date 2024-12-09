@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Session;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -16,14 +17,15 @@ class AuthController extends Controller
     public function postLogin(Request $request)
     {
         $request->validate([
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required',
         ]);
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('admin.products')->withSuccess('Successfully logged in');
+            return redirect()->intended('/products')->with('success', 'Successfully logged in');
         }
-        return redirect('login')->withErrors('Oops! You have entered invalid credentials');
+
+        return redirect()->back()->withErrors(['error' => 'Oops! You have entered invalid credentials']);
     }
 
     public function showRegistrationForm()
@@ -48,10 +50,15 @@ class AuthController extends Controller
     {
         return view('admin.auth.forgotpassword');
     }
-    public function postForgotPassword()
+    public function postForgotPassword(Request $request)
     {
-        return view('admin.auth.forgotpassword');
+        $request->validate([
+            'email' => 'required|email|exists:users,email',
+        ]);
+
+        return redirect()->back()->with('success', 'Password reset link sent to your email.');
     }
+
 
     public function products()
     {
@@ -77,5 +84,15 @@ class AuthController extends Controller
         ]);
 
     }
+
+    public function logout() {
+        Session::flush();
+
+        Auth::logout();
+
+        return Redirect('login');
+
+    }
+
 
 }
