@@ -14,7 +14,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
-                    <th>
+                    <tr>
                         <th>Name</th>
                         <th>Image</th>
                         <th>Price</th>
@@ -30,7 +30,7 @@
                     @foreach ($products as $product)
                         <tr>
                             <td>{{ $product->name }}</td>
-                            <td><img{{ $product->image }}></td>
+                            <td><img src="{{ $product->image }}"></td>
                             <td>{{ $product->price }}</td>
                             <td>{{ $product->category }}</td>
                             <td>{{ $product->quantity }}</td>
