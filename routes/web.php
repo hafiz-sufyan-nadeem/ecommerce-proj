@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -60,6 +60,7 @@ Route::post('/products', [AuthController::class, 'postProducts'])->name('product
 
 Route::post('/tables', [AuthController::class, 'postTables'])->name('tables');
 
-
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('tables', [ProductController::class, 'index']);
 

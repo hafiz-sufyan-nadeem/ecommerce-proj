@@ -14,8 +14,9 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
-                    <tr>
-                        <th>Product</th>
+                    <th>
+                        <th>Name</th>
+                        <th>Image</th>
                         <th>Price</th>
                         <th>Category</th>
                         <th>Quantity</th>
@@ -26,16 +27,23 @@
                     <tfoot>
                     </tfoot>
                     <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
-                    </tr>
-
+                    @foreach ($products as $product)
+                        <tr>
+                            <td>{{ $product->name }}</td>
+                            <td><img{{ $product->image }}></td>
+                            <td>{{ $product->price }}</td>
+                            <td>{{ $product->category }}</td>
+                            <td>{{ $product->quantity }}</td>
+                            <td>{{ $product->stock }}</td>
+                            <td>
+                                <!-- Action buttons -->
+                                <a href="#" class="btn btn-primary">Edit</a>
+                                <a href="#" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
+
                 </table>
             </div>
         </div>
