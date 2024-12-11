@@ -2,6 +2,13 @@
 @section('content')
 <div class="container-fluid">
 
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Products</h1>
 
