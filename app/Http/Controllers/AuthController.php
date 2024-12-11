@@ -22,7 +22,7 @@ class AuthController extends Controller
         ]);
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/products')->with('success', 'Successfully logged in');
+            return redirect()->intended('/dashboard')->with('success', 'Successfully logged in');
         }
 
         return redirect()->back()->withErrors(['error' => 'Oops! You have entered invalid credentials']);
@@ -60,15 +60,15 @@ class AuthController extends Controller
     }
 
 
-    public function products()
+    public function dashboard()
     {
-        return view('admin.products');
+        return view('admin.dashboard');
     }
 
-    public function postProducts()
+    public function postDashboard()
     {
         if (Auth::check()){
-            return view('admin.products');
+            return view('admin.dashboard');
         }
         return redirect('login');
     }

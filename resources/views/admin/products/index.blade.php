@@ -1,10 +1,14 @@
 @extends('admin.layouts.main')
-
 @section('content')
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+    <h1 class="h3 mb-2 text-gray-800">Products</h1>
+
+        <div>
+            <a href="{{route('admin.products')}}" class="btn btn-dark mb-2 ml-auto">New Product</a>
+        </div>
+
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -30,7 +34,7 @@
                     @foreach ($products as $product)
                         <tr>
                             <td>{{ $product->name }}</td>
-                            <td><img src="{{ $product->image }}"></td>
+                            <td><img src="{{asset('images/' . $product->image)}}" width="45px"></td>
                             <td>{{ $product->price }}</td>
                             <td>{{ $product->category }}</td>
                             <td>{{ $product->quantity }}</td>

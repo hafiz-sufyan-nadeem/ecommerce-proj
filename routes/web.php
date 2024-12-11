@@ -14,9 +14,9 @@ Route::get('/dashboard', function () {
     return view('admin.layouts.index');
 });
 
-Route::get('/tables', function () {
-    return view('admin.tables');
-});
+//Route::get('/products', function () {
+//    return view('admin.products');
+//});
 
 Route::get('/header', function () {
     return view('admin.layouts.header');
@@ -36,8 +36,8 @@ Route::get('/sidebar', function () {
 
 //Route::get('/products', [AuthController::class, 'showProducts']);
 
-Route::get('/products', function () {
-    return view('admin.products');
+Route::get('/dashboard', function () {
+    return view('admin.dashboard');
 });
 
 Route::get('/auth_layout', function (){
@@ -56,11 +56,17 @@ Route::post('/register', [AuthController::class, 'postRegister'])->name('registe
 
 Route::post('/forgotpassword', [AuthController::class, 'postForgotPassword'])->name('forgotpassword');
 
-Route::post('/products', [AuthController::class, 'postProducts'])->name('products');
+Route::post('/dashboard', [AuthController::class, 'postDashboard'])->name('dashboard');
 
-Route::post('/tables', [AuthController::class, 'postTables'])->name('tables');
+//Route::post('/products', [AuthController::class, 'postProducts'])->name('products');
 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('tables', [ProductController::class, 'index']);
+Route::get('/products', [ProductController::class, 'index'])->name('products');
+
+Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin.products');
+
+Route::get('/admin/products/show', [ProductController::class, 'show'])->name('admin.products.show');
+
+Route::post('/admin/products', [ProductController::class, 'store'])->name('admin.products.store');
 
