@@ -51,4 +51,39 @@ class ProductController extends Controller
         return redirect()->route('admin.products')->with('success', 'Product added successfully');
     }
 
+    public function edit(Product $product)
+    {
+        return view('admin.products.edit',compact('product'));
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required|image',
+            'price' => 'required|numeric',
+            'category' => 'required|string',
+            'quantity' => 'required|integer',
+            'stock' => 'required|string',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $fileName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $fileName);
+            $data['image'] = $fileName;
+        }
+
+        $product->update($request->all());
+
+        return redirect()->route('admin.products')
+            ->with('success','Product updated successfully');
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+        return redirect()->route('admin.products')
+            ->with('success','Product deleted successfully');
+
+    }
 }

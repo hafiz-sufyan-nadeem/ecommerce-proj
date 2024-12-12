@@ -70,3 +70,8 @@ Route::get('/admin/products/show', [ProductController::class, 'show'])->name('ad
 
 Route::post('/admin/products', [ProductController::class, 'store'])->name('admin.products.store');
 
+Route::get('/admin/products/edit/{product}', [ProductController::class, 'edit'])->name('admin.products.edit');
+
+Route::put('/admin/products', [ProductController::class, 'update'])->name('admin.products.update');
+
+Route::delete('/admin/products/{id}', [ProductController::class, 'destroy'])->name('admin.products.destroy');

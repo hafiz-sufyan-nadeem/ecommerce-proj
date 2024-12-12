@@ -48,8 +48,14 @@
                             <td>{{ $product->stock }}</td>
                             <td>
                                 <!-- Action buttons -->
-                                <a href="#" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
+                                <form action="{{ route('admin.products.destroy',$product->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <a class="btn btn-primary" href="{{ route('admin.products.edit',$product->id) }}">Edit</a>
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+
                             </td>
                         </tr>
                     @endforeach
