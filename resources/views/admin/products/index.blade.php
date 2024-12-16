@@ -48,12 +48,12 @@
                             <td>{{ $product->stock }}</td>
                             <td>
                                 <!-- Action buttons -->
-                                <form action="{{ route('admin.products.destroy',$product->id) }}" method="POST">
+                                <a class="btn btn-primary" href="{{ route('admin.products.edit',$product->id) }}">Edit</a>
+
+                                <form id="deleteForm{{$product->id}}" action="{{ route('products.destroy', $product->id) }}" method="POST" style="display: inline">
                                     @csrf
                                     @method('DELETE')
-
-                                    <a class="btn btn-primary" href="{{ route('admin.products.edit',$product->id) }}">Edit</a>
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="button" class="btn btn-danger" onclick="deleteconfirm({{$product->id}})"> Delete</button>
                                 </form>
 
                             </td>
@@ -68,4 +68,21 @@
 
 </div>
 
+<script>
+    function deleteconfirm(productId) {
+        var confirmation = confirm("Are you sure you want to delete this product?");
+
+        if (confirmation) {
+            var form = document.getElementById('deleteForm' + productId);
+
+            if (form) {
+                form.submit();
+            } else {
+                alert("Form not found for product ID: " + productId);
+            }
+        } else {
+            alert("Product deletion cancelled!");
+        }
+    }
+</script>
 @endsection

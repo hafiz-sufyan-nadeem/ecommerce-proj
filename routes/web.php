@@ -11,7 +11,7 @@ Route::get('/', function () {
 
 
 Route::get('/dashboard', function () {
-    return view('admin.layouts.index');
+    return view('admin.dashboard');
 });
 
 //Route::get('/products', function () {
@@ -74,4 +74,4 @@ Route::get('/admin/products/edit/{product}', [ProductController::class, 'edit'])
 
 Route::put('/admin/products', [ProductController::class, 'update'])->name('admin.products.update');
 
-Route::delete('/admin/products/{id}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
+Route::delete('/admin/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');

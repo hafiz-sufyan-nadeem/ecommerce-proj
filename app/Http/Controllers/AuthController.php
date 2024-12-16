@@ -20,6 +20,7 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
+
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->intended('/dashboard')->with('success', 'Successfully logged in');

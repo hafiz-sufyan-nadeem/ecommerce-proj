@@ -60,7 +60,7 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image' => 'required|image',
+            'image' => 'nullable|image',
             'price' => 'required|numeric',
             'category' => 'required|string',
             'quantity' => 'required|integer',
@@ -70,20 +70,29 @@ class ProductController extends Controller
         if ($request->hasFile('image')) {
             $fileName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images'), $fileName);
-            $data['image'] = $fileName;
+            $product->image = $fileName;
         }
 
-        $product->update($request->all());
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->category = $request->category;
+        $product->quantity = $request->quantity;
+        $product->stock = $request->stock;
 
-        return redirect()->route('admin.products')
-            ->with('success','Product updated successfully');
+        $product->save();
+
+        return redirect()->route('products')
+            ->with('success', 'Product updated successfully.');
     }
 
-    public function destroy(Product $product)
+
+
+    public function destroy($id)
     {
+        $product = Product::findOrFail($id);
         $product->delete();
-        return redirect()->route('admin.products')
-            ->with('success','Product deleted successfully');
 
+        return redirect()->route('products')->with('success', 'Product deleted successfully!');
     }
+
 }

@@ -13,7 +13,7 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
 
-        $categories = ['Electronics', 'Clothing', 'Gym', 'Beauty', 'Home & Kitchen'];
+        $categories = ['Electronics', 'Clothing', 'Gym', 'Beauty', 'Home & Kitchen','fashion'];
 
         for ($i = 1; $i <= 10; $i++) {
             product::create([
