@@ -10,9 +10,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
+//Route::get('/dashboard', function () {
+//    return view('admin.dashboard');
+//});
 
 //Route::get('/products', function () {
 //    return view('admin.products');
@@ -36,9 +36,8 @@ Route::get('/sidebar', function () {
 
 //Route::get('/products', [AuthController::class, 'showProducts']);
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
+Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('auth')->name('dashboard');
+
 
 Route::get('/auth_layout', function (){
     return view('admin.auth.auth_layout');
@@ -56,7 +55,7 @@ Route::post('/register', [AuthController::class, 'postRegister'])->name('registe
 
 Route::post('/forgotpassword', [AuthController::class, 'postForgotPassword'])->name('forgotpassword');
 
-Route::post('/dashboard', [AuthController::class, 'postDashboard'])->name('dashboard');
+//Route::post('/dashboard', [AuthController::class, 'postDashboard'])->name('dashboard');
 
 //Route::post('/products', [AuthController::class, 'postProducts'])->name('products');
 
@@ -72,6 +71,6 @@ Route::post('/admin/products', [ProductController::class, 'store'])->name('admin
 
 Route::get('/admin/products/edit/{product}', [ProductController::class, 'edit'])->name('admin.products.edit');
 
-Route::put('/admin/products', [ProductController::class, 'update'])->name('admin.products.update');
+Route::put('/admin/products/{product}', [ProductController::class, 'update'])->name('admin.products.update');
 
 Route::delete('/admin/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');

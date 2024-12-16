@@ -51,9 +51,9 @@
                         </div>
                     </div>
                     <!-- Submit Button -->
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                    <a href="{{route('dashboard')}}" class="btn btn-primary btn-user btn-block">
                         Login
-                    </button>
+                    </a>
                 </form>
                 <hr>
                 <div class="text-center">

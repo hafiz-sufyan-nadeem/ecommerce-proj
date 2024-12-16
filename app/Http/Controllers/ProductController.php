@@ -58,6 +58,7 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
+
         $request->validate([
             'name' => 'required',
             'image' => 'nullable|image',
@@ -81,9 +82,9 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect()->route('products')
-            ->with('success', 'Product updated successfully.');
+        return redirect()->route('products')->with('success', 'Product updated successfully.');
     }
+
 
 
 
