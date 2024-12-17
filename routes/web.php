@@ -10,14 +10,6 @@ Route::get('/', function () {
 });
 
 
-//Route::get('/dashboard', function () {
-//    return view('admin.dashboard');
-//});
-
-//Route::get('/products', function () {
-//    return view('admin.products');
-//});
-
 Route::get('/header', function () {
     return view('admin.layouts.header');
 });
@@ -36,8 +28,6 @@ Route::get('/sidebar', function () {
 
 //Route::get('/products', [AuthController::class, 'showProducts']);
 
-Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('auth')->name('dashboard');
-
 
 Route::get('/auth_layout', function (){
     return view('admin.auth.auth_layout');
@@ -55,9 +45,9 @@ Route::post('/register', [AuthController::class, 'postRegister'])->name('registe
 
 Route::post('/forgotpassword', [AuthController::class, 'postForgotPassword'])->name('forgotpassword');
 
-//Route::post('/dashboard', [AuthController::class, 'postDashboard'])->name('dashboard');
+Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('auth')->name('dashboard');
 
-//Route::post('/products', [AuthController::class, 'postProducts'])->name('products');
+//Route::post('/dashboard', [AuthController::class, 'postDashboard'])->name('dashboard');
 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 

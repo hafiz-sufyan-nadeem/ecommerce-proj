@@ -23,7 +23,7 @@ class AuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/dashboard')->with('success', 'Successfully logged in');
+            return redirect()->route('dashboard')->with('success', 'Successfully logged in');
         }
 
         return redirect()->back()->withErrors(['error' => 'Oops! You have entered invalid credentials']);
@@ -43,8 +43,8 @@ class AuthController extends Controller
             'password' => 'required|min:8|confirmed',
         ]);
         $data = $request->all();
-        $check = $this->create($data);
-        return redirect('admin.products')->withSuccess('Greate!, You have successfully registered');
+        $this->create($data);
+        return redirect('login')->withSuccess('Greate!, You have successfully registered');
     }
 
     public function showForgotPasswordForm()
@@ -66,13 +66,13 @@ class AuthController extends Controller
         return view('admin.dashboard');
     }
 
-    public function postDashboard()
-    {
-        if (Auth::check()){
-            return view('admin.dashboard');
-        }
-        return redirect('login');
-    }
+//    public function postDashboard()
+//    {
+//        if (Auth::check()){
+//            return view('dashboard');
+//        }
+//        return redirect('login');
+//    }
 
     public function create(array $data)
     {
