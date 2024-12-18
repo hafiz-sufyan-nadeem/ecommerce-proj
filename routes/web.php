@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
@@ -58,3 +59,6 @@ Route::get('/admin/products/edit/{product}', [ProductController::class, 'edit'])
 Route::put('/admin/products/{product}', [ProductController::class, 'update'])->name('admin.products.update');
 
 Route::delete('/admin/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+// Category Routes
+Route::get('admin/categories', [CategoryController::class, 'index'])->name('admin.categories');

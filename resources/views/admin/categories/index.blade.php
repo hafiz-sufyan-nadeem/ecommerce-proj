@@ -8,14 +8,12 @@
             </div>
         @endif
 
-
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Products</h1>
+        <h1 class="h3 mb-2 text-gray-800">Categories</h1>
 
-        <div>
-            <a href="{{route('admin.products')}}" class="btn btn-dark mb-2 ml-auto">New Product</a>
-        </div>
-
+{{--        <div>--}}
+{{--            <a href="{{ route('admin.categories.create') }}" class="btn btn-dark mb-2 ml-auto">New Category</a>--}}
+{{--        </div>--}}
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -27,40 +25,27 @@
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Image</th>
-                            <th>Price</th>
-                            <th>Category</th>
-                            <th>Quantity</th>
-                            <th>Stock</th>
+                            <th>Description</th>
                             <th>Action</th>
                         </tr>
                         </thead>
-                        <tfoot>
-                        </tfoot>
-                        <tbody>
-                        @foreach ($products as $product)
-                            <tr>
-                                <td>{{ $product->name }}</td>
-                                <td><img src="{{asset('images/' . $product->image)}}" width="45px"></td>
-                                <td>{{ $product->price }}</td>
-                                <td>{{ $product->category }}</td>
-                                <td>{{ $product->quantity }}</td>
-                                <td>{{ $product->stock }}</td>
-                                <td>
-                                    <!-- Action buttons -->
-                                    <a class="btn btn-primary" href="{{ route('admin.products.edit',$product->id) }}">Edit</a>
+{{--                        <tbody>--}}
+{{--                        @foreach ($categories as $category)--}}
+{{--                            <tr>--}}
+{{--                                <td>{{ $category->name }}</td>--}}
+{{--                                    <td>{{ $categories->description }}</td>--}}
+{{--                                    <!-- Action buttons -->--}}
+{{--                                    <a class="btn btn-primary" href="{{ route('admin.categories.edit', $category->id) }}">Edit</a>--}}
 
-                                    <form id="deleteForm{{$product->id}}" action="{{ route('products.destroy', $product->id) }}" method="POST" style="display: inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="button" class="btn btn-danger" onclick="deleteconfirm({{$product->id}})"> Delete</button>
-                                    </form>
-
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-
+{{--                                    <form id="deleteForm{{ $category->id }}" action="{{ route('categories.destroy', $category->id) }}" method="POST" style="display: inline">--}}
+{{--                                        @csrf--}}
+{{--                                        @method('DELETE')--}}
+{{--                                        <button type="button" class="btn btn-danger" onclick="deleteconfirm({{ $category->id }})">Delete</button>--}}
+{{--                                    </form>--}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
+{{--                        @endforeach--}}
+{{--                        </tbody>--}}
                     </table>
                 </div>
             </div>
@@ -68,21 +53,21 @@
 
     </div>
 
-    <script>
-        function deleteconfirm(productId) {
-            var confirmation = confirm("Are you sure you want to delete this product?");
+{{--    <script>--}}
+{{--        function deleteconfirm(categoryId) {--}}
+{{--            var confirmation = confirm("Are you sure you want to delete this category?");--}}
 
-            if (confirmation) {
-                var form = document.getElementById('deleteForm' + productId);
+{{--            if (confirmation) {--}}
+{{--                var form = document.getElementById('deleteForm' + categoryId);--}}
 
-                if (form) {
-                    form.submit();
-                } else {
-                    alert("Form not found for product ID: " + productId);
-                }
-            } else {
-                alert("Product deletion cancelled!");
-            }
-        }
-    </script>
+{{--                if (form) {--}}
+{{--                    form.submit();--}}
+{{--                } else {--}}
+{{--                    alert("Form not found for category ID: " + categoryId);--}}
+{{--                }--}}
+{{--            } else {--}}
+{{--                alert("Category deletion cancelled!");--}}
+{{--            }--}}
+{{--        }--}}
+{{--    </script>--}}
 @endsection
