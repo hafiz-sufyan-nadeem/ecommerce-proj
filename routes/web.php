@@ -62,3 +62,15 @@ Route::delete('/admin/products/{id}', [ProductController::class, 'destroy'])->na
 
 // Category Routes
 Route::get('admin/categories', [CategoryController::class, 'index'])->name('admin.categories');
+
+Route::get('admin/categories/create', [CategoryController::class, 'create'])->name('admin.categories.create');
+
+Route::get('admin/categories/edit/{category}', [CategoryController::class, 'edit'])->name('admin.categories.edit');
+
+Route::put('admin/categories/{category}', [CategoryController::class, 'update'])->name('admin.categories.update');
+
+Route::get('admin/categories/show/{category}', [CategoryController::class, 'show'])->name('admin.categories.show');
+
+Route::delete('admin/categories/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy');
+
+Route::post('admin/categories/store', [CategoryController::class, 'store'])->name('admin.categories.store');
