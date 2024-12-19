@@ -74,3 +74,4 @@ Route::get('admin/categories/show/{category}', [CategoryController::class, 'show
 Route::delete('admin/categories/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy');
 
 Route::post('admin/categories/store', [CategoryController::class, 'store'])->name('admin.categories.store');
+Route::post('admin/categories/store', [CategoryController::class, 'store'])->name('admin.categories.store');
