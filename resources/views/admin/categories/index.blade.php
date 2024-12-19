@@ -48,22 +48,7 @@
                         @endforeach
                         </tbody>
                     </table>
-
-                    <nav aria-label="...">
-                        <ul class="pagination">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="{{ $categories->links() }}" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="{{ $categories->links() }}">1</a></li>
-                            <li class="page-item active">
-                                <a class="page-link" href="{{ $categories->links() }}">2 <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="{{ $categories->links() }}">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="{{ $categories->links() }}">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    {{ $categories->links()}}
 
                 </div>
             </div>

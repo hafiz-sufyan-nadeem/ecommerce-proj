@@ -9,7 +9,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+//        $products = Product::all();
+        $products = Product::orderBy('created_at', 'DESC')->paginate(5);
         return view('admin.products.index', compact('products'));
     }
 
@@ -46,9 +47,10 @@ class ProductController extends Controller
         $product->category = $request->category;
         $product->quantity = $request->quantity;
         $product->stock = $request->stock;
+
         $product->save();
 
-        return redirect()->route('admin.products')->with('success', 'Product added successfully');
+        return redirect()->route('products')->with('success', 'Product added successfully');
     }
 
     public function edit(Product $product)

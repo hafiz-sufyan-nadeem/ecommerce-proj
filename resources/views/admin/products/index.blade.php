@@ -13,7 +13,7 @@
     <h1 class="h3 mb-2 text-gray-800">Products</h1>
 
         <div>
-            <a href="{{route('admin.products')}}" class="btn btn-dark mb-2 ml-auto">New Product</a>
+            <a href="{{route('admin.products')}}" class="btn btn-dark mb-2 ml-auto">Add New Product</a>
         </div>
 
 
@@ -62,6 +62,8 @@
                     </tbody>
 
                 </table>
+                {{$products->links()}}
+
             </div>
         </div>
     </div>
