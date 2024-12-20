@@ -43,7 +43,7 @@
                             <td>{{ $product->name }}</td>
                             <td><img src="{{asset('images/' . $product->image)}}" width="45px"></td>
                             <td>{{ $product->price }}</td>
-                            <td>{{ $product->category }}</td>
+                            <td>{{ $product->category->name ?? 'No Category'}}</td>
                             <td>{{ $product->quantity }}</td>
                             <td>{{ $product->stock }}</td>
                             <td>

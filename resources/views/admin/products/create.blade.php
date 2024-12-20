@@ -69,7 +69,12 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Category:</strong>
-                    <input type="text" name="category" class="form-control" placeholder="Category">
+                    <select name="category_id" id="category" class="form-control">
+                        <option value="">Select Category</option>
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{$category->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
 

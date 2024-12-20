@@ -3,19 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     public function index()
     {
-//        $products = Product::all();
-        $products = Product::orderBy('created_at', 'DESC')->paginate(5);
+        $products = Product::with('category')->orderBy('created_at', 'DESC')->paginate(5);
+
         return view('admin.products.index', compact('products'));
     }
 
+
     public function create(){
-        return view('/admin/products/create');
+        $categories = Category::all();
+
+        return view('admin.products.create', compact('categories'));
     }
 
     public function show()
@@ -30,7 +34,7 @@ class ProductController extends Controller
             'name' => 'required',
             'image' => 'required|image',
             'price' => 'required|numeric',
-            'category' => 'required|string',
+            'category_id' => 'required|exists:categories,id',
             'quantity' => 'required|integer',
             'stock' => 'required|string',
         ]);
@@ -44,7 +48,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->image = $imageName;
         $product->price = $request->price;
-        $product->category = $request->category;
+        $product->category_id = $request->category_id;
         $product->quantity = $request->quantity;
         $product->stock = $request->stock;
 
