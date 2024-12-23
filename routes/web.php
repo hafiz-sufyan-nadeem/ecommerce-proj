@@ -74,3 +74,17 @@ Route::get('admin/categories/show/{category}', [CategoryController::class, 'show
 Route::delete('admin/categories/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy');
 
 Route::post('admin/categories/store', [CategoryController::class, 'store'])->name('admin.categories.store');
+
+
+//  WEBSITE FOLDER ROUTES
+Route::get('index', function (){
+    return view('website.index');
+});
+
+Route::get('header' ,function (){
+    return view('website.header');
+});
+
+Route::get('footer' ,function (){
+    return view('website.footer');
+});
