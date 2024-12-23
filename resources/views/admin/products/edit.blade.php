@@ -48,7 +48,7 @@
                     <input type="file" class="form-control" name="image" id="image">
                 </div>
                 <div class="form-group">
-                    @if (("{{ $product->image }}"))
+                    @if ( $product->image )
                         <img src="{{asset('images/'. $product->image) }}" alt="product image" width="150px">
                     @else
                         <p>No image found</p>

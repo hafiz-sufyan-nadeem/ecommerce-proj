@@ -77,14 +77,6 @@ Route::post('admin/categories/store', [CategoryController::class, 'store'])->nam
 
 
 //  WEBSITE FOLDER ROUTES
-Route::get('index', function (){
+Route::get('/', function (){
     return view('website.index');
-});
-
-Route::get('header' ,function (){
-    return view('website.header');
-});
-
-Route::get('footer' ,function (){
-    return view('website.footer');
 });
