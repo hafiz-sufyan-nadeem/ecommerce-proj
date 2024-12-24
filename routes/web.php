@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\HomeController;
 
 
 
@@ -79,4 +78,3 @@ Route::post('admin/categories/store', [CategoryController::class, 'store'])->nam
 
 
 //  WEBSITE FOLDER ROUTES
-Route::get('/',[HomeController::class, 'index'])->name('home');

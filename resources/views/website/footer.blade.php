@@ -1,137 +1,140 @@
-<footer id="footer" class="mt-5">
-    <div class="container">
-        <div class="row d-flex flex-wrap justify-content-between py-5">
-            <div class="col-md-3 col-sm-6">
-                <div class="footer-menu footer-menu-001">
-                    <div class="footer-intro mb-4">
-                        <a href="index.html">
-                            <img src="{{asset('assets/images/main-logo.png')}}" alt="logo">
-                        </a>
-                    </div>
-                    <p>Gravida massa volutpat aenean odio. Amet, turpis erat nullam fringilla elementum diam in. Nisi, purus
-                        vitae, ultrices nunc. Sit ac sit suscipit hendrerit.</p>
-                    <div class="social-links">
-                        <ul class="list-unstyled d-flex flex-wrap gap-3">
+<footer class="py-5">
+    <div class="container-lg">
+        <div class="row">
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="footer-menu">
+                    <img src="images/logo.svg" width="240" height="70" alt="logo">
+                    <div class="social-links mt-3">
+                        <ul class="d-flex list-unstyled gap-2">
                             <li>
-                                <a href="#" class="text-secondary">
-                                    <svg width="24" height="24" viewBox="0 0 24 24">
-                                        <use xlink:href="#facebook"></use>
-                                    </svg>
+                                <a href="#" class="btn btn-outline-light">
+                                    <svg width="16" height="16"><use xlink:href="#facebook"></use></svg>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="text-secondary">
-                                    <svg width="24" height="24" viewBox="0 0 24 24">
-                                        <use xlink:href="#twitter"></use>
-                                    </svg>
+                                <a href="#" class="btn btn-outline-light">
+                                    <svg width="16" height="16"><use xlink:href="#twitter"></use></svg>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="text-secondary">
-                                    <svg width="24" height="24" viewBox="0 0 24 24">
-                                        <use xlink:href="#youtube"></use>
-                                    </svg>
+                                <a href="#" class="btn btn-outline-light">
+                                    <svg width="16" height="16"><use xlink:href="#youtube"></use></svg>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="text-secondary">
-                                    <svg width="24" height="24" viewBox="0 0 24 24">
-                                        <use xlink:href="#pinterest"></use>
-                                    </svg>
+                                <a href="#" class="btn btn-outline-light">
+                                    <svg width="16" height="16"><use xlink:href="#instagram"></use></svg>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="text-secondary">
-                                    <svg width="24" height="24" viewBox="0 0 24 24">
-                                        <use xlink:href="#instagram"></use>
-                                    </svg>
+                                <a href="#" class="btn btn-outline-light">
+                                    <svg width="16" height="16"><use xlink:href="#amazon"></use></svg>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="footer-menu footer-menu-002">
-                    <h5 class="widget-title text-uppercase mb-4">Quick Links</h5>
-                    <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
+
+            <div class="col-md-2 col-sm-6">
+                <div class="footer-menu">
+                    <h5 class="widget-title">Organic</h5>
+                    <ul class="menu-list list-unstyled">
                         <li class="menu-item">
-                            <a href="index.html" class="item-anchor">Home</a>
+                            <a href="#" class="nav-link">About us</a>
                         </li>
                         <li class="menu-item">
-                            <a href="index.html" class="item-anchor">About</a>
+                            <a href="#" class="nav-link">Conditions </a>
                         </li>
                         <li class="menu-item">
-                            <a href="blog.html" class="item-anchor">Services</a>
+                            <a href="#" class="nav-link">Our Journals</a>
                         </li>
                         <li class="menu-item">
-                            <a href="styles.html" class="item-anchor">Single item</a>
+                            <a href="#" class="nav-link">Careers</a>
                         </li>
                         <li class="menu-item">
-                            <a href="#" class="item-anchor">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="footer-menu footer-menu-003">
-                    <h5 class="widget-title text-uppercase mb-4">Help & Info</h5>
-                    <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
-                        <li class="menu-item">
-                            <a href="#" class="item-anchor">Track Your Order</a>
+                            <a href="#" class="nav-link">Affiliate Programme</a>
                         </li>
                         <li class="menu-item">
-                            <a href="#" class="item-anchor">Returns + Exchanges</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="item-anchor">Shipping + Delivery</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="item-anchor">Contact Us</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="item-anchor">Find us easy</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="index.html" class="item-anchor">Faqs</a>
+                            <a href="#" class="nav-link">Ultras Press</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="footer-menu footer-menu-004 border-animation-left">
-                    <h5 class="widget-title text-uppercase mb-4">Contact Us</h5>
-                    <p>Do you have any questions or suggestions? <a href="mailto:contact@yourcompany.com"
-                                                                    class="item-anchor">contact@yourcompany.com</a></p>
-                    <p>Do you need support? Give us a call. <a href="tel:+43 720 11 52 78" class="item-anchor">+43 720 11 52
-                            78</a>
-                    </p>
+            <div class="col-md-2 col-sm-6">
+                <div class="footer-menu">
+                    <h5 class="widget-title">Quick Links</h5>
+                    <ul class="menu-list list-unstyled">
+                        <li class="menu-item">
+                            <a href="#" class="nav-link">Offers</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="nav-link">Discount Coupons</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="nav-link">Stores</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="nav-link">Track Order</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="nav-link">Shop</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="nav-link">Info</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="border-top py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 d-flex flex-wrap">
-                    <div class="shipping">
-                        <span>We ship with:</span>
-                        <img src="{{asset('assets/images/arct-icon.png')}}" alt="icon">
-                        <img src="{{asset('assets/images/dhl-logo.png')}}" alt="icon">
-                    </div>
-                    <div class="payment-option">
-                        <span>Payment Option:</span>
-                        <img src="{{asset('assets/images/visa-card.png')}}" alt="card">
-                        <img src="{{asset('assets/images/paypal-card.png')}}" alt="card">
-                        <img src="{{asset('assets/images/master-card.png')}}" alt="card">
-                    </div>
-                </div>
-                <div class="col-md-6 text-end">
-                    <p>© Copyright 2022 Kaira. All rights reserved. Design by <a href="https://templatesjungle.com"
-                                                                                 target="_blank">TemplatesJungle</a> Distribution By <a href="https://themewagon.com"
-                                                                                                                                        target="blank">ThemeWagon</a></p>
+            <div class="col-md-2 col-sm-6">
+                <div class="footer-menu">
+                    <h5 class="widget-title">Customer Service</h5>
+                    <ul class="menu-list list-unstyled">
+                        <li class="menu-item">
+                            <a href="#" class="nav-link">FAQ</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="nav-link">Contact</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="nav-link">Privacy Policy</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="nav-link">Returns & Refunds</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="nav-link">Cookie Guidelines</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="nav-link">Delivery Information</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="footer-menu">
+                    <h5 class="widget-title">Subscribe Us</h5>
+                    <p>Subscribe to our newsletter to get updates about our grand offers.</p>
+                    <form class="d-flex mt-3 gap-0" action="index.html">
+                        <input class="form-control rounded-start rounded-0 bg-light" type="email" placeholder="Email Address" aria-label="Email Address">
+                        <button class="btn btn-dark rounded-end rounded-0" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </div>
 </footer>
+<div id="footer-bottom">
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-md-6 copyright">
+                <p>© 2024 Organic. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 credit-link text-start text-md-end">
+                <p>HTML Template by <a href="https://templatesjungle.com/">TemplatesJungle</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a> </p>
+            </div>
+        </div>
+    </div>
+</div>
