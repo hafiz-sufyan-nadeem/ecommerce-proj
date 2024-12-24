@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\product;
+use App\Models\Product;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
     public function index()
     {
-        $product = DB::select( DB::raw("SELECT * FROM products order by  = '$someVariable'") );
+        $products = DB::select("SELECT * FROM products ORDER BY id DESC LIMIT 6");
+        return view('website.index', ['products' => $products]);
 
     }
 }
