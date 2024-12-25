@@ -49,6 +49,21 @@
                 </div>
             </div>
 
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Image:</strong>
+                    <input type="file" class="form-control" name="image" id="image">
+                </div>
+                <div class="form-group">
+                    @if ( $category->image )
+                        <img src="{{asset('images/'. $category->image) }}" alt="product image" width="150px">
+                    @else
+                        <p>No image found</p>
+                    @endif
+                </div>
+            </div>
+
+
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Update</button>

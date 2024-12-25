@@ -26,6 +26,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Description</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -34,6 +35,8 @@
                             <tr>
                                 <td>{{ $category->name }}</td>
                                     <td>{{ $category->description }}</td>
+                                <td><img src="{{asset('images/' . $category->image)}}" width="45px"></td>
+
                                 <td>
                                     <!-- Action buttons -->
                                     <a class="btn btn-primary" href="{{ route('admin.categories.edit', $category->id) }}">Edit</a>

@@ -41,11 +41,20 @@ class CategoryController extends Controller
         $request->validate([
            'name' => 'required',
            'description' => 'required|nullable',
+            'image' => 'required|image',
+
         ]);
+
+        // Store image
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('images'), $imageName);
+
 
         $category = new Category();
         $category->name = $request->name;
         $category->description = $request->description;
+        $category->image = $imageName;
+
 
         $category->save();
 
@@ -57,7 +66,19 @@ class CategoryController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required|nullable',
+            'image' => 'nullable|image',
+
         ]);
+
+        if ($request->hasFile('image')) {
+            $fileName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $fileName);
+            $category->image = $fileName;
+        }
+        $imagePath = $request->file('image')->store('images', 'public');
+        $category->image = $imagePath;
+
+
 
         $category->name = $request->name;
         $category->description = $request->description;
@@ -70,6 +91,10 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::findorFail($id);
+        if ($category->image && file_exists(public_path('storage/' . $category->image))) {
+            unlink(public_path('storage/' . $category->image));
+        }
+
         $category->delete();
         return redirect()->route('admin.categories')->with('success', 'Category deleted successfully');
     }

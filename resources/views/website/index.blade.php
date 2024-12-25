@@ -13,8 +13,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/vendor.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/vendor.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/style.css')}}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -257,11 +257,10 @@
       </div>
 
     </div>
-//HEAD
 
 @include('website.header')
 
-    <section style="background-image: url('images/banner-1.jpg');background-repeat: no-repeat;background-size: cover;">
+    <section style="background-image: url({{asset('assets/images/banner-1.jpg')}});background-repeat: no-repeat;background-size: cover;">
       <div class="container-lg">
         <div class="row">
           <div class="col-lg-6 pt-5 mt-5">
@@ -370,51 +369,51 @@
             <div class="category-carousel swiper">
               <div class="swiper-wrapper">
                 <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
+                  <img src="{{asset('assets/images/category-thumb-1.jpg')}}" class="rounded-circle" alt="Category Thumbnail">
                   <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
                 </a>
                 <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-2.jpg" class="rounded-circle" alt="Category Thumbnail">
+                  <img src="{{asset('assets/images/category-thumb-2.jpg')}}" class="rounded-circle" alt="Category Thumbnail">
                   <h4 class="fs-6 mt-3 fw-normal category-title">Breads & Sweets</h4>
                 </a>
                 <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-3.jpg" class="rounded-circle" alt="Category Thumbnail">
+                  <img src="{{asset('assets/images/category-thumb-3.jpg')}}" class="rounded-circle" alt="Category Thumbnail">
                   <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
                 </a>
                 <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-4.jpg" class="rounded-circle" alt="Category Thumbnail">
+                  <img src="{{asset('assets/images/category-thumb-4.jpg')}}" class="rounded-circle" alt="Category Thumbnail">
                   <h4 class="fs-6 mt-3 fw-normal category-title">Beverages</h4>
                 </a>
                 <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-5.jpg" class="rounded-circle" alt="Category Thumbnail">
+                  <img src="{{asset('assets/images/category-thumb-5.jpg')}}" class="rounded-circle" alt="Category Thumbnail">
                   <h4 class="fs-6 mt-3 fw-normal category-title">Meat Products</h4>
                 </a>
                 <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-6.jpg" class="rounded-circle" alt="Category Thumbnail">
+                  <img src="{{asset('assets/images/category-thumb-6.jpg')}}" class="rounded-circle" alt="Category Thumbnail">
                   <h4 class="fs-6 mt-3 fw-normal category-title">Breads</h4>
                 </a>
                 <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-7.jpg" class="rounded-circle" alt="Category Thumbnail">
+                  <img src="{{asset('assets/images/category-thumb-7.jpg')}}" class="rounded-circle" alt="Category Thumbnail">
                   <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
                 </a>
                 <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-8.jpg" class="rounded-circle" alt="Category Thumbnail">
+                  <img src="{{asset('assets/images/category-thumb-8.jpg')}}" class="rounded-circle" alt="Category Thumbnail">
                   <h4 class="fs-6 mt-3 fw-normal category-title">Breads & Sweets</h4>
                 </a>
                 <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
+                  <img src="{{asset('assets/images/category-thumb-1.jpg')}}" class="rounded-circle" alt="Category Thumbnail">
                   <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
                 </a>
                 <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
+                  <img src="{{asset('assets/images/category-thumb-1.jpg')}}" class="rounded-circle" alt="Category Thumbnail">
                   <h4 class="fs-6 mt-3 fw-normal category-title">Beverages</h4>
                 </a>
                 <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
+                  <img src="{{{asset('assets/images/category-thumb-1.jpg')}}}" class="rounded-circle" alt="Category Thumbnail">
                   <h4 class="fs-6 mt-3 fw-normal category-title">Meat Products</h4>
                 </a>
                 <a href="category.html" class="nav-link swiper-slide text-center">
-                  <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
+                  <img src="{{asset('assets/images/category-thumb-1.jpg')}}" class="rounded-circle" alt="Category Thumbnail">
                   <h4 class="fs-6 mt-3 fw-normal category-title">Breads</h4>
                 </a>
 
@@ -443,364 +442,369 @@
 
           </div>
         </div>
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5">
 
-        <div class="row">
-          <div class="col-md-12">
+                      @foreach($products as $product)
+                          <div class="col">
+                              <div class="product-item">
+                                  <figure>
+                                      <a href="index.html" title="Product Title">
+                                          <img src="{{asset('images/'. $product->image)}}" alt="product image" class="img-fluid">
+                                      </a>
+                                  </figure>
+                                  <div class="d-flex flex-column text-center">
+                                      <h3 class="fs-6 fw-normal">Whole Wheat Sandwich Bread</h3>
+                                      <div>
+              <span class="rating">
+                <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+              </span>
+                                          <span>(222)</span>
+                                      </div>
+                                      <div class="d-flex justify-content-center align-items-center gap-2">
+                                          <del>$24.00</del>
+                                          <span class="text-dark fw-semibold">$18.00</span>
+                                          <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
+                                      </div>
+                                      <div class="button-area p-3 pt-0">
+                                          <div class="row g-1 mt-2">
+                                              <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
+                                              <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>
+                                              <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      @endforeach
 
-            <div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5">
-
-              <div class="col">
-                <div class="product-item">
-                  <figure>
-                    <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-1.png" alt="Product Thumbnail" class="tab-image">
-                    </a>
-                  </figure>
-                  <div class="d-flex flex-column text-center">
-                    <h3 class="fs-6 fw-normal">Whole Wheat Sandwich Bread</h3>
-                    <div>
-                      <span class="rating">
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
-                      </span>
-                      <span>(222)</span>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center gap-2">
-                      <del>$24.00</del>
-                      <span class="text-dark fw-semibold">$18.00</span>
-                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
-                    </div>
-                    <div class="button-area p-3 pt-0">
-                      <div class="row g-1 mt-2">
-                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
-                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>
-                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
-                      </div>
-                    </div>
                   </div>
-                </div>
               </div>
-
-              <div class="col">
-                <div class="product-item">
-                  <figure>
-                    <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-2.png" alt="Product Thumbnail" class="tab-image">
-                    </a>
-                  </figure>
-                  <div class="d-flex flex-column text-center">
-                    <h3 class="fs-6 fw-normal">Whole Grain Oatmeal</h3>
-                    <div>
-                      <span class="rating">
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
-                      </span>
-                      <span>(41)</span>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center gap-2">
-                      <del>$54.00</del>
-                      <span class="text-dark fw-semibold">$50.00</span>
-                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
-                    </div>
-                    <div class="button-area p-3 pt-0">
-                      <div class="row g-1 mt-2">
-                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
-                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>
-                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="product-item">
-                  <figure>
-                    <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-3.png" alt="Product Thumbnail" class="tab-image">
-                    </a>
-                  </figure>
-                  <div class="d-flex flex-column text-center">
-                    <h3 class="fs-6 fw-normal">Sharp Cheddar Cheese Block</h3>
-                    <div>
-                      <span class="rating">
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
-                      </span>
-                      <span>(32)</span>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center gap-2">
-                      <del>$14.00</del>
-                      <span class="text-dark fw-semibold">$12.00</span>
-                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
-                    </div>
-                    <div class="button-area p-3 pt-0">
-                      <div class="row g-1 mt-2">
-                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
-                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>
-                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="product-item">
-                  <figure>
-                    <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-4.png" alt="Product Thumbnail" class="tab-image">
-                    </a>
-                  </figure>
-                  <div class="d-flex flex-column text-center">
-                    <h3 class="fs-6 fw-normal">Organic Baby Spinach</h3>
-                    <div>
-                      <span class="rating">
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
-                      </span>
-                      <span>(222)</span>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center gap-2">
-                      <del>$24.00</del>
-                      <span class="text-dark fw-semibold">$18.00</span>
-                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
-                    </div>
-                    <div class="button-area p-3 pt-0">
-                      <div class="row g-1 mt-2">
-                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
-                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>
-                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="product-item">
-                  <figure>
-                    <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-5.png" alt="Product Thumbnail" class="tab-image">
-                    </a>
-                  </figure>
-                  <div class="d-flex flex-column text-center">
-                    <h3 class="fs-6 fw-normal">Organic Spinach Leaves (Fresh Produce)</h3>
-                    <div>
-                      <span class="rating">
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
-                      </span>
-                      <span>(222)</span>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center gap-2">
-                      <del>$24.00</del>
-                      <span class="text-dark fw-semibold">$18.00</span>
-                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
-                    </div>
-                    <div class="button-area p-3 pt-0">
-                      <div class="row g-1 mt-2">
-                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
-                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>
-                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="product-item">
-                  <figure>
-                    <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-6.png" alt="Product Thumbnail" class="tab-image">
-                    </a>
-                  </figure>
-                  <div class="d-flex flex-column text-center">
-                    <h3 class="fs-6 fw-normal">Fresh Salmon</h3>
-                    <div>
-                      <span class="rating">
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
-                      </span>
-                      <span>(222)</span>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center gap-2">
-                      <del>$24.00</del>
-                      <span class="text-dark fw-semibold">$18.00</span>
-                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
-                    </div>
-                    <div class="button-area p-3 pt-0">
-                      <div class="row g-1 mt-2">
-                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
-                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>
-                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="product-item">
-                  <figure>
-                    <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-7.png" alt="Product Thumbnail" class="tab-image">
-                    </a>
-                  </figure>
-                  <div class="d-flex flex-column text-center">
-                    <h3 class="fs-6 fw-normal">Imported Italian Spaghetti Pasta</h3>
-                    <div>
-                      <span class="rating">
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
-                      </span>
-                      <span>(222)</span>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center gap-2">
-                      <del>$24.00</del>
-                      <span class="text-dark fw-semibold">$18.00</span>
-                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
-                    </div>
-                    <div class="button-area p-3 pt-0">
-                      <div class="row g-1 mt-2">
-                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
-                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>
-                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="product-item">
-                  <figure>
-                    <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-8.png" alt="Product Thumbnail" class="tab-image">
-                    </a>
-                  </figure>
-                  <div class="d-flex flex-column text-center">
-                    <h3 class="fs-6 fw-normal">Granny Smith Apples</h3>
-                    <div>
-                      <span class="rating">
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
-                      </span>
-                      <span>(222)</span>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center gap-2">
-                      <del>$24.00</del>
-                      <span class="text-dark fw-semibold">$18.00</span>
-                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
-                    </div>
-                    <div class="button-area p-3 pt-0">
-                      <div class="row g-1 mt-2">
-                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
-                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>
-                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="product-item">
-                  <figure>
-                    <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-9.png" alt="Product Thumbnail" class="tab-image">
-                    </a>
-                  </figure>
-                  <div class="d-flex flex-column text-center">
-                    <h3 class="fs-6 fw-normal">Organic 2% Reduced Fat Milk </h3>
-                    <div>
-                      <span class="rating">
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
-                      </span>
-                      <span>(222)</span>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center gap-2">
-                      <del>$24.00</del>
-                      <span class="text-dark fw-semibold">$18.00</span>
-                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
-                    </div>
-                    <div class="button-area p-3 pt-0">
-                      <div class="row g-1 mt-2">
-                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
-                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>
-                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="product-item">
-                  <figure>
-                    <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-10.png" alt="Product Thumbnail" class="tab-image">
-                    </a>
-                  </figure>
-                  <div class="d-flex flex-column text-center">
-                    <h3 class="fs-6 fw-normal">Greek Style Plain Yogurt</h3>
-                    <div>
-                      <span class="rating">
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
-                      </span>
-                      <span>(222)</span>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center gap-2">
-                      <del>$24.00</del>
-                      <span class="text-dark fw-semibold">$18.00</span>
-                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
-                    </div>
-                    <div class="button-area p-3 pt-0">
-                      <div class="row g-1 mt-2">
-                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
-                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>
-                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          </div>
 
 
-            </div>
+{{--              <div class="col">--}}
+{{--                <div class="product-item">--}}
+{{--                  <figure>--}}
+{{--                    <a href="index.html" title="Product Title">--}}
+{{--                      <img src="{{asset('assets/images/product-thumb-2.png')}}" alt="Product Thumbnail" class="tab-image">--}}
+{{--                    </a>--}}
+{{--                  </figure>--}}
+{{--                  <div class="d-flex flex-column text-center">--}}
+{{--                    <h3 class="fs-6 fw-normal">Whole Grain Oatmeal</h3>--}}
+{{--                    <div>--}}
+{{--                      <span class="rating">--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>--}}
+{{--                      </span>--}}
+{{--                      <span>(41)</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex justify-content-center align-items-center gap-2">--}}
+{{--                      <del>$54.00</del>--}}
+{{--                      <span class="text-dark fw-semibold">$50.00</span>--}}
+{{--                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="button-area p-3 pt-0">--}}
+{{--                      <div class="row g-1 mt-2">--}}
+{{--                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>--}}
+{{--                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>--}}
+{{--                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
+{{--                </div>--}}
+{{--              </div>--}}
+
+{{--              <div class="col">--}}
+{{--                <div class="product-item">--}}
+{{--                  <figure>--}}
+{{--                    <a href="index.html" title="Product Title">--}}
+{{--                      <img src="{{asset('assets/images/product-thumb-3.png')}}" alt="Product Thumbnail" class="tab-image">--}}
+{{--                    </a>--}}
+{{--                  </figure>--}}
+{{--                  <div class="d-flex flex-column text-center">--}}
+{{--                    <h3 class="fs-6 fw-normal">Sharp Cheddar Cheese Block</h3>--}}
+{{--                    <div>--}}
+{{--                      <span class="rating">--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>--}}
+{{--                      </span>--}}
+{{--                      <span>(32)</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex justify-content-center align-items-center gap-2">--}}
+{{--                      <del>$14.00</del>--}}
+{{--                      <span class="text-dark fw-semibold">$12.00</span>--}}
+{{--                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="button-area p-3 pt-0">--}}
+{{--                      <div class="row g-1 mt-2">--}}
+{{--                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>--}}
+{{--                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>--}}
+{{--                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
+{{--                </div>--}}
+{{--              </div>--}}
+
+{{--              <div class="col">--}}
+{{--                <div class="product-item">--}}
+{{--                  <figure>--}}
+{{--                    <a href="index.html" title="Product Title">--}}
+{{--                      <img src="{{asset('assets/images/product-thumb-4.png')}}" alt="Product Thumbnail" class="tab-image">--}}
+{{--                    </a>--}}
+{{--                  </figure>--}}
+{{--                  <div class="d-flex flex-column text-center">--}}
+{{--                    <h3 class="fs-6 fw-normal">Organic Baby Spinach</h3>--}}
+{{--                    <div>--}}
+{{--                      <span class="rating">--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>--}}
+{{--                      </span>--}}
+{{--                      <span>(222)</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex justify-content-center align-items-center gap-2">--}}
+{{--                      <del>$24.00</del>--}}
+{{--                      <span class="text-dark fw-semibold">$18.00</span>--}}
+{{--                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="button-area p-3 pt-0">--}}
+{{--                      <div class="row g-1 mt-2">--}}
+{{--                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>--}}
+{{--                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>--}}
+{{--                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
+{{--                </div>--}}
+{{--              </div>--}}
+
+{{--              <div class="col">--}}
+{{--                <div class="product-item">--}}
+{{--                  <figure>--}}
+{{--                    <a href="index.html" title="Product Title">--}}
+{{--                      <img src="{{asset('assets/images/product-thumb-5.png')}}" alt="Product Thumbnail" class="tab-image">--}}
+{{--                    </a>--}}
+{{--                  </figure>--}}
+{{--                  <div class="d-flex flex-column text-center">--}}
+{{--                    <h3 class="fs-6 fw-normal">Organic Spinach Leaves (Fresh Produce)</h3>--}}
+{{--                    <div>--}}
+{{--                      <span class="rating">--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>--}}
+{{--                      </span>--}}
+{{--                      <span>(222)</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex justify-content-center align-items-center gap-2">--}}
+{{--                      <del>$24.00</del>--}}
+{{--                      <span class="text-dark fw-semibold">$18.00</span>--}}
+{{--                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="button-area p-3 pt-0">--}}
+{{--                      <div class="row g-1 mt-2">--}}
+{{--                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>--}}
+{{--                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>--}}
+{{--                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
+{{--                </div>--}}
+{{--              </div>--}}
+
+{{--              <div class="col">--}}
+{{--                <div class="product-item">--}}
+{{--                  <figure>--}}
+{{--                    <a href="index.html" title="Product Title">--}}
+{{--                      <img src="{{asset('assets/images/product-thumb-6.png')}}" alt="Product Thumbnail" class="tab-image">--}}
+{{--                    </a>--}}
+{{--                  </figure>--}}
+{{--                  <div class="d-flex flex-column text-center">--}}
+{{--                    <h3 class="fs-6 fw-normal">Fresh Salmon</h3>--}}
+{{--                    <div>--}}
+{{--                      <span class="rating">--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>--}}
+{{--                      </span>--}}
+{{--                      <span>(222)</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex justify-content-center align-items-center gap-2">--}}
+{{--                      <del>$24.00</del>--}}
+{{--                      <span class="text-dark fw-semibold">$18.00</span>--}}
+{{--                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="button-area p-3 pt-0">--}}
+{{--                      <div class="row g-1 mt-2">--}}
+{{--                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>--}}
+{{--                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>--}}
+{{--                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
+{{--                </div>--}}
+{{--              </div>--}}
+
+{{--              <div class="col">--}}
+{{--                <div class="product-item">--}}
+{{--                  <figure>--}}
+{{--                    <a href="index.html" title="Product Title">--}}
+{{--                      <img src="{{asset('assets/images/product-thumb-7.png')}}" alt="Product Thumbnail" class="tab-image">--}}
+{{--                    </a>--}}
+{{--                  </figure>--}}
+{{--                  <div class="d-flex flex-column text-center">--}}
+{{--                    <h3 class="fs-6 fw-normal">Imported Italian Spaghetti Pasta</h3>--}}
+{{--                    <div>--}}
+{{--                      <span class="rating">--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>--}}
+{{--                      </span>--}}
+{{--                      <span>(222)</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex justify-content-center align-items-center gap-2">--}}
+{{--                      <del>$24.00</del>--}}
+{{--                      <span class="text-dark fw-semibold">$18.00</span>--}}
+{{--                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="button-area p-3 pt-0">--}}
+{{--                      <div class="row g-1 mt-2">--}}
+{{--                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>--}}
+{{--                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>--}}
+{{--                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
+{{--                </div>--}}
+{{--              </div>--}}
+
+{{--              <div class="col">--}}
+{{--                <div class="product-item">--}}
+{{--                  <figure>--}}
+{{--                    <a href="index.html" title="Product Title">--}}
+{{--                      <img src="{{asset('assets/images/product-thumb-8.png')}}" alt="Product Thumbnail" class="tab-image">--}}
+{{--                    </a>--}}
+{{--                  </figure>--}}
+{{--                  <div class="d-flex flex-column text-center">--}}
+{{--                    <h3 class="fs-6 fw-normal">Granny Smith Apples</h3>--}}
+{{--                    <div>--}}
+{{--                      <span class="rating">--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>--}}
+{{--                      </span>--}}
+{{--                      <span>(222)</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex justify-content-center align-items-center gap-2">--}}
+{{--                      <del>$24.00</del>--}}
+{{--                      <span class="text-dark fw-semibold">$18.00</span>--}}
+{{--                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="button-area p-3 pt-0">--}}
+{{--                      <div class="row g-1 mt-2">--}}
+{{--                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>--}}
+{{--                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>--}}
+{{--                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
+{{--                </div>--}}
+{{--              </div>--}}
+
+{{--              <div class="col">--}}
+{{--                <div class="product-item">--}}
+{{--                  <figure>--}}
+{{--                    <a href="index.html" title="Product Title">--}}
+{{--                      <img src="{{asset('assets/images/product-thumb-9.png')}}" alt="Product Thumbnail" class="tab-image">--}}
+{{--                    </a>--}}
+{{--                  </figure>--}}
+{{--                  <div class="d-flex flex-column text-center">--}}
+{{--                    <h3 class="fs-6 fw-normal">Organic 2% Reduced Fat Milk </h3>--}}
+{{--                    <div>--}}
+{{--                      <span class="rating">--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>--}}
+{{--                      </span>--}}
+{{--                      <span>(222)</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex justify-content-center align-items-center gap-2">--}}
+{{--                      <del>$24.00</del>--}}
+{{--                      <span class="text-dark fw-semibold">$18.00</span>--}}
+{{--                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="button-area p-3 pt-0">--}}
+{{--                      <div class="row g-1 mt-2">--}}
+{{--                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>--}}
+{{--                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>--}}
+{{--                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
+{{--                </div>--}}
+{{--              </div>--}}
+
+{{--              <div class="col">--}}
+{{--                <div class="product-item">--}}
+{{--                  <figure>--}}
+{{--                    <a href="index.html" title="Product Title">--}}
+{{--                      <img src="{{asset('assets/images/product-thumb-10.png')}}" alt="Product Thumbnail" class="tab-image">--}}
+{{--                    </a>--}}
+{{--                  </figure>--}}
+{{--                  <div class="d-flex flex-column text-center">--}}
+{{--                    <h3 class="fs-6 fw-normal">Greek Style Plain Yogurt</h3>--}}
+{{--                    <div>--}}
+{{--                      <span class="rating">--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>--}}
+{{--                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>--}}
+{{--                      </span>--}}
+{{--                      <span>(222)</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex justify-content-center align-items-center gap-2">--}}
+{{--                      <del>$24.00</del>--}}
+{{--                      <span class="text-dark fw-semibold">$18.00</span>--}}
+{{--                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="button-area p-3 pt-0">--}}
+{{--                      <div class="row g-1 mt-2">--}}
+{{--                        <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>--}}
+{{--                        <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>--}}
+{{--                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
+{{--                </div>--}}
+{{--              </div>--}}
+
+
+{{--            </div>--}}
             <!-- / product-grid -->
 
 
@@ -816,7 +820,7 @@
 
             <div class="banner-blocks">
 
-              <div class="banner-ad d-flex align-items-center large bg-info block-1" style="background: url('images/banner-ad-1.jpg') no-repeat; background-size: cover;">
+              <div class="banner-ad d-flex align-items-center large bg-info block-1" style="background: url({{asset('assets/images/banner-ad-1.jpg')}}) no-repeat; background-size: cover;">
                 <div class="banner-content p-5">
                   <div class="content-wrapper text-light">
                     <h3 class="banner-title text-light">Items on SALE</h3>
@@ -826,7 +830,7 @@
                 </div>
               </div>
 
-              <div class="banner-ad bg-success-subtle block-2" style="background:url('images/banner-ad-2.jpg') no-repeat;background-size: cover">
+              <div class="banner-ad bg-success-subtle block-2" style="background:url('{{asset('assets/images/banner-ad-2.jpg')}}') no-repeat;background-size: cover">
                 <div class="banner-content align-items-center p-5">
                   <div class="content-wrapper text-light">
                     <h3 class="banner-title text-light">Combo offers</h3>
@@ -836,7 +840,7 @@
                 </div>
               </div>
 
-              <div class="banner-ad bg-danger block-3" style="background:url('images/banner-ad-3.jpg') no-repeat;background-size: cover">
+              <div class="banner-ad bg-danger block-3" style="background:url('{{asset('assets/images/banner-ad-3.jpg')}}') no-repeat;background-size: cover">
                 <div class="banner-content align-items-center p-5">
                   <div class="content-wrapper text-light">
                     <h3 class="banner-title text-light">Discount Coupons</h3>
@@ -883,7 +887,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-10.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-10.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -916,7 +920,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-11.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-11.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -949,7 +953,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-12.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-12.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -982,7 +986,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-13.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-13.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1015,7 +1019,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-14.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-14.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1048,7 +1052,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-15.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-15.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1081,7 +1085,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-16.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-16.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1114,7 +1118,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-17.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-17.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1147,7 +1151,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-18.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-18.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1190,7 +1194,7 @@
     <section>
       <div class="container-lg">
 
-        <div class="bg-secondary text-light py-5 my-5" style="background: url('images/banner-newsletter.jpg') no-repeat; background-size: cover;">
+        <div class="bg-secondary text-light py-5 my-5" style="background: url('{{asset('assets/images/banner-newsletter.jpg')}}') no-repeat; background-size: cover;">
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-md-5 p-3">
@@ -1254,7 +1258,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-15.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-15.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1287,7 +1291,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-16.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-16.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1320,7 +1324,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-17.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-17.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1353,7 +1357,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-18.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-18.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1386,7 +1390,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-19.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-19.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1419,7 +1423,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-10.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-10.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1452,7 +1456,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-11.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-11.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1485,7 +1489,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-12.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-12.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1518,7 +1522,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-13.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-13.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1587,7 +1591,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-20.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-20.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1620,7 +1624,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-1.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-1.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1653,7 +1657,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-21.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-21.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1686,7 +1690,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-22.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-22.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1719,7 +1723,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-23.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-23.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1752,7 +1756,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-10.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-10.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1785,7 +1789,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-11.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-11.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1818,7 +1822,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-12.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-12.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1851,7 +1855,7 @@
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">
-                      <img src="images/product-thumb-13.png" alt="Product Thumbnail" class="tab-image">
+                      <img src="{{asset('assets/images/product-thumb-13.png')}}" alt="Product Thumbnail" class="tab-image">
                     </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
@@ -1903,7 +1907,7 @@
             <article class="post-item card border-0 shadow-sm p-3">
               <div class="image-holder zoom-effect">
                 <a href="#">
-                  <img src="images/post-thumbnail-1.jpg" alt="post" class="card-img-top">
+                  <img src="{{asset('assets/images/post-thumbnail-1.jpg')}}" alt="post" class="card-img-top">
                 </a>
               </div>
               <div class="card-body">
@@ -1924,7 +1928,7 @@
             <article class="post-item card border-0 shadow-sm p-3">
               <div class="image-holder zoom-effect">
                 <a href="#">
-                  <img src="images/post-thumbnail-2.jpg" alt="post" class="card-img-top">
+                  <img src="{{asset('assets/images/post-thumbnail-2.jpg')}}" alt="post" class="card-img-top">
                 </a>
               </div>
               <div class="card-body">
@@ -1945,7 +1949,7 @@
             <article class="post-item card border-0 shadow-sm p-3">
               <div class="image-holder zoom-effect">
                 <a href="#">
-                  <img src="images/post-thumbnail-3.jpg" alt="post" class="card-img-top">
+                  <img src="{{asset('assets/images/post-thumbnail-3.jpg')}}" alt="post" class="card-img-top">
                 </a>
               </div>
               <div class="card-body">
@@ -1976,12 +1980,12 @@
                 <h2 class="mt-5">Download Organic App</h2>
                 <p>Online Orders made easy, fast and reliable</p>
                 <div class="d-flex gap-2 flex-wrap mb-5">
-                  <a href="#" title="App store"><img src="images/img-app-store.png" alt="app-store"></a>
-                  <a href="#" title="Google Play"><img src="images/img-google-play.png" alt="google-play"></a>
+                  <a href="#" title="App store"><img src="{{asset('assets/images/img-app-store.png')}}" alt="app-store"></a>
+                  <a href="#" title="Google Play"><img src="{{asset('assets/images/img-google-play.png')}}" alt="google-play"></a>
                 </div>
               </div>
               <div class="col-md-5">
-                <img src="images/banner-onlineapp.png" alt="phone" class="img-fluid">
+                <img src="{{asset('assets/images/banner-onlineapp.png')}}" alt="phone" class="img-fluid">
               </div>
             </div>
           </div>
@@ -2076,14 +2080,14 @@
       </div>
     </section>
 
-    //FOOTER
+
 
     @include('website.footer')
 
-    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="{{asset('assets/js/jquery-1.11.0.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/script.js"></script>
+    <script src="{{asset('assets/js/plugins.js')}}"></script>
+    <script src="{{asset('assets/js/script.js')}}"></script>
   </body>
 </html>
