@@ -35,7 +35,7 @@
                             <tr>
                                 <td>{{ $category->name }}</td>
                                     <td>{{ $category->description }}</td>
-                                <td><img src="{{asset('images/' . $category->image)}}" width="45px"></td>
+                                <td><img src="{{asset('admin-images/category/' . $category->image)}}" width="45px"></td>
 
                                 <td>
                                     <!-- Action buttons -->

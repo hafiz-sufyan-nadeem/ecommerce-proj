@@ -47,7 +47,7 @@ class CategoryController extends Controller
 
         // Store image
         $imageName = time() . '.' . $request->image->extension();
-        $request->image->move(public_path('images'), $imageName);
+        $request->image->move(public_path('admin-images/category'), $imageName);
 
 
         $category = new Category();
@@ -72,11 +72,11 @@ class CategoryController extends Controller
 
         if ($request->hasFile('image')) {
             $fileName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('images'), $fileName);
+            $request->image->move(public_path('admin-images/category'), $fileName);
             $category->image = $fileName;
         }
-        $imagePath = $request->file('image')->store('images', 'public');
-        $category->image = $imagePath;
+//        $imagePath = $request->file('image')->store('images', 'public');
+//        $category->image = $imagePath;
 
 
 

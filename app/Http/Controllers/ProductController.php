@@ -41,7 +41,7 @@ class ProductController extends Controller
 
         // Store image
         $imageName = time() . '.' . $request->image->extension();
-        $request->image->move(public_path('images'), $imageName);
+        $request->image->move(public_path('admin-images/products'), $imageName);
 
         // Save product
         $product = new Product();
@@ -75,13 +75,13 @@ class ProductController extends Controller
 
         if ($request->hasFile('image')) {
             $fileName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('images'), $fileName);
+            $request->image->move(public_path('admin-images/products'), $fileName);
             $product->image = $fileName;
         }
 
         $product->name = $request->name;
         $product->price = $request->price;
-        $product->category = $request->category;
+//        $product->category = $request->category;
         $product->quantity = $request->quantity;
         $product->stock = $request->stock;
 
