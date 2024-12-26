@@ -28,7 +28,7 @@
         </div>
     @endif
 
-    <form  action="{{ route('admin.categories.update',$blog->id) }}" method="POST" enctype="multipart/form-data">
+    <form  action="{{ route('admin.blogs.update',$blog->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
