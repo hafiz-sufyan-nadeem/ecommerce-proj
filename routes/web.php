@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
@@ -81,3 +82,18 @@ Route::post('admin/categories/store', [CategoryController::class, 'store'])->nam
 
 //  WEBSITE FOLDER ROUTES
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// BLOGS
+Route::get('admin/blogs',[BlogController::class, 'index'])->name('admin.blogs');
+
+Route::get('admin/blogs/create', [BlogController::class, 'create'])->name('admin.blogs.create');
+
+Route::get('admin/blogs/edit/{blog}', [BlogController::class, 'edit'])->name('admin.blogs.edit');
+
+Route::put('admin/blogs/{blog}', [BlogController::class, 'update'])->name('admin.blogs.update');
+
+Route::get('admin/blogs/show/{blog}', [BlogController::class, 'show'])->name('admin.blogs.show');
+
+Route::delete('admin/blogs/{id}', [BlogController::class, 'destroy'])->name('admin.blogs.destroy');
+
+Route::post('admin/blogs/store', [BlogController::class, 'store'])->name('admin.blogs.store');
