@@ -1930,9 +1930,9 @@
                 </div>
                 <div class="post-header">
                   <h3 class="post-title">
-                    <a href="#" class="text-decoration-none">Top 10 casual look ideas to dress up your kids</a>
+                    <a href="#" class="text-decoration-none">{{$blog->name}}</a>
                   </h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra enim tincidunt donec quam. A in arcu, hendrerit neque dolor morbi...</p>
+                    <a href="#" class="text-decoration-none">{{$blog->description}}</a>
                 </div>
               </div>
             </article>
