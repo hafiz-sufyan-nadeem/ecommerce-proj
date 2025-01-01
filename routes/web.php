@@ -80,7 +80,7 @@ Route::delete('admin/categories/{id}', [CategoryController::class, 'destroy'])->
 Route::post('admin/categories/store', [CategoryController::class, 'store'])->name('admin.categories.store');
 
 
-//  WEBSITE FOLDER ROUTES
+//  WEBSITE FOLDER ROUTES Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // BLOGS
