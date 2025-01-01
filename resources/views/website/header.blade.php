@@ -67,7 +67,7 @@
                         <a href="#" class="p-2 mx-1">
                             <svg width="24" height="24"><use xlink:href="#user"></use></svg>
                             @else
-                                <button type="button" class="btn btn-dark">Login</button>
+                                <a href="{{url('login')}}">  <button type="button" class="btn btn-dark">Login</button> </a>
 
                         </a>
                         @endauth
