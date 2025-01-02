@@ -38,7 +38,7 @@ Route::get('/auth_layout', function () {
 
 
 // Authentication Routes
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
+Route::get('/login', [AuthController::class, 'showLoginForm'])->middleware(['auth'])->name('login.form');
 Route::post('/login', [AuthController::class, 'postLogin'])->name('login');
 
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register.form');
@@ -52,48 +52,58 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 // Product Routes
-Route::get('/products', [ProductController::class, 'index'])->name('products');
 
-Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin.products');
-Route::post('/admin/products', [ProductController::class, 'store'])->name('admin.products.store');
+Route::prefix('admin')->group(function () {
+    Route::get('/products', [ProductController::class, 'index'])->name('products');
 
-Route::get('/admin/products/show', [ProductController::class, 'show'])->name('admin.products.show');
+    Route::get('/products/create', [ProductController::class, 'create'])->name('admin.products');
+    Route::post('/products', [ProductController::class, 'store'])->name('admin.products.store');
 
-Route::get('/admin/products/edit/{product}', [ProductController::class, 'edit'])->name('admin.products.edit');
-Route::put('/admin/products/{product}', [ProductController::class, 'update'])->name('admin.products.update');
+    Route::get('/products/show', [ProductController::class, 'show'])->name('admin.products.show');
 
-Route::delete('/admin/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::get('/products/edit/{product}', [ProductController::class, 'edit'])->name('admin.products.edit');
+    Route::put('/products/{product}', [ProductController::class, 'update'])->name('admin.products.update');
+
+    Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+});
+
+
 
 // Category Routes
-Route::get('admin/categories', [CategoryController::class, 'index'])->name('admin.categories');
+Route::prefix('admin')->group(function () {
+    Route::get('/categories', [CategoryController::class, 'index'])->name('admin.categories');
 
-Route::get('admin/categories/create', [CategoryController::class, 'create'])->name('admin.categories.create');
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('admin.categories.create');
 
-Route::get('admin/categories/edit/{category}', [CategoryController::class, 'edit'])->name('admin.categories.edit');
+    Route::get('/categories/edit/{category}', [CategoryController::class, 'edit'])->name('admin.categories.edit');
 
-Route::put('admin/categories/{category}', [CategoryController::class, 'update'])->name('admin.categories.update');
+    Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('admin.categories.update');
 
-Route::get('admin/categories/show/{category}', [CategoryController::class, 'show'])->name('admin.categories.show');
+    Route::get('/categories/show/{category}', [CategoryController::class, 'show'])->name('admin.categories.show');
 
-Route::delete('admin/categories/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy');
+    Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy');
 
-Route::post('admin/categories/store', [CategoryController::class, 'store'])->name('admin.categories.store');
-
+    Route::post('/categories/store', [CategoryController::class, 'store'])->name('admin.categories.store');
+});
 
 //  WEBSITE FOLDER ROUTES Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // BLOGS
-Route::get('admin/blogs',[BlogController::class, 'index'])->name('admin.blogs');
 
-Route::get('admin/blogs/create', [BlogController::class, 'create'])->name('admin.blogs.create');
+Route::prefix('admin')->group(function () {
+    Route::get('/blogs',[BlogController::class, 'index'])->name('admin.blogs');
 
-Route::get('admin/blogs/edit/{blog}', [BlogController::class, 'edit'])->name('admin.blogs.edit');
+    Route::get('/blogs/create', [BlogController::class, 'create'])->name('admin.blogs.create');
 
-Route::put('admin/blogs/{blog}', [BlogController::class, 'update'])->name('admin.blogs.update');
+    Route::get('/blogs/edit/{blog}', [BlogController::class, 'edit'])->name('admin.blogs.edit');
 
-Route::get('admin/blogs/show/{blog}', [BlogController::class, 'show'])->name('admin.blogs.show');
+    Route::put('/blogs/{blog}', [BlogController::class, 'update'])->name('admin.blogs.update');
 
-Route::delete('admin/blogs/{id}', [BlogController::class, 'destroy'])->name('admin.blogs.destroy');
+    Route::get('/blogs/show/{blog}', [BlogController::class, 'show'])->name('admin.blogs.show');
 
-Route::post('admin/blogs/store', [BlogController::class, 'store'])->name('admin.blogs.store');
+    Route::delete('/blogs/{id}', [BlogController::class, 'destroy'])->name('admin.blogs.destroy');
+
+    Route::post('/blogs/store', [BlogController::class, 'store'])->name('admin.blogs.store');
+});
+

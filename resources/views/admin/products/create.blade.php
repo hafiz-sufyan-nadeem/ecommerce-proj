@@ -11,7 +11,7 @@
             </div>
 
             <div class="pull-right">
-                <a class="btn btn-primary mb-2" href="{{ route('products') }}"> Back</a>
+                <a class="btn btn-primary mb-2" href="{{ route('admin.products') }}"> Back</a>
             </div>
 
         </div>
