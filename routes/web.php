@@ -55,7 +55,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::prefix('admin')->group(function () {
 
     //middleware group
-    Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware'=>['admin-access','custom-auth']], function () {
         Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
 
         Route::get('/products', [ProductController::class, 'index'])->name('products');

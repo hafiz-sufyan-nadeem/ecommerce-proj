@@ -4,9 +4,11 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use phpDocumentor\Reflection\DocBlock\Tags\Author;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminAccess
+class CustomAuth
 {
     /**
      * Handle an incoming request.
@@ -15,7 +17,7 @@ class AdminAccess
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user()->is_admin == 1){
+        if (auth()->check() && Auth()->user()->is_admin == 1) {
             return $next($request);
         }
         return redirect()->route('home');
