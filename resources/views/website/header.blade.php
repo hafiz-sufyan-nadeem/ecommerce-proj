@@ -63,7 +63,7 @@
             <div class="col-sm-8 col-lg-2 d-flex gap-5 align-items-center justify-content-center justify-content-sm-end">
                 <ul class="d-flex justify-content-end list-unstyled m-0">
                     <li>
-                        @auth()
+                        @auth
                         <a href="#" class="p-2 mx-1">
                             <svg width="24" height="24"><use xlink:href="#user"></use></svg>
                             @else
@@ -79,8 +79,9 @@
                     </li>
                     <li>
                         <a href="#" class="p-2 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
-                            <svg width="24" height="24"><use xlink:href="#shopping-bag"></use></svg>
-                        </a>
+                            <svg class="w-[48px] h-[48px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+                            </svg>                        </a>
                     </li>
                 </ul>
             </div>
