@@ -50,6 +50,9 @@ Route::post('/forgotpassword', [AuthController::class, 'postForgotPassword'])->n
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
+
+
+
 // Dashboard,Product,Category,Blog Routes
 
 Route::prefix('admin')->group(function () {
@@ -102,6 +105,8 @@ Route::prefix('admin')->group(function () {
     });
 
 });
+
+
 
 
 
