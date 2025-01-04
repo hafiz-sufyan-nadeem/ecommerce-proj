@@ -113,3 +113,6 @@ Route::prefix('admin')->group(function () {
 //  WEBSITE FOLDER ROUTES Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+// ADD TO CART ROUTES
+
+
