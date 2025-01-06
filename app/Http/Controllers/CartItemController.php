@@ -23,7 +23,16 @@ class CartItemController extends Controller
 
         $existingCartItem = CartItem::where('user_id', $userId)->where('product_id', $id)->first();
         if ($existingCartItem){
-            return redirect()->back()->with('error', 'Product already added to cart');
+            $existingCartItem->quantity += 1;
+            $existingCartItem->price += $product->price;
+            $existingCartItem->save();
+        }else{
+            CartItem::create([
+                'user_id' => $userId,
+                'product_id' => $id,
+                'quantity' => 1,
+                'price' => $product->price,
+            ]);
         }
     }
 }
