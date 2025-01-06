@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CartItemController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
@@ -112,5 +113,5 @@ Route::prefix('admin')->group(function () {
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // ADD TO CART ROUTES
-
-
+Route::get('cartitems', [CartItemController::class, 'index'])->name('cartitems');
+Route::get('add-to-cart/{id}', [CartItemController::class, 'addToCart'])->name('add.to.cart');
