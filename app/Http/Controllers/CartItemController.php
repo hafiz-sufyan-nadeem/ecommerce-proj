@@ -9,7 +9,8 @@ use App\Models\User;
 
 class CartItemController extends Controller
 {
-    public function addToCart($id){
+    public function addToCart(Request $request){
+        dd($request->all());
         $product = Product::findOrFail($id);
 
         if (!$product){

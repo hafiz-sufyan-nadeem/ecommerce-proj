@@ -463,13 +463,13 @@
                                   <div class="d-flex flex-column text-center">
                                       <h3 class="fs-6 fw-normal">Whole Wheat Sandwich Bread</h3>
                                       <div>
-              <span class="rating">
-                <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
-                <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
-              </span>
+                                          <span class="rating">
+                                            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                                            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                                            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                                            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                                            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+                                          </span>
                                           <span>(222)</span>
                                       </div>
                                       <div class="d-flex justify-content-center align-items-center gap-2">
@@ -478,8 +478,8 @@
                                           <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
                                       </div>
                                       <div class="button-area p-3 pt-0">
-                                          <div class="row g-1 mt-2">
-                                              <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1" min="0"></div>
+                                          <div class="row g-1 mt-2 products_meta">
+                                              <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity selected_quantity" value="1" min="0"></div>
                                               <div class="col-7">
                                                   @auth
                                                       <a data-productId="{{$product->id}}" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart add_cart" ><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a>
@@ -2123,15 +2123,20 @@
   <script>
       $(document).ready(function (){
           $(".add_cart").click(function () {
-              {{--$.ajax({--}}
-              {{--    url: "{{route('add-to-cart')}}",--}}
-              {{--    type:"POST",--}}
-              {{--    headers: {--}}
-              {{--        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-              {{--    },--}}
-              {{--    success: function(html){--}}
-              {{--    }--}}
-              {{--});--}}
+              let productId = $(this).attr("data-productId");
+              let quantityId = $(this).closest(".products_meta").find(".selected_quantity").val();
+              $.ajax({
+                  url: "{{route('add.to.cart')}}",
+                  type:"POST",
+                  data: {productId : productId, quantityId:quantityId},
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  },
+                  success: function(html){
+                  }
+              });
+
+
           })
       });
   </script>
