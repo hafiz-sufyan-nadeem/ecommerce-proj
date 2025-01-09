@@ -114,4 +114,4 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // ADD TO CART ROUTES
 Route::get('cartitems', [CartItemController::class, 'index'])->name('cartitems');
-Route::get('add-to-cart/{id}', [CartItemController::class, 'addToCart'])->name('add.to.cart')->middleware('auth');
+Route::get('add-to-cart', [CartItemController::class, 'addToCart'])->name('add.to.cart')->middleware('auth');
