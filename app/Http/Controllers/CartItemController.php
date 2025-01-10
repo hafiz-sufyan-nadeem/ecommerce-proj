@@ -24,7 +24,8 @@ class CartItemController extends Controller
         $existingCartItem = CartItem::where('user_id', $userId)->where('product_id', $request->productId)->first();
         if ($existingCartItem){
             $existingCartItem->quantity += 1;
-            $existingCartItem->price += $product->price;
+//            $existingCartItem->price += $product->price;
+            $existingCartItem->total_price = $existingCartItem->quantity * $product->price; // Total Price Update
             $existingCartItem->save();
         }else{
             CartItem::create([
@@ -32,7 +33,7 @@ class CartItemController extends Controller
                 'product_id' => $request->productId,
                 'quantity' => $request->quantityId,
                 'price' => $product->price,
-                'total_price'=>$product->price,
+                'total_price' => $request->quantityId * $product->price,// Total Price
             ]);
         }
     }
