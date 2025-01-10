@@ -374,7 +374,7 @@
                   @foreach($categories as $category)
                 <a href="category.html" class="nav-link swiper-slide text-center">
                   <img src="{{asset('/admin-images/category/'. $category->image)}}" class="rounded-circle" alt="Category Thumbnail" style="width: 160px"; height="160px";u>
-                  <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
+                  <h4 class="fs-6 mt-3 fw-normal category-title">{{$category->name}}</h4>
                 </a>
                   @endforeach
 
@@ -418,7 +418,7 @@
                                       </a>
                                   </figure>
                                   <div class="d-flex flex-column text-center">
-                                      <h3 class="fs-6 fw-normal">Whole Wheat Sandwich Bread</h3>
+                                      <h3 class="fs-6 fw-normal">{{$product->name}}</h3>
                                       <div>
                                           <span class="rating">
                                             <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
@@ -431,7 +431,7 @@
                                       </div>
                                       <div class="d-flex justify-content-center align-items-center gap-2">
                                           <del>$24.00</del>
-                                          <span class="text-dark fw-semibold">$18.00</span>
+                                          <span class="text-dark fw-semibold">{{$product->price}}</span>
                                           <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
                                       </div>
                                       <div class="button-area p-3 pt-0">

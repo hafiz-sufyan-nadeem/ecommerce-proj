@@ -6,6 +6,7 @@
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
+            </div>
         @endif
 
         <!-- Page Heading -->
