@@ -659,6 +659,7 @@
             <div class="swiper">
               <div class="swiper-wrapper">
 
+
                   @foreach($products as $product)
                 <div class="product-item swiper-slide">
                   <figure>
@@ -707,7 +708,6 @@
 
               </div>
             </div>
-            <!-- / products-carousel -->
 
           </div>
         </div>

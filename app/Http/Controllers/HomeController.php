@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Blog;
 use App\Models\CartItem;
 use Illuminate\Support\Facades\DB;
+use function Pest\Laravel\get;
 
 class HomeController extends Controller
 {
@@ -20,15 +21,16 @@ class HomeController extends Controller
             ->select('product_id', DB::raw('count(*) as total'))
             ->groupBy('product_id')
             ->orderBy('total', 'DESC')
-            ->get();
-        dd($cart_items);
-
+            ->limit(6)
+        ->get();
+//dd($cart_items);
         return view('website.index', [
             'products' => $products,
             'categories' => $categories,
             'blogs' => $blogs,
             'cart_items' => $cart_items
         ]);
+
     }
 }
 
