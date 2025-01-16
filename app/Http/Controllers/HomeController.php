@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Blog;
+use App\Models\CartItem;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -15,10 +16,17 @@ class HomeController extends Controller
         $categories = DB::select("select * from categories order by id DESC LIMIT 6");
         $blogs = DB::select("select * from blogs order by id DESC");
 
+        $cart_items = DB::table('cart_items')
+            ->select('product_id', DB::raw('count(*) as total'))
+            ->groupBy('product_id')
+            ->
+        DB::table('orders')->where('id', DB::raw("(select max(`id`) from orders)"))->get();
+
         return view('website.index', [
             'products' => $products,
-            'categories' => $categories
-            ,'blogs' => $blogs
+            'categories' => $categories,
+            'blogs' => $blogs,
+            'cart_items' => $cart_items
         ]);
     }
 }
