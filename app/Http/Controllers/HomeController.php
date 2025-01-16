@@ -19,8 +19,9 @@ class HomeController extends Controller
         $cart_items = DB::table('cart_items')
             ->select('product_id', DB::raw('count(*) as total'))
             ->groupBy('product_id')
-            ->
-        DB::table('orders')->where('id', DB::raw("(select max(`id`) from orders)"))->get();
+            ->orderBy('total', 'DESC')
+            ->get();
+        dd($cart_items);
 
         return view('website.index', [
             'products' => $products,
