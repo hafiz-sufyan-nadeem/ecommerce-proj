@@ -13,24 +13,27 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $products = DB::select("select * from products order by id DESC LIMIT 6");
+        // Fetch products based on the count in cart_items
+        $products = DB::table('products')
+            ->join('cart_items', 'products.id', '=', 'cart_items.product_id')
+            ->select('products.*', DB::raw('COUNT(cart_items.id) as cart_count'))
+            ->groupBy('products.id')
+            ->orderBy('cart_count', 'DESC')
+            ->orderBy('products.id', 'DESC') // same count then show latest
+            ->limit(6)
+            ->get();
+
+        // Categories aur Blogs ko fetch karna
         $categories = DB::select("select * from categories order by id DESC LIMIT 6");
         $blogs = DB::select("select * from blogs order by id DESC");
 
-        $cart_items = DB::table('cart_items')
-            ->select('product_id', DB::raw('count(*) as total'))
-            ->groupBy('product_id')
-            ->orderBy('total', 'DESC')
-            ->limit(6)
-        ->get();
-//dd($cart_items);
+        // View ko data bhejna
+
         return view('website.index', [
             'products' => $products,
             'categories' => $categories,
-            'blogs' => $blogs,
-            'cart_items' => $cart_items
+            'blogs' => $blogs
         ]);
-
     }
 }
 
