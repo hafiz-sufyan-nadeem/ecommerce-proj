@@ -94,6 +94,7 @@
       <div class="offcanvas-header justify-content-center">
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
+
       <div class="offcanvas-body">
         <div class="order-md-last">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -131,6 +132,7 @@
           <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
         </div>
       </div>
+
     </div>
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
@@ -977,5 +979,33 @@
           })
       });
   </script>
+
+    <script>
+    $(document).on('click', '.add-to-cart', function (e) {
+    e.preventDefault();
+
+    let productId = $(this).data('id');
+    let quantity = 1; // Default quantity
+
+    $.ajax({
+    url: '{{ route("add.to.cart") }}',
+    method: 'POST',
+    data: {
+    productId: productId,
+    quantityId: quantity,
+    _token: '{{ csrf_token() }}'
+    },
+    success: function (response) {
+    // Update the cart sidebar dynamically
+    $('#cart-sidebar').load(location.href + ' #cart-sidebar');
+    alert('Item added to cart successfully!');
+    },
+    error: function (xhr) {
+    alert('Failed to add item to cart!');
+    }
+    });
+    });
+    </script>
+
   </body>
 </html>
