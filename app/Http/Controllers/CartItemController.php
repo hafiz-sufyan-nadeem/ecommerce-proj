@@ -58,35 +58,23 @@ class CartItemController extends Controller
         ]);
     }
 
-    public function removeFromCart($id){
-        $userId = auth()->id();
-        if (!$userId){
-            return redirect()->route('login')->with('error', 'Please login first');
-        }
-
-        $cartItem=CartItem::where('user_id', $userId)->where('product_id', $id)->first();
-        if (!$cartItem){
-            return redirect()->back()->with('error', 'Cart item not found');
-        }
-        $cartItem->delete();
-    }
-
-    public function updateCartItem(Request $request, $id){
-        $userId = auth()->id();
-        if (!$userId){
-            return redirect()->route('login')->with('error', 'Please login first');
-        }
-        $cartItem = CartItem::where('user_id', $userId)->where('product_id', $id)->first();
-        if (!$cartItem){
-            return redirect()->back()->with('error', 'Cart item not found');
-        }
-        $request->validate([
-            'quantity' => 'required',
-        ]);
+    public function updateQuantity(Request $request)
+    {
+        $cartItem = CartItem::findOrFail($request->id);
         $cartItem->quantity = $request->quantity;
         $cartItem->total_price = $cartItem->quantity * $cartItem->price;
         $cartItem->save();
 
+        return response()->json(['success' => true]);
+    }
+
+
+    public function deleteItem(Request $request)
+    {
+        $cartItem = CartItem::findOrFail($request->id);
+        $cartItem->delete();
+
+        return response()->json(['success' => true]);
     }
 
 }

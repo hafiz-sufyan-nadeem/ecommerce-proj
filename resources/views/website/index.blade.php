@@ -102,12 +102,17 @@
                     <span class="badge bg-primary rounded-pill" id="cart-badge">0</span>
                 </h4>
                 <ul class="list-group mb-3" id="cart-items-list">
-                    <!-- AJAX se items yahan dynamicaly add honge -->
+
+                    <!-- Dynamically rendered cart items -->
+
                 </ul>
                 <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
             </div>
         </div>
     </div>
+
+
+
 
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
@@ -448,7 +453,7 @@
       <div class="container-lg">
         <div class="row">
           <div class="col-md-12">
-
+z
             <div class="banner-blocks">
 
               <div class="banner-ad d-flex align-items-center large bg-info block-1" style="background: url({{asset('assets/images/banner-ad-1.jpg')}}) no-repeat; background-size: cover;">
@@ -974,19 +979,13 @@
         success: function (html) {
         }
 
-        // $('#cart-sidebar').load(location.href + ' #cart-sidebar');
-        // alert('Item added to cart successfully!');
-
-        // error: function (xhr) {
-        // alert('Failed to add item to cart!');
-        // }
     }
     });
     });
     </script>
 
+
     <script>
-        // Cart items fetch karna
         function fetchCartItems() {
             fetch("{{ route('get.cart.items') }}")
                 .then(response => {
@@ -996,7 +995,7 @@
                     return response.json();
                 })
                 .then(data => {
-                    console.log(data); // Debug data to check if it's correct
+                    console.log(data);
                     if (data.error) {
                         console.error(data.error);
                         return;
@@ -1012,31 +1011,119 @@
                         const li = document.createElement('li');
                         li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
                         li.innerHTML = `
-            <div>
-                <h6 class="my-0">${item.product.name}</h6>
-                <small class="text-muted">${item.quantity} x ${item.price}</small>
-            </div>
-            <span class="text-muted">${item.total_price}</span> `;
+                        <div>
+                        <h6 class="my-0">${item.product.name}</h6>
+                        <small class="text-muted">${item.quantity} x ${item.price}</small>
+                        </div>
+                        <span class="text-muted">${item.total_price}</span> `;
                         cartItemsList.appendChild(li);
                     });
 
                     const totalPriceLi = document.createElement('li');
                     totalPriceLi.classList.add('list-group-item', 'd-flex', 'justify-content-between');
                     totalPriceLi.innerHTML = `
-        <span>Total (PKR)</span>
-        <strong>${data.totalPrice}</strong>
-        `;
+                    <span>Total (PKR)</span>
+                    <strong>${data.totalPrice}</strong>`;
                     cartItemsList.appendChild(totalPriceLi);
                 })
                 .catch(error => console.error('Error fetching cart items:', error));
         }
 
-        // Page load par cart items fetch karein
         document.addEventListener('DOMContentLoaded', fetchCartItems);
     </script>
 
+    <script>
+        function fetchCartItems() {
+            $.ajax({
+                url: '{{ route("get.cart.items") }}',
+                method: 'GET',
+                success: function (data) {
+                    const cartItemsList = $('#cart-items-list');
+                    cartItemsList.empty();
 
+                    data.items.forEach(item => {
+                        cartItemsList.append(` <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6>${item.product.name}</h6>
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-sm btn-secondary decrease-quantity" data-id="${item.id}">-</button>
+                                    <span class="mx-2">${item.quantity}</span>
+                                    <button class="btn btn-sm btn-secondary increase-quantity" data-id="${item.id}">+</button>
+                                </div>
+                                <small class="text-muted">${item.quantity} x ${item.price}</small>
+                            </div>
+                            <span>${item.total_price}</span>
+                            <button class="btn btn-sm btn-danger delete-item" data-id="${item.id}">Delete</button>
+                        </li> `);
+    });
 
+                    cartItemsList.append(` <li class="list-group-item d-flex justify-content-between">
+                        <span>Total (PKR)</span>
+                        <strong>${data.totalPrice}</strong>
+                    </li> `);
+                },
+                error: function () {
+                    alert('Failed to fetch cart items');
+                }
+            });
+        }
+
+        // Increase  Decrease Quantity
+        $(document).on('click', '.increase-quantity, .decrease-quantity', function () {
+            const itemId = $(this).data('id');
+            const isIncrease = $(this).hasClass('increase-quantity');
+            const quantityElement = $(this).siblings('span');
+            const currentQuantity = parseInt(quantityElement.text());
+            const newQuantity = isIncrease ? currentQuantity + 1 : currentQuantity - 1;
+
+            if (newQuantity < 1) {
+                alert('Quantity cannot be less than 1');
+                return;
+            }
+
+            $.ajax({
+                url: '{{ route("update.quantity") }}',
+                method: 'POST',
+                data: {
+                    id: itemId,
+                    quantity: newQuantity,
+                    _token: '{{ csrf_token() }}',
+                },
+                success: function () {
+                    fetchCartItems();
+                },
+                error: function () {
+                    alert('Failed to update quantity');
+                }
+            });
+        });
+
+        // Delete Item
+        $(document).on('click', '.delete-item', function () {
+            const itemId = $(this).data('id');
+
+            if (!confirm('Are you sure you want to delete this item?')) {
+                return;
+            }
+
+            $.ajax({
+                url: '{{ route("delete.item") }}',
+                method: 'POST',
+                data: {
+                    id: itemId,
+                    _token: '{{ csrf_token() }}',
+                },
+                success: function () {
+                    fetchCartItems();
+                },
+                error: function () {
+                    alert('Failed to delete item');
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', fetchCartItems);
+    </script>
 
   </body>
 </html>
