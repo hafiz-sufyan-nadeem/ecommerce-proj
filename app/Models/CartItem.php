@@ -9,10 +9,11 @@ class CartItem extends Model
     protected $table = 'cart_items';
     protected $fillable = ['user_id', 'product_id', 'quantity', 'price', 'total_price'];
 
-    public function products()
+    public function product()
     {
-        return $this->belongsTo(Product::class, 'product_id','id');
+        return $this->belongsTo(Product::class, 'product_id', 'id');
     }
+
 
     public function users()
     {

@@ -90,50 +90,25 @@
       </div>
     </div>
 
-    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart">
-      <div class="offcanvas-header justify-content-center">
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-
-      <div class="offcanvas-body">
-        <div class="order-md-last">
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-primary">Your cart</span>
-            <span class="badge bg-primary rounded-pill">3</span>
-          </h4>
-          <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-              <div>
-                <h6 class="my-0">Growers cider</h6>
-                <small class="text-body-secondary">Brief description</small>
-              </div>
-              <span class="text-body-secondary">$12</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-              <div>
-                <h6 class="my-0">Fresh grapes</h6>
-                <small class="text-body-secondary">Brief description</small>
-              </div>
-              <span class="text-body-secondary">$8</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-              <div>
-                <h6 class="my-0">Heinz tomato ketchup</h6>
-                <small class="text-body-secondary">Brief description</small>
-              </div>
-              <span class="text-body-secondary">$5</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <span>Total (USD)</span>
-              <strong>$20</strong>
-            </li>
-          </ul>
-
-          <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+    <div id="offcanvasCart" class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1">
+        <div class="offcanvas-header justify-content-center">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-      </div>
 
+        <div class="offcanvas-body">
+            <div class="order-md-last">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary">Your cart</span>
+                    <span class="badge bg-primary rounded-pill" id="cart-badge">0</span>
+                </h4>
+                <ul class="list-group mb-3" id="cart-items-list">
+                    <!-- AJAX se items yahan dynamically add honge -->
+                </ul>
+                <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+            </div>
+        </div>
     </div>
+
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
 
@@ -1006,6 +981,59 @@
     });
     });
     </script>
+
+    <script>
+        // Cart items fetch karna
+        function fetchCartItems() {
+            fetch("{{ route('get.cart.items') }}")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data); // Debug data to check if it's correct
+                    if (data.error) {
+                        console.error(data.error);
+                        return;
+                    }
+
+                    const cartItemsList = document.getElementById('cart-items-list');
+                    const cartBadge = document.getElementById('cart-badge');
+
+                    cartItemsList.innerHTML = '';
+                    cartBadge.textContent = data.items.length;
+
+                    data.items.forEach(item => {
+                        const li = document.createElement('li');
+                        li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
+                        li.innerHTML = `
+            <div>
+                <h6 class="my-0">${item.product.name}</h6>
+                <small class="text-muted">${item.quantity} x ${item.price}</small>
+            </div>
+            <span class="text-muted">${item.total_price}</span> `;
+                        cartItemsList.appendChild(li);
+                    });
+
+                    const totalPriceLi = document.createElement('li');
+                    totalPriceLi.classList.add('list-group-item', 'd-flex', 'justify-content-between');
+                    totalPriceLi.innerHTML = `
+        <span>Total (PKR)</span>
+        <strong>${data.totalPrice}</strong>
+        `;
+                    cartItemsList.appendChild(totalPriceLi);
+                })
+                .catch(error => console.error('Error fetching cart items:', error));
+        }
+
+        // Page load par cart items fetch karein
+        document.addEventListener('DOMContentLoaded', fetchCartItems);
+    </script>
+
+
+
 
   </body>
 </html>
