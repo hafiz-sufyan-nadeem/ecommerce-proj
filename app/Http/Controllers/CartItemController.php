@@ -42,17 +42,17 @@ class CartItemController extends Controller
     {
         $userId = auth()->id();
         if (!$userId) {
-            return response()->json(['error' => 'User not logged in'], 401);
+            return response()->json(['error' => 'User not logged in']);
         }
 
         $cartItems = CartItem::where('user_id', $userId)
-            ->with('product') // Load the product relationship properly
+            ->with('product')
             ->get();
 
         $totalPrice = $cartItems->sum('total_price');
 
         return response()->json([
-            'items' => $cartItems, // Return all items with their details
+            'items' => $cartItems,
             'totalPrice' => $totalPrice,
         ]);
     }

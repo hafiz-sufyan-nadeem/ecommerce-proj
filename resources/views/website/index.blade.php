@@ -99,7 +99,7 @@
             <div class="order-md-last">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                     <span class="text-primary">Your cart</span>
-                    <span class="badge bg-primary rounded-pill" id="cart-badge ">0</span>
+                    <span class="badge bg-primary rounded-pill" id="cart-badge">0</span>
                 </h4>
                 <ul class="list-group mb-3" id="cart-items-list">
                     <!-- AJAX se items yahan dynamicaly add honge -->
