@@ -960,23 +960,26 @@
     e.preventDefault();
 
     let productId = $(this).data('id');
-    let quantity = 1; // Default quantity
+    let quantity = 1;
 
     $.ajax({
     url: '{{ route("add.to.cart") }}',
     method: 'POST',
     data: {
-    productId: productId,
-    quantityId: quantity,
-    _token: '{{ csrf_token() }}'
-    },
-    success: function (response) {
-    // Update the cart sidebar dynamically
-    $('#cart-sidebar').load(location.href + ' #cart-sidebar');
-    alert('Item added to cart successfully!');
-    },
-    error: function (xhr) {
-    alert('Failed to add item to cart!');
+        productId: productId,
+        quantityId: quantity,
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function (html) {
+        }
+
+        // $('#cart-sidebar').load(location.href + ' #cart-sidebar');
+        // alert('Item added to cart successfully!');
+
+        // error: function (xhr) {
+        // alert('Failed to add item to cart!');
+        // }
     }
     });
     });
