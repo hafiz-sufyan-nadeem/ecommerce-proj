@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartItemController;
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
@@ -111,6 +112,8 @@ Route::prefix('admin')->group(function () {
 
 //  WEBSITE FOLDER ROUTES Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('checkout', [CheckoutController::class, 'checkout'])->name('checkout');
 
 // ADD TO CART ROUTES
 Route::get('cartitems', [CartItemController::class, 'index'])->name('cartitems');

@@ -106,7 +106,7 @@
                     <!-- Dynamically rendered cart items -->
 
                 </ul>
-                <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+                <a href="{{ route('checkout') }}" class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</a>
             </div>
         </div>
     </div>
