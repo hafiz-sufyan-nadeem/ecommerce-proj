@@ -513,9 +513,7 @@
 @include('website.header')
 <div class="container">
     <div class="py-5 text-center">
-
         <h2>Checkout Form</h2>
-        <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
     </div>
 
     <div class="row">
@@ -530,7 +528,7 @@
                         <h6 class="my-0">Product name</h6>
                         <small class="text-muted">Brief description</small>
                     </div>
-                    <span class="text-muted">$12</span>
+                    <span class="text-muted">$14</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
