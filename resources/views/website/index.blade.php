@@ -722,7 +722,7 @@ z
             <div class="swiper">
               <div class="swiper-wrapper">
 
-                  @foreach($products as $product)
+                  @foreach($just_arrived_products as $product)
                 <div class="product-item swiper-slide">
                   <figure>
                     <a href="index.html" title="Product Title">

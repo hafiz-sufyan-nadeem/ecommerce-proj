@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Blog;
 use App\Models\CartItem;
 use Illuminate\Support\Facades\DB;
+use function Laravel\Prompts\select;
 use function Pest\Laravel\get;
 
 class HomeController extends Controller
@@ -23,6 +24,9 @@ class HomeController extends Controller
             ->limit(6)
             ->get();
 
+        // Show latest products on Just Arrived section
+        $just_arrived_products = DB::select("select * from products order by id DESC limit 6");
+
         // Categories aur Blogs ko fetch karna
         $categories = DB::select("select * from categories order by id DESC LIMIT 6");
         $blogs = DB::select("select * from blogs order by id DESC");
@@ -32,7 +36,8 @@ class HomeController extends Controller
         return view('website.index', [
             'products' => $products,
             'categories' => $categories,
-            'blogs' => $blogs
+            'blogs' => $blogs,
+            'just_arrived_products' => $just_arrived_products,
         ]);
     }
 }

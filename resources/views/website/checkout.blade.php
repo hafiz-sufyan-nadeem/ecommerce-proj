@@ -625,6 +625,7 @@
                         <label for="country">Country</label>
                         <select class="custom-select d-block w-100" id="country" required>
                             <option value="">Choose...</option>
+                            <option>Pakistan</option>
                             <option>United States</option>
                             <option>Australia</option>
                             <option>Belarus</option>
@@ -720,8 +721,7 @@
                         </div>
                     </div>
                 </div>
-                <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+
             </form>
         </div>
     </div>
