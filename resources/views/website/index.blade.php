@@ -453,7 +453,6 @@
       <div class="container-lg">
         <div class="row">
           <div class="col-md-12">
-z
             <div class="banner-blocks">
 
               <div class="banner-ad d-flex align-items-center large bg-info block-1" style="background: url({{asset('assets/images/banner-ad-1.jpg')}}) no-repeat; background-size: cover;">
@@ -494,6 +493,8 @@ z
       </div>
     </section>
 
+{{-- Add if condition for display items of featured products where is_featured == 1   --}}
+    @if($featured_products)
     <section id="featured-products" class="products-carousel">
       <div class="container-lg overflow-hidden py-5">
         <div class="row">
@@ -520,7 +521,8 @@ z
             <div class="swiper">
               <div class="swiper-wrapper">
 
-                  @foreach($products as $product)
+                  @foreach($featured_products as $product)
+
                 <div class="product-item swiper-slide">
                   <figure>
 
@@ -567,7 +569,6 @@ z
                 </div>
                   @endforeach
 
-
               </div>
             </div>
             <!-- / products-carousel -->
@@ -576,6 +577,7 @@ z
         </div>
       </div>
     </section>
+    @endif
 
     <section>
       <div class="container-lg">

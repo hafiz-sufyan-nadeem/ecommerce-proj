@@ -24,12 +24,15 @@ class HomeController extends Controller
             ->limit(6)
             ->get();
 
-        // Show latest products on Just Arrived section
-        $just_arrived_products = DB::select("select * from products order by id DESC limit 6");
-
         // Categories aur Blogs ko fetch karna
         $categories = DB::select("select * from categories order by id DESC LIMIT 6");
         $blogs = DB::select("select * from blogs order by id DESC");
+
+        // Show latest products on Just Arrived section
+        $just_arrived_products = DB::select("select * from products order by id DESC limit 6");
+
+        // show only featured product whos val == 1
+        $featured_products = DB::select("select * from products where is_featured = 1 order by id DESC limit 6");
 
         // View ko data bhejna
 
@@ -38,6 +41,7 @@ class HomeController extends Controller
             'categories' => $categories,
             'blogs' => $blogs,
             'just_arrived_products' => $just_arrived_products,
+            'featured_products' => $featured_products,
         ]);
     }
 }
