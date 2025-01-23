@@ -29,6 +29,7 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+
         // Validation
         $request->validate([
             'name' => 'required',
@@ -37,6 +38,7 @@ class ProductController extends Controller
             'category_id' => 'required|exists:categories,id',
             'quantity' => 'required|integer',
             'stock' => 'required|string',
+            'is_featured' => 'nullable',
         ]);
 
         // Store image
@@ -51,6 +53,9 @@ class ProductController extends Controller
         $product->category_id = $request->category_id;
         $product->quantity = $request->quantity;
         $product->stock = $request->stock;
+        $product->is_featured = $request->is_featured == 'on' ? 1 : 0;
+
+
 
         $product->save();
 
@@ -71,6 +76,7 @@ class ProductController extends Controller
             'category' => 'required|string',
             'quantity' => 'required|integer',
             'stock' => 'required|string',
+            'is_featured' => 'nullable',
         ]);
 
         if ($request->hasFile('image')) {
@@ -84,6 +90,7 @@ class ProductController extends Controller
 //        $product->category = $request->category;
         $product->quantity = $request->quantity;
         $product->stock = $request->stock;
+        $product->is_featured = $request->is_featured == 'on' ? 1 : 0;
 
         $product->save();
 

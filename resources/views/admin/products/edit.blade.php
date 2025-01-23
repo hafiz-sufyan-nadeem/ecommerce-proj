@@ -85,6 +85,14 @@
                 </div>
             </div>
 
+            {{--            CheckBox --}}
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Featured:</strong>
+                    <input type="checkbox" name="is_featured" id="featured">
+                </div>
+            </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Update</button>
             </div>

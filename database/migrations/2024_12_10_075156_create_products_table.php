@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('category');
             $table->integer('quantity');
             $table->string('stock');
+            $table->boolean('is_featured');
             $table->timestamps();
         });
     }
