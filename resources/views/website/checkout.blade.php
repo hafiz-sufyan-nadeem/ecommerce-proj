@@ -626,6 +626,17 @@
                         <select class="custom-select d-block w-100" id="country" required>
                             <option value="">Choose...</option>
                             <option>United States</option>
+                            <option>Australia</option>
+                            <option>Belarus</option>
+                            <option>Bermuda</option>
+                            <option>China</option>
+                            <option>Germany</option>
+                            <option>Iceland</option>
+                            <option>Japan</option>
+                            <option>India</option>
+                            <option>Kazakhstan</option>
+                            <option>New Zealand</option>
+                            <option>Swaziland</option>
                         </select>
                         <div class="invalid-feedback">
                             Please select a valid country.
