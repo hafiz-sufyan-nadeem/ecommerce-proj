@@ -631,6 +631,7 @@
                             <option>Belarus</option>
                             <option>Bermuda</option>
                             <option>China</option>
+                            <option>Uganda</option>
                             <option>Germany</option>
                             <option>Iceland</option>
                             <option>Japan</option>
