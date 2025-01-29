@@ -104,6 +104,7 @@ Route::prefix('admin')->group(function () {
         Route::delete('/blogs/{id}', [BlogController::class, 'destroy'])->name('admin.blogs.destroy');
 
         Route::post('/blogs/store', [BlogController::class, 'store'])->name('admin.blogs.store');
+
     });
 
 });
