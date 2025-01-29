@@ -524,27 +524,16 @@
             </h4>
             <ul class="list-group mb-3">
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
+
+                    @foreach($products as $product)
                     <div>
-                        <h6 class="my-0">Product name</h6>
-                        <small class="text-muted">Brief description</small>
+                        <h6 class="my-0">{{$product->name}}</h6>
                     </div>
-                    <span class="text-muted">$14</span>
+                    <span class="text-muted">{{$product->price}}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Second product</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$8</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Third item</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$5</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between bg-light">
+                    @endforeach
+
                     <div class="text-success">
                         <h6 class="my-0">Promo code</h6>
                         <small>EXAMPLECODE</small>
