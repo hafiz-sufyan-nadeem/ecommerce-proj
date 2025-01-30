@@ -102,22 +102,18 @@
                     <span class="badge bg-primary rounded-pill" id="cart-badge">0</span>
                 </h4>
                 <ul class="list-group mb-3" id="cart-items-list">
-
                     <!-- Dynamically rendered cart items -->
-
                 </ul>
-{{--                hide button if user logout or not added items--}}
 
+{{--                hide button if user logout or not added items--}}
                 @if(auth()->check() && auth()->user()->cartItems->count() > 0)
-                <a href="{{ route('checkout') }}" class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</a>
+                <a href="{{ route('checkout', ['user_id' => auth()->id()]) }}" class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</a>
                 @else
                 @endif
 
             </div>
         </div>
     </div>
-
-
 
 
 
