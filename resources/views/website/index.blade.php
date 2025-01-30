@@ -106,7 +106,11 @@
                     <!-- Dynamically rendered cart items -->
 
                 </ul>
+{{--                hide button if user logout or not added items--}}
+                @if(auth()->check() && auth()->user()->cartitems()->count > 0)
                 <a href="{{ route('checkout') }}" class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</a>
+                @else
+                @endif
             </div>
         </div>
     </div>

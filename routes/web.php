@@ -110,7 +110,7 @@ Route::prefix('admin')->group(function () {
 });
 
 //checkout-Auth
-Route::group(['middleware'=>['auth']], function () {
+Route::group(['middleware'=>['checkout-auth']], function () {
     Route::get('checkout', [CheckoutController::class, 'checkout'])->name('checkout');
 });
 

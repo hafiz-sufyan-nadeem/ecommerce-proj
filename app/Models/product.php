@@ -22,7 +22,7 @@ class product extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
-    public function cartitem()
+    public function cartIem()
     {
         return $this->hasMany('Cartitem', 'product_id', 'id');
     }
