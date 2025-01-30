@@ -103,6 +103,8 @@ Route::prefix('admin')->group(function () {
 
         Route::delete('/blogs/{id}', [BlogController::class, 'destroy'])->name('admin.blogs.destroy');
 
+        Route::get('checkout', [CheckoutController::class, 'checkout'])->name('checkout');
+
         Route::post('/blogs/store', [BlogController::class, 'store'])->name('admin.blogs.store');
 
     });
@@ -114,7 +116,7 @@ Route::prefix('admin')->group(function () {
 //  WEBSITE FOLDER ROUTES Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('checkout', [CheckoutController::class, 'checkout'])->name('checkout');
+//Route::get('checkout', [CheckoutController::class, 'checkout'])->name('checkout');
 
 // ADD TO CART ROUTES
 Route::get('cartitems', [CartItemController::class, 'index'])->name('cartitems');
