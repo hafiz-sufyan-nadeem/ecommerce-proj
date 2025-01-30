@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'admin-access' => \App\Http\Middleware\AdminAccess::class,
             'custom-auth' => \App\Http\Middleware\CustomAuth::class,
+            'checkout-auth' => \App\Http\Middleware\CheckoutAuth::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
