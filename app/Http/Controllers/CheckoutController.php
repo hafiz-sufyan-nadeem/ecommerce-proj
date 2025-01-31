@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\DB;
 class CheckoutController extends Controller
 {
     public function checkout(Request $request) {
-        dd($request->all());
         $userId = $request->user_id;
 
         // User ke cart items fetch kro
@@ -22,7 +21,7 @@ class CheckoutController extends Controller
         }
 
         return view('website.checkout', [
-            'cartItems' => $cartItems,
+            'cartitems' => $cartItems,
         ]);
     }
 
