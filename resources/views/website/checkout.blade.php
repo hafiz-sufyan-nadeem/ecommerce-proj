@@ -525,11 +525,12 @@
             <ul class="list-group mb-3">
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
 
-                    @foreach($products as $product)
+                    @foreach($cartItems as $cartItem)
                     <div>
-                        <h6 class="my-0">{{$product->name}}</h6>
+                        <h6 class="my-0">{{$cartItem->product->name}}</h6>
+                        <small class="text-muted">Quantity: {{$cartItem->quantity}}</small>
                     </div>
-                    <span class="text-muted">{{$product->price}}</span>
+                    <span class="text-muted">{{$cartItem->total_price}}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     @endforeach
@@ -542,7 +543,7 @@
                 </li>
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Total (PKR)</span>
-                    <strong>$20</strong>
+                    <strong>{{$totalPrice}}</strong>
                 </li>
             </ul>
 

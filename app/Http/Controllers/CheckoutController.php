@@ -13,16 +13,21 @@ class CheckoutController extends Controller
     public function checkout(Request $request) {
         $userId = $request->user_id;
 
-        // User ke cart items fetch kro
         $cartItems = CartItem::where('user_id', $userId)->with('product')->get();
 
         if ($cartItems->isEmpty()) {
             return redirect()->back()->with('error', 'Your Cart is empty.');
         }
 
-        $products = $cartItems->pluck('product');
+        $products = $cartItems->pluck('product'); // Products ki info le raha
 
-        return view('website.checkout', compact('cartItems', 'products'));
+        $totalPrice = $cartItems->sum('total_price'); // Price Total
+
+        return view('website.checkout',[
+            'cartItems' => $cartItems,
+            'products' => $products,
+            'totalPrice' => $totalPrice
+        ]);
     }
 
 }
