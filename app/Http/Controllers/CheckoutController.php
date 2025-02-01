@@ -20,9 +20,9 @@ class CheckoutController extends Controller
             return redirect()->back()->with('error', 'Your Cart is empty.');
         }
 
-        return view('website.checkout', [
-            'cartitems' => $cartItems,
-        ]);
+        $products = $cartItems->pluck('product');
+
+        return view('website.checkout', compact('cartItems', 'products'));
     }
 
 }
