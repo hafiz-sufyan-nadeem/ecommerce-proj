@@ -528,7 +528,7 @@
                     @foreach($cartItems as $cartItem)
                     <div>
                         <h6 class="my-0">{{$cartItem->product->name}}</h6>
-                        <small class="text-muted">Quantity: {{$cartItem->quantity}}</small>
+                        <small>Quantity: {{$cartItem->quantity}}</small>
                     </div>
                     <span class="text-muted">{{$cartItem->total_price}}</span>
                 </li>
