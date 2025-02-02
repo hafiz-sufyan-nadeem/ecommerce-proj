@@ -565,7 +565,7 @@
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="lastName"> <b>Last Name:</b> {{ $user->last_name }}</label>
+                        <label for="lastName"> </label>
                     </div>
                 </div>
 
