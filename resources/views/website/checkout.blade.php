@@ -561,11 +561,13 @@
             <form class="needs-validation" novalidate>
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="firstName"> <b>First Name:</b> {{ $user->name }}</label>
+                        <label for="firstName"> <b>First name:</b> </label>
+                        <input type="name" class="form-control" placeholder="{{$user->name}}">
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="lastName"> <b>Last Name:</b> {{ $user->last_name }}</label>
+                        <label for="lastName"> <b>Last name:</b> </label>
+                        <input type="last_name" class="form-control" placeholder="{{$user->last_name}}">
                     </div>
                 </div>
 
