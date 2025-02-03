@@ -614,6 +614,7 @@
                             <option>Kazakhstan</option>
                             <option>New Zealand</option>
                             <option>Swaziland</option>
+                            <option>Fance</option>
                         </select>
                         <div class="invalid-feedback">
                             Please select a valid country.
