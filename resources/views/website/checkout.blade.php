@@ -561,12 +561,12 @@
             <form class="needs-validation" novalidate>
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="firstName"> <b>First name:</b> </label>
+                        <label for="firstName"> <strong>First name:</strong> </label>
                         <input type="name" class="form-control" placeholder="{{$user->name}}">
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="lastName"> <b>Last name:</b> </label>
+                        <label for="lastName"> <strong>Last name:</strong> </label>
                         <input type="last_name" class="form-control" placeholder="{{$user->last_name}}">
                     </div>
                 </div>
@@ -574,7 +574,7 @@
 
 
                 <div class="mb-3">
-                    <label for="email"> <b>Email:</b> </label>
+                    <label for="email"> <strong>Email:</strong> </label>
                     <input type="email" class="form-control" id="email" placeholder="{{$user->email}}">
                     <div class="invalid-feedback">
                         Please enter a valid email address for shipping updates.
