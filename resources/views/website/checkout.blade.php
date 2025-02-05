@@ -577,7 +577,7 @@
                     <label for="email"> <strong>Email:</strong> </label>
                     <input type="email" class="form-control" id="email" placeholder="{{$user->email}}">
                     <div class="invalid-feedback">
-                        Please enter a valid email address for shipping updates.
+                        Please enter a valid email address For shipping updates.
                     </div>
                 </div>
 
