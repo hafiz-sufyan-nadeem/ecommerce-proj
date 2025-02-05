@@ -29,18 +29,18 @@
                         <input type="email" name="email" class="form-control form-control-user"
                                id="exampleInputEmail" aria-describedby="emailHelp"
                                placeholder="Enter Email Address..." value="{{ old('email') }}" required>
-                        @if ($errors->has('email'))
-                            <span class="text-danger">{{ $errors->first('email') }}</span>
-                        @endif
+                        @error('email')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
 
                     </div>
                     <!-- Password Input -->
                     <div class="form-group">
                         <input type="password" name="password" class="form-control form-control-user"
                                id="exampleInputPassword" placeholder="Password" required>
-                        @if ($errors->has('password'))
-                            <span class="text-danger">{{ $errors->first('password') }}</span>
-                        @endif
+                        @error('password')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
 
                     </div>
                     <!-- Remember Me -->

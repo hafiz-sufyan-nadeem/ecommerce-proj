@@ -536,7 +536,7 @@
                     @endforeach
 
                     <div class="text-success">
-                        <h6 class="my-0">Promo code</h6>
+                        <h6 clasfs="my-0">Promo code</h6>
                         <small>EXAMPLECODE</small>
                     </div>
                     <span class="text-success">-$5</span>

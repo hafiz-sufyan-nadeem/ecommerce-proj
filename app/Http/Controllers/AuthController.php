@@ -22,21 +22,20 @@ class AuthController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
-//        if (Auth::attempt($credentials)) {
-//            return redirect()->route('dashboard')->with('success', 'Successfully logged in');
-//        }
 
-        if (Auth::attempt($credentials)){
+        if (Auth::attempt($credentials)) {
             $user = Auth::user();
 
             if ($user->is_admin == 1) {
                 return redirect()->route('dashboard');
-            }else return redirect()->route('home');
+            } else return redirect()->route('home');
         }
 
-        return redirect()->back()->withErrors(['error' => 'Oops! You have entered invalid credentials']);
+        return redirect()->back()->withErrors([
+            'email' => 'Invalid email or password',
+            'password' => 'Invalid email or password',
+        ])->withInput($request->only('email'));
     }
-
     public function showRegistrationForm()
     {
         return view('admin.auth.register');
