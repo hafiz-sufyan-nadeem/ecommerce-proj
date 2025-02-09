@@ -20,7 +20,7 @@ class CheckoutController extends Controller
             return redirect()->back()->with('error', 'Your Cart is empty.');
         }
 
-        $products = $cartItems->pluck('product'); // Products ki info le raha
+        $products = $cartItems->pluck('product'); // Prroducts ki info le raha
 
         $totalPrice = $cartItems->sum('total_price'); // Price Total
 

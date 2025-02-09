@@ -73,13 +73,6 @@ class AuthController extends Controller
         return view('admin.dashboard');
     }
 
-//    public function postDashboard()
-//    {
-//        if (Auth::check()){
-//            return view('dashboard');
-//        }
-//        return redirect('login');
-//    }
 
     public function create(array $data)
     {
