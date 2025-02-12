@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PromoController;
 
 
 
@@ -125,4 +126,4 @@ Route::get('get-cart-items', [CartItemController::class, 'getCartItems'])->name(
 Route::post('update-quantity', [CartItemController::class, 'updateQuantity'])->name('update.quantity');
 Route::post('delete-item', [CartItemController::class, 'deleteItem'])->name('delete.item');
 
-Route::post('/apply-promo', [PromoController::class, 'applyPromo'])->name('apply.promo');
+Route::post('apply-promo-code', [PromoController::class, 'applyPromoCode'])->name('apply.promo.code');

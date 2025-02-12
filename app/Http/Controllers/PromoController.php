@@ -3,27 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\PromoCode;
 
 class PromoController extends Controller
 {
-    public function index(Request $request)
+    public function applyPromoCode(Request $request)
     {
-        $promoCode = $request->input('Dis_code');
-        $totalCost = $request->input('T_cost');
+        $promoCode = $request->input('promo_code');
+        $totalCost = $request->input('total_cost');
 
-        $discount = 0;
+        // Find promo code from the DB
+        $promo = PromoCode::where('promo_code', $promoCode)->first();
 
-        if ($promoCode == 'EXAMPLECODE') {
-            $discount = 5;
-        } else {
-            $discount = 0;
+        if ($promo) {
+            // Apply discount logic
+            $discountAmount = ($promo->discount_percentage / 100) * $totalCost;
+            $newTotalPrice = $totalCost - $discountAmount;
+
+            return response()->json([
+                'success' => true,
+                'promo_code' => $promoCode,
+                'discount' => number_format($discountAmount, 2),
+                'new_total_price' => number_format($newTotalPrice, 2),
+            ]);
         }
 
-        $updatedPrice = $totalCost - $discount;
-
         return response()->json([
-            'updated_price' => $updatedPrice,
-            'discount' => $discount
+            'success' => false,
+            'message' => 'Invalid Promo Code'
         ]);
     }
 }

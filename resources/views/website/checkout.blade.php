@@ -13,6 +13,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -550,7 +551,7 @@
             <form class="card p-2">
                 <div class="input-group">
                     <input type="text"  id="coupon" class="form-control" placeholder="Promo code">
-                    <input type="number" id="T_cost" class="form-control" value="1000">
+                    <input type="number" id="T_cost" class="form-control" value="1000" style="display: none;">
                     <div class="input-group-append">
                         <button type="button" id="check" class="btn btn-secondary">Redeem</button>
                     </div>
@@ -710,27 +711,36 @@
 <script src="{{asset('assets/js/script.js')}}"></script>
 
 <script>
-    $("#check").click(function() {
-        $.ajax({
-            type: "POST",
-            url: 'apply-promo',
-            data: {
-                promo_code: $('#coupon').val(),
-                total_cost: $('#T_cost').val()
-            },
-            success: function(data) {
-                if (data != '') {
-                    $('#update_total_price').text(data.updated_price);
-                    $('#discount_price').text('-' + data.discount);
-                }
-            },
-            error: function() {
-                alert("Applying wrong promo code");
-                alert("Applying wrong promo code");
-            }
+    $(document).ready(function() {
+        $('#check').click(function() {
+            var promoCode = $('#coupon').val();
+            var totalCost = $('#T_cost').val();
 
+            $.ajax({
+                type: "POST",
+                url: 'apply-promo-code',
+                data: {
+                    promo_code: promoCode,
+                    total_cost: totalCost,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    if (response.success) {
+                        $('#promo_code').text(response.promo_code);
+                        $('#discount_price').text('-$' + response.discount);
+                        $('#update_total_price').text('$' + response.new_total_price);
+                    } else {
+
+                        alert(response.message);
+                    }
+                },
+                error: function() {
+                    alert("There was an error applying the promo code.");
+                }
+            });
         });
     });
+
 </script>
 
 </body>
