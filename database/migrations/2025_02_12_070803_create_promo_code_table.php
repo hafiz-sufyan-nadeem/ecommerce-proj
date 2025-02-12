@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('promo_code', function (Blueprint $table) {
             $table->id();
             $table->string('code');
-            $table->decimal('discount_percentage')->nullable();
+            $table->integer('discount_percentage')->nullable();
             $table->timestamps();
         });
     }

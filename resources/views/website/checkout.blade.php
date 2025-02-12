@@ -551,7 +551,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Promo code">
                     <div class="input-group-append">
-                        <button type="submit" class="btn btn-secondary">Redeem</button>
+                        <button type="button" id="check" class="btn btn-secondary">Redeem</button>
                     </div>
                 </div>
             </form>
@@ -707,6 +707,33 @@
         crossorigin="anonymous"></script>
 <script src="{{asset('assets/js/plugins.js')}}"></script>
 <script src="{{asset('assets/js/script.js')}}"></script>
+
+<script>
+    $("#check").click(function() {
+        $.ajax({
+            type: "POST",
+            url: 'ajax.php',
+            data: {
+                Dis_code: $('#coupon').val(),
+                T_cost: $('#T_cost').val(),
+                Discount: $('#Discount').val()
+            },
+            success: function(data) {
+                if (data != '') {
+                    alert("you succesfully send and received "+data+" from ajax.php");
+
+                    //HERE IS THE SUBMIT YOU NEED ALL. IT WILL
+                    //SUBMIT THE FORM TO THE ORIGINAL ACTION
+                    $("#apply").submit();
+                }
+            },
+            error: function(data){
+                alert("You tried to send data to ajax.php but it didn´t give a OK response");
+            }
+
+        });
+    });
+</script>
 
 </body>
 </html>
