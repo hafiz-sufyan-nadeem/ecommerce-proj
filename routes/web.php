@@ -125,4 +125,4 @@ Route::get('get-cart-items', [CartItemController::class, 'getCartItems'])->name(
 Route::post('update-quantity', [CartItemController::class, 'updateQuantity'])->name('update.quantity');
 Route::post('delete-item', [CartItemController::class, 'deleteItem'])->name('delete.item');
 
-Route::post('/apply-promo', [CartItemController::class, 'applyPromo'])->name('apply.promo');
+Route::post('/apply-promo', [PromoController::class, 'applyPromo'])->name('apply.promo');
