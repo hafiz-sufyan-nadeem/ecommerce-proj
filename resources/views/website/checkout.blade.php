@@ -512,7 +512,7 @@
 </div>
 
 @include('website.header')
-<div class="container">
+<div     class="container">
     <div class="py-5 text-center">
         <h2>Checkout Form</h2>
     </div>
@@ -711,14 +711,12 @@
 <script src="{{asset('assets/js/script.js')}}"></script>
 
 <script>
-    $(document).ready(function() {
-        $('#check').click(function() {
+    $(document).on('click','#check',function () {
             var promoCode = $('#coupon').val();
-            var totalCost = $('#T_cost').val();
-
+            var totalCost = $('#update_total_price').text();
             $.ajax({
                 type: "POST",
-                url: 'apply-promo-code',
+                url: "{{route('apply.promo.code')}}",
                 data: {
                     promo_code: promoCode,
                     total_cost: totalCost,
@@ -727,18 +725,17 @@
                 success: function(response) {
                     if (response.success) {
                         $('#promo_code').text(response.promo_code);
-                        $('#discount_price').text('-$' + response.discount);
-                        $('#update_total_price').text('$' + response.new_total_price);
+                        $('#discount_price').text('-PKR' + response.discount);
+                        $('#update_total_price').text('PKR' + response.new_total_price);
                     } else {
 
                         alert(response.message);
                     }
                 },
                 error: function() {
-                    alert("There was an error applying the promo code.");
+                    alert("error");
                 }
             });
-        });
     });
 
 </script>
