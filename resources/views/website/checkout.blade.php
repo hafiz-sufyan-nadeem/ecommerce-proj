@@ -709,6 +709,7 @@
         crossorigin="anonymous"></script>
 <script src="{{asset('assets/js/plugins.js')}}"></script>
 <script src="{{asset('assets/js/script.js')}}"></script>
+{{--jj--}}
 
 <script>
     $(document).on('click','#check',function () {
