@@ -66,15 +66,15 @@
                         @auth
                         <a href="#" class="p-2 mx-1">
                             <svg width="24" height="24"><use xlink:href="#user"></use></svg>
+
+                            <a class="btn btn-danger" style="color: #000000" href="{{route('logout')}}" >
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" ></i>
+                                Logout
+                            </a>
                             @else
                                 <a href="{{url('login')}}">  <button type="button" class="btn btn-dark">Login</button> </a>
                         </a>
                         @endauth
-
-                            <a class="btn btn-danger"style="color: red" href="{{route('logout')}}" >
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" ></i>
-                                Logout
-                            </a>
                     </li>
 
                     <li>
