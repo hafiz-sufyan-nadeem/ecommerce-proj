@@ -63,17 +63,19 @@
             <div class="col-sm-8 col-lg-2 d-flex gap-5 align-items-center justify-content-center justify-content-sm-end">
                 <ul class="d-flex justify-content-end list-unstyled m-0">
                     <li>
-                        @auth
-                        <a href="#" class="p-2 mx-1">
-                            <svg width="24" height="24"><use xlink:href="#user"></use></svg>
+                            @auth
+                            <div class="d-flex align-items-center">
+                            <a href="#" class="p-2 mx-1">
+                                <svg width="24" height="24"><use xlink:href="#user"></use></svg>
 
-                            <a class="btn btn-danger" style="color: #000000" href="{{route('logout')}}" >
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" ></i>
-                                Logout
+                                <a class="btn btn-danger ms-2" style="color: #000000" href="{{route('logout')}}" >
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400" ></i>
+                                    Logout
+                                </a>
+                                @else
+                                    <a href="{{url('login')}}">  <button type="button" class="btn btn-dark">Login</button> </a>
                             </a>
-                            @else
-                                <a href="{{url('login')}}">  <button type="button" class="btn btn-dark">Login</button> </a>
-                        </a>
+                           </div>
                         @endauth
                     </li>
 
