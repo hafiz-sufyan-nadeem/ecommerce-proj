@@ -730,11 +730,12 @@
                         $('#coupon').parent().parent().hide();
                     } else {
 
-                        alert(response.message);
+                        $('#coupon').after(`<p id="promo_error" class="text-danger">${response.message}</p>`);
                     }
                 },
                 error: function() {
-                    alert("error");
+                    $('#coupon').after(`<p id="promo_error" class="text-danger">Error! Please try again.</p>`);
+
                 }
             });
     });
