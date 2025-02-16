@@ -16,7 +16,7 @@
 
             <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-4">
                 <div class="search-bar row bg-light p-2 rounded-4">
-                    <div class="col-md-4 d-none d-md-block">
+                    <div class="col-md-4 d-none d-md-block" style="flex:0.9">
                         <select class="form-select border- bg-transparent">
                             <option>All Categories</option>
                             <option>Groceries</option>
@@ -24,12 +24,12 @@
                             <option>Chocolates</option>
                         </select>
                     </div>
-                    <div class="col-11 col-md-7">
+                    <div class="col-11 col-md-7" style="flex: 3">
                         <form id="search-form" class="text-center" action="index.html" method="post">
                             <input type="text" class="form-control border-0 bg-transparent" placeholder="Search for more than 20,000 products">
                         </form>
                     </div>
-                    <div class="col-1">
+                    <div class="col-1" style="flex: 0.3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z"/></svg>
                     </div>
                 </div>
