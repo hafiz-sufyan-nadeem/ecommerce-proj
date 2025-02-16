@@ -538,9 +538,9 @@
 
                     <div class="text-success">
                         <h6 clasfs="my-0">Promo code</h6>
-                        <small id="promo_code">EXAMPLECODE</small>
+                        <small id="promo_code">***********</small>
                     </div>
-                    <span class="text-success" id="discount_price">-$5</span>
+                    <span class="text-success" id="discount_price">-PKR</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Total (PKR)</span>
@@ -714,7 +714,10 @@
     $(document).on('click','#check',function () {
             var promoCode = $('#coupon').val();
             var totalCost = $('#update_total_price').text();
-            $.ajax({
+
+        $('#promo_error').remove();
+
+        $.ajax({
                 type: "POST",
                 url: "{{route('apply.promo.code')}}",
                 data: {
@@ -723,9 +726,8 @@
                     _token: '{{ csrf_token() }}'
                 },
                 success: function(response) {
-                    $('#promo_error').remove();
                     if (response.success) {
-                        $('#promo_code').text(response.promo_code);
+                        $('#promo_code').text(response.promo_code).hide();
                         $('#discount_price').text('-PKR' + response.discount);
                         $('#update_total_price').text('PKR' + response.new_total_price);
                         $('#coupon').parent().parent().hide();
@@ -735,7 +737,6 @@
                     }
                 },
                 error: function() {
-                    $('#promo_error').remove();
                     $('#coupon').after(`<p id="promo_error" class="text-danger">Error! Please try again.</p>`);
 
                 }
