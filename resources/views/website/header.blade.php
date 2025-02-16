@@ -68,7 +68,7 @@
                             <a href="#" class="p-2 mx-1">
                                 <svg width="24" height="24"><use xlink:href="#user"></use></svg>
 
-                                <a class="btn btn-danger ms-2" style="color: #000000" href="{{route('logout')}}" >
+                                <a class="btn btn-primary ms-2" style="background: #e74a3b" href="{{route('logout')}}" >
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400" ></i>
                                     Logout
                                 </a>

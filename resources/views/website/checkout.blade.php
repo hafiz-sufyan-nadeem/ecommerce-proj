@@ -709,7 +709,6 @@
         crossorigin="anonymous"></script>
 <script src="{{asset('assets/js/plugins.js')}}"></script>
 <script src="{{asset('assets/js/script.js')}}"></script>
-{{--jj--}}
 
 <script>
     $(document).on('click','#check',function () {
@@ -728,6 +727,7 @@
                         $('#promo_code').text(response.promo_code);
                         $('#discount_price').text('-PKR' + response.discount);
                         $('#update_total_price').text('PKR' + response.new_total_price);
+                        $('#coupon').parent().parent().hide();
                     } else {
 
                         alert(response.message);
@@ -738,6 +738,7 @@
                 }
             });
     });
+
 
 </script>
 
