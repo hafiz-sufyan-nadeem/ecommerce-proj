@@ -723,6 +723,7 @@
                     _token: '{{ csrf_token() }}'
                 },
                 success: function(response) {
+                    $('#promo_error').remove();
                     if (response.success) {
                         $('#promo_code').text(response.promo_code);
                         $('#discount_price').text('-PKR' + response.discount);
@@ -734,12 +735,12 @@
                     }
                 },
                 error: function() {
+                    $('#promo_error').remove();
                     $('#coupon').after(`<p id="promo_error" class="text-danger">Error! Please try again.</p>`);
 
                 }
             });
     });
-
 
 </script>
 
