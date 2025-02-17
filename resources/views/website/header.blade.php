@@ -60,22 +60,23 @@
                 </ul>
             </div>
 
-            <div class="col-sm-8 col-lg-2 d-flex gap-5 align-items-center justify-content-center justify-content-sm-end">
-                <ul class="d-flex justify-content-end list-unstyled m-0">
+            <div class="col-sm-8 col-lg-2 d-flex gap-3 align-items-center justify-content-between">
+                <ul class="d-flex align-items-center list-unstyled m-0 nav-icons">
                     <li>
-                            @auth
+                        @auth
                             <div class="d-flex align-items-center">
-                            <a href="#" class="p-2 mx-1">
-                                <svg width="24" height="24"><use xlink:href="#user"></use></svg>
-
-                                <a class="btn btn-primary ms-2" style="background: #e74a3b" href="{{route('logout')}}" >
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400" ></i>
+                                <a href="#" class="p-2 mx-1">
+                                    <svg width="24" height="24"><use xlink:href="#user"></use></svg>
+                                </a>
+                                <a class="btn btn-primary ms-2" style="background: #e74a3b" href="{{route('logout')}}">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>
                                     Logout
                                 </a>
-                                @else
-                                    <a href="{{url('login')}}">  <button type="button" class="btn btn-dark">Login</button> </a>
+                            </div>
+                        @else
+                            <a href="{{url('login')}}">
+                                <button type="button" class="btn btn-dark">Login</button>
                             </a>
-                           </div>
                         @endauth
                     </li>
 
@@ -96,6 +97,7 @@
                     </li>
                 </ul>
             </div>
+
 
         </div>
     </div>
