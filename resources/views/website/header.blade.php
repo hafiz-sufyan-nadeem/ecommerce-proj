@@ -60,43 +60,49 @@
                 </ul>
             </div>
 
-            <div class="col-sm-8 col-lg-2 d-flex gap-3 align-items-center justify-content-between">
-                <ul class="d-flex align-items-center list-unstyled m-0 nav-icons">
-                    <li>
-                        @auth
-                            <div class="d-flex align-items-center">
-                                <a href="#" class="p-2 mx-1">
-                                    <svg width="24" height="24"><use xlink:href="#user"></use></svg>
-                                </a>
-                                <a class="btn btn-primary ms-2" style="background: #e74a3b" href="{{route('logout')}}">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        @else
-                            <a href="{{url('login')}}">
-                                <button type="button" class="btn btn-dark">Login</button>
-                            </a>
-                        @endauth
-                    </li>
+            <div class="container overflow-hidden">
+                <div class="row justify-content-end">
+                    <div class="col-sm-8 col-lg-auto d-flex gap-3 align-items-center justify-content-center justify-content-sm-end">
+                        <ul class="d-flex align-items-center list-unstyled m-0">
+                            <li>
+                                @auth
+                                    <div class="d-flex align-items-center">
+                                        <a href="#" class="p-2 mx-1">
+                                            <svg width="24" height="24"><use xlink:href="#user"></use></svg>
+                                        </a>
+                                        <a class="btn btn-primary ms-2" style="background: #e74a3b" href="{{route('logout')}}">
+                                            <i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>
+                                            Logout
+                                        </a>
+                                    </div>
+                                @else
+                                    <a href="{{url('login')}}">
+                                        <button type="button" class="btn btn-dark">Login</button>
+                                    </a>
+                                @endauth
+                            </li>
 
-                    <li>
-                        <a href="#" class="p-2 mx-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bookmark-heart" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
-                                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="p-0 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
-                            <svg class="w-[48px] h-[48px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" viewBox="0 0 25 25">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
+                            <li>
+                                <a href="#" class="p-2 mx-1">
+                                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-heart" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
+                                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                                    </svg>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="p-2 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                                    <svg width="24" height="24" class="text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 25">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+
 
 
         </div>
