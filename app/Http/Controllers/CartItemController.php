@@ -47,7 +47,6 @@ class CartItemController extends Controller
             ->with('product')
             ->get();
 
-
         $totalPrice = $cartItems->sum('total_price');
 
         return response()->json([
