@@ -695,6 +695,8 @@
                     </div>
                 </div>
 
+                <button type="submit" id="placeOrderBtn" class="btn btn-primary">Place Order</button>
+
             </form>
         </div>
     </div>
