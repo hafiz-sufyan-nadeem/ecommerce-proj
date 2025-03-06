@@ -747,5 +747,53 @@
 
 </script>
 
+<script>
+    function placeOrder() {
+        // Yeh ensure karo ke input fields exist karte hain
+        let firstNameField = document.querySelector("input[name='first_name']");
+        let lastNameField = document.querySelector("input[name='last_name']");
+        let emailField = document.querySelector("input[name='email']");
+        let addressField = document.querySelector("input[name='address']");
+
+        if (!firstNameField || !lastNameField || !emailField || !addressField) {
+            alert("Error: Some input fields are missing. Check your form!");
+            return;
+        }
+
+        let firstName = firstNameField.value;
+        let lastName = lastNameField.value;
+        let email = emailField.value;
+        let address = addressField.value;
+        let totalPrice = 9249; // Ye value dynamically database se bhi le sakte ho
+
+        fetch("/place-order", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+            },
+            body: JSON.stringify({
+                first_name: firstName,
+                last_name: lastName,
+                email: email,
+                address: address,
+                total_price: totalPrice
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Order placed successfully!");
+                    window.location.href = "/thank-you"; // Order hone ke baad redirect
+                } else {
+                    alert("Error placing order!");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+    }
+
+</script>
+
+
 </body>
 </html>

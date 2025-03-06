@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PromoController;
+use App\Http\Controllers\OrderController;
 
 
 
@@ -127,3 +128,5 @@ Route::post('update-quantity', [CartItemController::class, 'updateQuantity'])->n
 Route::post('delete-item', [CartItemController::class, 'deleteItem'])->name('delete.item');
 
 Route::post('apply-promo-code', [PromoController::class, 'applyPromoCode'])->name('apply.promo.code');
+
+Route::post('place-order', [OrderController::class, 'store'])->name('place.order');
