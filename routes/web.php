@@ -129,4 +129,4 @@ Route::post('delete-item', [CartItemController::class, 'deleteItem'])->name('del
 
 Route::post('apply-promo-code', [PromoController::class, 'applyPromoCode'])->name('apply.promo.code');
 
-Route::post('place-order', [OrderController::class, 'store'])->name('place.order');
+Route::post('/place-order', [OrderController::class, 'store'])->name('order.store');
