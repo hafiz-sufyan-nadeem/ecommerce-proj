@@ -12,15 +12,19 @@ return new class extends Migration
     public function up()
     {
         Schema::table('categories', function (Blueprint $table) {
-            $table->string('image')->nullable(); // Add 'image' column
+            if (!Schema::hasColumn('categories', 'image')) {
+                $table->string('image')->nullable();
+            }
         });
     }
+
 
     public function down()
     {
         Schema::table('categories', function (Blueprint $table) {
-            $table->dropColumn();
+            $table->dropColumn('image');
         });
     }
+
 
 };
