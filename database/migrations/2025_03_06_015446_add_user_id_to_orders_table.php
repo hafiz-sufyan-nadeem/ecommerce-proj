@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            if (!Schema::hasColumn('orders', 'user_id')) { // ✅ Pehle check karega
+            if (!Schema::hasColumn('orders', 'user_id')) {
                 $table->unsignedBigInteger('user_id')->after('id');
             }
         });
