@@ -11,51 +11,38 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::with('category')->orderBy('created_at', 'DESC')->paginate(5);
-
         return view('admin.products.index', compact('products'));
     }
 
-
-    public function create(){
-        $categories = Category::all();
-
-        return view('admin.products.create', compact('categories'));
-    }
-
-    public function show()
+    public function create()
     {
-        return view('/admin/products/show');
+        $categories = Category::all();
+        return view('admin.products.create', compact('categories'));
     }
 
     public function store(Request $request)
     {
-
-        // Validation
         $request->validate([
             'name' => 'required',
             'image' => 'required|image',
             'price' => 'required|numeric',
-            'category_id' => 'required|exists:categories,id',
+            'category_id' => 'required|exists:categories,id', // ✅ Correct validation
             'quantity' => 'required|integer',
             'stock' => 'required|string',
             'is_featured' => 'nullable',
         ]);
 
-        // Store image
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('admin-images/products'), $imageName);
 
-        // Save product
         $product = new Product();
         $product->name = $request->name;
         $product->image = $imageName;
         $product->price = $request->price;
-        $product->category_id = $request->category_id;
+        $product->category_id = $request->category_id; // ✅ Correct column name
         $product->quantity = $request->quantity;
         $product->stock = $request->stock;
         $product->is_featured = $request->is_featured == 'on' ? 1 : 0;
-
-
 
         $product->save();
 
@@ -64,7 +51,8 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        return view('admin.products.edit',compact('product'));
+        $categories = Category::all(); // ✅ Ensure categories are available in the edit view
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     public function update(Request $request, Product $product)
@@ -73,7 +61,7 @@ class ProductController extends Controller
             'name' => 'required',
             'image' => 'nullable|image',
             'price' => 'required|numeric',
-            'category' => 'required|string',
+            'category_id' => 'required|exists:categories,id', // ✅ Fix column name
             'quantity' => 'required|integer',
             'stock' => 'required|string',
             'is_featured' => 'nullable',
@@ -87,7 +75,7 @@ class ProductController extends Controller
 
         $product->name = $request->name;
         $product->price = $request->price;
-//        $product->category = $request->category;
+        $product->category_id = $request->category_id; // ✅ Correct column name
         $product->quantity = $request->quantity;
         $product->stock = $request->stock;
         $product->is_featured = $request->is_featured == 'on' ? 1 : 0;
@@ -97,9 +85,6 @@ class ProductController extends Controller
         return redirect()->route('products')->with('success', 'Product updated successfully.');
     }
 
-
-
-
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
@@ -107,5 +92,4 @@ class ProductController extends Controller
 
         return redirect()->route('products')->with('success', 'Product deleted successfully!');
     }
-
 }

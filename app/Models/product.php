@@ -4,14 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class product extends Model
+class Product extends Model
 {
     protected $table = 'products';
+
     protected $fillable = [
         'name',
         'image',
         'price',
-        'category',
+        'category_id', // ✅ Correct column name
         'quantity',
         'stock',
         'is_featured',
@@ -19,7 +20,6 @@ class product extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'category_id', 'id');
+        return $this->belongsTo(Category::class, 'category_id', 'id'); // ✅ Correct relation
     }
-
 }

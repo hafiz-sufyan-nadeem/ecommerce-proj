@@ -9,24 +9,26 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-
-            $table->unsignedBigInteger('category_id')->nullable()->after('price');
-
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-        });
+        if (!Schema::hasColumn('products', 'category_id')) {
+            Schema::table('products', function (Blueprint $table) {
+                $table->unsignedBigInteger('category_id')->nullable()->after('price');
+            });
+        }
     }
+
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign(['category_id']);
-            $table->dropColumn('category_id');
-        });
+        if (Schema::hasColumn('products', 'category_id')) {
+            Schema::table('products', function (Blueprint $table) {
+                $table->dropColumn('category_id');
+            });
+        }
     }
+
 };
