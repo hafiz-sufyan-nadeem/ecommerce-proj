@@ -75,7 +75,7 @@ class ProductController extends Controller
 
         $product->name = $request->name;
         $product->price = $request->price;
-        $product->category_id = $request->category_id; // ✅ Correct column name
+        $product->category_id = $request->category_id;
         $product->quantity = $request->quantity;
         $product->stock = $request->stock;
         $product->is_featured = $request->is_featured == 'on' ? 1 : 0;
