@@ -61,7 +61,7 @@ class ProductController extends Controller
             'name' => 'required',
             'image' => 'nullable|image',
             'price' => 'required|numeric',
-            'category_id' => 'required|exists:categories,id', // ✅ Fix column name
+            'category_id' => 'required|exists:categories,id',
             'quantity' => 'required|integer',
             'stock' => 'required|string',
             'is_featured' => 'nullable',
