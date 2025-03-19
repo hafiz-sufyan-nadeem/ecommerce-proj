@@ -12,7 +12,7 @@ class Product extends Model
         'name',
         'image',
         'price',
-        'category_id', // ✅ Correct column name
+        'category_id',
         'quantity',
         'stock',
         'is_featured',
