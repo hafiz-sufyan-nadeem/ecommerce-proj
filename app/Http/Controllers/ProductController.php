@@ -51,7 +51,7 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        $categories = Category::all(); // ✅ Ensure categories are available in the edit view
+        $categories = Category::all();
         return view('admin.products.edit', compact('product', 'categories'));
     }
 
