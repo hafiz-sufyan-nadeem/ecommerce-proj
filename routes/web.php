@@ -114,6 +114,8 @@ Route::prefix('admin')->group(function () {
 //checkout-Auth
 Route::group(['middleware'=>['checkout-auth']], function () {
     Route::get('checkout', [CheckoutController::class, 'checkout'])->name('checkout');
+    Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+
 });
 
 //  WEBSITE FOLDER ROUTES Home
