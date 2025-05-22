@@ -566,7 +566,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="firstName"> <strong>First name:</strong> </label>
-                        <input type="name" class="form-control" placeholder="{{$user->name}}">
+                        <input type="text" name="first_name" class="form-control" placeholder="{{$user->name}}">
                     </div>
 
                     <div class="col-md-6 mb-3">
