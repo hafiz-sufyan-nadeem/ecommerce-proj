@@ -414,7 +414,7 @@
                                           <span>(222)</span>
                                       </div>
                                       <div class="d-flex justify-content-center align-items-center gap-2">
-                                          <del>$24.00</del>
+                                          <del>Rs 4000</del>
                                           <span class="text-dark fw-semibold">{{$product->price}}</span>
                                           <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
                                       </div>
