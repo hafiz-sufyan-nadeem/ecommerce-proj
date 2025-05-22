@@ -566,12 +566,12 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="firstName"> <strong>First name:</strong> </label>
-                        <input type="text" name="first_name" class="form-control" placeholder="{{$user->name}}">
+                        <input type="text" name="name" class="form-control" placeholder="{{$user->name}}">
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <label for="lastName"> <strong>Last name:</strong> </label>
-                        <input type="last_name" class="form-control" placeholder="{{$user->last_name}}">
+                        <input type="text" name="last_name" class="form-control" placeholder="{{$user->last_name}}">
                     </div>
                 </div>
 
@@ -579,7 +579,7 @@
 
                 <div class="mb-3">
                     <label for="email"> <strong>Email:</strong> </label>
-                    <input type="email" class="form-control" id="email" placeholder="{{$user->email}}">
+                    <input type="email" name="email" class="form-control" id="email" placeholder="{{$user->email}}">
                     <div class="invalid-feedback">
                         Please enter a valid email address For shipping updates.
                     </div>
@@ -587,21 +587,21 @@
 
                 <div class="mb-3">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                    <input type="text" name="address" class="form-control" id="address" placeholder="1234 Main St" required>
                     <div class="invalid-feedback">
                         Please enter your shipping address.
                     </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-                    <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-                </div>
+{{--                <div class="mb-3">--}}
+{{--                    <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>--}}
+{{--                    <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">--}}
+{{--                </div>--}}
 
                 <div class="row">
                     <div class="col-md-5 mb-3">
                         <label for="country">Country</label>
-                        <select class="custom-select d-block w-100" id="country" required>
+                        <select class="custom-select d-block w-100" name="country" required>
                             <option value="">Choose...</option>
                             <option>Pakistan</option>
                             <option>United States</option>
@@ -651,22 +651,22 @@
 
                 <div class="d-block my-3">
                     <div class="custom-control custom-radio">
-                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                        <input id="credit" name="paymentMethod" type="radio" value="Credit Card" class="custom-control-input" checked>
                         <label class="custom-control-label" for="credit">Credit card</label>
                     </div>
                     <div class="custom-control custom-radio">
-                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                        <input id="debit" name="payment_method" type="radio" value="Debit Card" class="custom-control-input">
                         <label class="custom-control-label" for="debit">Debit card</label>
                     </div>
                     <div class="custom-control custom-radio">
-                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                        <input id="paypal" name="payment_method" type="radio" value="PayPal" class="custom-control-input">
                         <label class="custom-control-label" for="paypal">PayPal</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="cc-name">Name on card</label>
-                        <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                        <input type="text" name="card_name" class="form-control" required>
                         <small class="text-muted">Full name as displayed on card</small>
                         <div class="invalid-feedback">
                             Name on card is required
@@ -674,7 +674,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="cc-number">Credit card number</label>
-                        <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                        <input type="text" name="card_number" class="form-control" required>
                         <div class="invalid-feedback">
                             Credit card number is required
                         </div>
@@ -683,14 +683,14 @@
                 <div class="row">
                     <div class="col-md-3 mb-3">
                         <label for="cc-expiration">Expiration</label>
-                        <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                        <input type="text" name="card_expiration" class="form-control" required>
                         <div class="invalid-feedback">
                             Expiration date required
                         </div>
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="cc-cvv">CVV</label>
-                        <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                        <input type="text" name="card_cvv" class="form-control" required>
                         <div class="invalid-feedback">
                             Security code required
                         </div>
