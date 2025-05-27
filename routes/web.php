@@ -114,7 +114,7 @@ Route::prefix('admin')->group(function () {
 //checkout-Auth
 Route::group(['middleware'=>['checkout-auth']], function () {
     Route::get('checkout', [CheckoutController::class, 'checkout'])->name('checkout');
-    Route::post('/checkout/store', [CheckoutController::class, 'store'])->name('checkout.store');
+    Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 
 });
 
@@ -131,4 +131,3 @@ Route::post('delete-item', [CartItemController::class, 'deleteItem'])->name('del
 
 Route::post('apply-promo-code', [PromoController::class, 'applyPromoCode'])->name('apply.promo.code');
 
-Route::post('/place-order', [OrderController::class, 'store'])->name('order.store');

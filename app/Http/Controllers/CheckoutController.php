@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Support\Facades\Log;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\CartItem;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 
 class CheckoutController extends Controller
@@ -36,6 +38,9 @@ class CheckoutController extends Controller
 
     public function store(Request $request)
     {
+        $cartItems = CartItem::where('user_id', Auth::id())->get();
+        $totalPrice = $cartItems->sum('total_price');
+
         Log::info('Order Request Data:', $request->all());
 
         $request->validate([
@@ -63,6 +68,7 @@ class CheckoutController extends Controller
             'card_number' => $request->card_number,
             'card_expiration' => $request->card_expiration,
             'card_cvv' => $request->card_cvv,
+            'total_price' => $totalPrice,
         ]);
 
         return redirect()->back()->with('success', 'Order placed successfully!');
