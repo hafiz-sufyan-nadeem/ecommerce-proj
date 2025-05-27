@@ -560,7 +560,7 @@
         </div>
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Billing address</h4>
-            <form action="{{ route('order.store') }}" method="POST">
+            <form action="{{ route('checkout.store') }}" method="POST">
                 @csrf
 
                 <div class="row">
