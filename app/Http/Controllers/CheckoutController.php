@@ -20,9 +20,9 @@ class CheckoutController extends Controller
             return redirect()->back()->with('error', 'Your Cart is empty.');
         }
 
-        $products = $cartItems->pluck('product'); // Prroducts ki info le raha
+        $products = $cartItems->pluck('product');
 
-        $totalPrice = $cartItems->sum('total_price'); // Price Total
+        $totalPrice = $cartItems->sum('total_price');
 
         return view('website.checkout',[
             'user' => $user,
@@ -34,6 +34,8 @@ class CheckoutController extends Controller
 
     public function store(Request $request)
     {
+        Log::info('Order Request Data:', $request->all());
+
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
@@ -48,12 +50,11 @@ class CheckoutController extends Controller
         ]);
 
         Order::create([
-            'user_id' => Auth::id(),  // assuming user login hai
-            'first_name' => $request->first_name,
+            'user_id' => Auth::id(),
+            'first_name' => $request->name,
             'last_name' => $request->last_name,
             'email' => $request->email,
             'address' => $request->address,
-            'address2' => $request->address2,
             'country' => $request->country,
             'payment_method' => $request->payment_method,
             'card_name' => $request->card_name,
