@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\CartItem;
 use App\Models\Product;
@@ -37,7 +38,7 @@ class CheckoutController extends Controller
         Log::info('Order Request Data:', $request->all());
 
         $request->validate([
-            'first_name' => 'required',
+            'name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email',
             'address' => 'required',
@@ -51,7 +52,7 @@ class CheckoutController extends Controller
 
         Order::create([
             'user_id' => Auth::id(),
-            'first_name' => $request->name,
+            'name' => $request->name,
             'last_name' => $request->last_name,
             'email' => $request->email,
             'address' => $request->address,
