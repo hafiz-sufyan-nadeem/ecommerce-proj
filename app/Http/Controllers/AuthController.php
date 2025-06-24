@@ -78,12 +78,12 @@ class AuthController extends Controller
         $annualEarnings = Order::whereYear('created_at', now()->year)
             ->sum('total_price');
 
-//        $pendingOrders = Order::where('status', 'pending')->count();
+        $pendingOrders = Order::where('status', 'pending')->count();
 
         return view('admin.dashboard', [
             'monthlyEarnings' => $monthlyEarnings,
             'annualEarnings' => $annualEarnings,
-//            'pendingOrders' => $pendingOrders
+            'pendingOrders' => $pendingOrders
         ]);
     }
 

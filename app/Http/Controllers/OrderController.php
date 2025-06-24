@@ -19,12 +19,11 @@ class OrderController extends Controller
         // Order Create Karein
         $order = new Order();
         $order->user_id = auth()->id();
-        $order->total_price = session('cart_total'); // Total price session se lein
+        $order->total_price = session('cart_total');
         $order->address = $request->address;
         $order->payment_method = $request->paymentMethod;
         $order->save();
 
-        // Redirect with success message
         return redirect()->route('thankyou')->with('success', 'Your order has been placed successfully!');
     }
 }
