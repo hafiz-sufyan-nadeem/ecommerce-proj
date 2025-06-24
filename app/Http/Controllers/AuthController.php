@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Session;
+use App\Models\Order;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -70,8 +72,21 @@ class AuthController extends Controller
 
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $monthlyEarnings = Order::whereMonth('created_at', now()->month)
+            ->sum('total_price');
+
+        $annualEarnings = Order::whereYear('created_at', now()->year)
+            ->sum('total_price');
+
+//        $pendingOrders = Order::where('status', 'pending')->count();
+
+        return view('admin.dashboard', [
+            'monthlyEarnings' => $monthlyEarnings,
+            'annualEarnings' => $annualEarnings,
+//            'pendingOrders' => $pendingOrders
+        ]);
     }
+
 
 
     public function create(array $data)
