@@ -131,4 +131,4 @@ Route::post('delete-item', [CartItemController::class, 'deleteItem'])->name('del
 
 Route::post('apply-promo-code', [PromoController::class, 'applyPromoCode'])->name('apply.promo.code');
 
-Route::get('/admin/orders,',[OrderController::class,'index'])->name('admin.orders.index');
+Route::get('/orders', [\App\Http\Controllers\Admin\OrderController::class, 'index'])->name('admin.orders');
