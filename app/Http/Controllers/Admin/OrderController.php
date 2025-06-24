@@ -14,4 +14,18 @@ class OrderController extends Controller
 
         return view('admin.orders', compact('orders'));
     }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|in:pending,completed,cancelled'
+        ]);
+
+        $order = Order::findOrFail($id);
+        $order->status = $request->status;
+        $order->save();
+
+        return back()->with('success', 'Order status updated successfully!');
+    }
+
 }

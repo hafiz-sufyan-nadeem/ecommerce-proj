@@ -132,3 +132,4 @@ Route::post('delete-item', [CartItemController::class, 'deleteItem'])->name('del
 Route::post('apply-promo-code', [PromoController::class, 'applyPromoCode'])->name('apply.promo.code');
 
 Route::get('/orders', [\App\Http\Controllers\Admin\OrderController::class, 'index'])->name('admin.orders');
+Route::put('/admin/orders/{id}/update-status', [\App\Http\Controllers\Admin\OrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
