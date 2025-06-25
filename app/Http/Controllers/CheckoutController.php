@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\CartItem;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
+use App\Models\OrderItem;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -38,11 +39,6 @@ class CheckoutController extends Controller
 
     public function store(Request $request)
     {
-        $cartItems = CartItem::where('user_id', Auth::id())->get();
-        $totalPrice = $cartItems->sum('total_price');
-
-        Log::info('Order Request Data:', $request->all());
-
         $request->validate([
             'name' => 'required',
             'last_name' => 'required',
@@ -56,7 +52,10 @@ class CheckoutController extends Controller
             'card_cvv' => 'required',
         ]);
 
-        Order::create([
+        $cartItems = CartItem::where('user_id', Auth::id())->get();
+        $totalPrice = $cartItems->sum('total_price');
+
+        $order = Order::create([
             'user_id' => Auth::id(),
             'name' => $request->name,
             'last_name' => $request->last_name,
@@ -71,8 +70,19 @@ class CheckoutController extends Controller
             'total_price' => $totalPrice,
         ]);
 
-        return redirect()->back()->with('success', 'Order placed successfully!');
+        foreach ($cartItems as $item) {
+            OrderItem::create([
+                'order_id' => $order->id,
+                'product_id' => $item->product_id,
+                'quantity' => $item->quantity,
+                'price' => $item->price,
+                'total_price' => $item->total_price,
+            ]);
+        }
+
+        return redirect()->route('thankyou')->with('success', 'Order placed successfully!');
     }
+
 
 
 }
