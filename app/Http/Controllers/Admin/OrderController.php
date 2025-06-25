@@ -8,12 +8,17 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $orders = Order::latest()->get();
+        $status = $request->query('status');
 
-        return view('admin.orders', compact('orders'));
+        $orders = Order::when($status, function ($query, $status) {
+            return $query->where('status', $status);
+        })->latest()->get();
+
+        return view('admin.orders', compact('orders', 'status'));
     }
+
 
     public function updateStatus(Request $request, $id)
     {

@@ -7,6 +7,14 @@
         <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="table-responsive">
+
+                    <div class="mb-3">
+                        <a href="{{ route('admin.orders') }}" class="btn btn-secondary btn-sm {{ $status == null ? 'active' : '' }}">All</a>
+                        <a href="{{ route('admin.orders', ['status' => 'pending']) }}" class="btn btn-warning btn-sm {{ $status == 'pending' ? 'active' : '' }}">Pending</a>
+                        <a href="{{ route('admin.orders', ['status' => 'completed']) }}" class="btn btn-success btn-sm {{ $status == 'completed' ? 'active' : '' }}">Completed</a>
+                        <a href="{{ route('admin.orders', ['status' => 'cancelled']) }}" class="btn btn-danger btn-sm {{ $status == 'cancelled' ? 'active' : '' }}">Cancelled</a>
+                    </div>
+
                     <table class="table table-bordered" width="100%" cellspacing="0">
                         <thead>
                         <tr>
