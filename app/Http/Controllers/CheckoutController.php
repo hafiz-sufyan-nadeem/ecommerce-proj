@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use App\Models\CartItem;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
-use App\Models\OrderItem;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -52,8 +51,21 @@ class CheckoutController extends Controller
             'card_cvv' => 'required',
         ]);
 
-        $cartItems = CartItem::where('user_id', Auth::id())->get();
+        $cartItems = CartItem::where('user_id', Auth::id())->with('product')->get();
         $totalPrice = $cartItems->sum('total_price');
+
+        if ($cartItems->isEmpty()) {
+            return back()->with('error', 'Cart is empty!');
+        }
+
+        $cartSnapshot = $cartItems->map(function ($item) {
+            return [
+                'product_name' => $item->product->name ?? 'N/A',
+                'quantity' => $item->quantity,
+                'price' => $item->price,
+                'total' => $item->total_price
+            ];
+        })->toArray(); // <-- ye zaroori hai
 
         $order = Order::create([
             'user_id' => Auth::id(),
@@ -68,21 +80,11 @@ class CheckoutController extends Controller
             'card_expiration' => $request->card_expiration,
             'card_cvv' => $request->card_cvv,
             'total_price' => $totalPrice,
+            'cart_items' => json_encode($cartSnapshot),
         ]);
-
-        foreach ($cartItems as $item) {
-            OrderItem::create([
-                'order_id' => $order->id,
-                'product_id' => $item->product_id,
-                'quantity' => $item->quantity,
-                'price' => $item->price,
-                'total_price' => $item->total_price,
-            ]);
-        }
 
         return redirect()->route('thankyou')->with('success', 'Order placed successfully!');
     }
-
 
 
 }

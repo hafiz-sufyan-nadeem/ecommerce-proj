@@ -134,3 +134,4 @@ Route::post('apply-promo-code', [PromoController::class, 'applyPromoCode'])->nam
 Route::get('/orders', [\App\Http\Controllers\Admin\OrderController::class, 'index'])->name('admin.orders');
 Route::put('/admin/orders/{id}/update-status', [\App\Http\Controllers\Admin\OrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
 Route::get('/admin/orders/{order}', [\App\Http\Controllers\Admin\OrderController::class, 'show'])->name('admin.orders.show');
+Route::view('/thankyou', 'admin.orders.thankyou')->name('thankyou');

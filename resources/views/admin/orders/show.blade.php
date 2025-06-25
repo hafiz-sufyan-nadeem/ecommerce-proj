@@ -12,12 +12,42 @@
                 <p><strong>Country:</strong> {{ $order->country }}</p>
                 <p><strong>Payment:</strong> {{ $order->payment_method }}</p>
                 <p><strong>Total Price:</strong> PKR {{ number_format($order->total_price) }}</p>
+
+                <h5 class="mt-4">Ordered Items:</h5>
+
+                @php
+                    $cartItems = json_decode($order->cart_items ?? '[]', true);
+                @endphp
+
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @forelse($cartItems as $item)
+                        <tr>
+                            <td>{{ $item['product_name'] }}</td>
+                            <td>{{ $item['quantity'] }}</td>
+                            <td>PKR {{ number_format($item['price']) }}</td>
+                            <td>PKR {{ number_format($item['total']) }}</td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="4" class="text-center">No items found.</td>
+                        </tr>
+                    @endforelse
+                    </tbody>
+                </table>
+
                 <p><strong>Status:</strong> {{ ucfirst($order->status) }}</p>
                 <p><strong>Placed On:</strong> {{ $order->created_at->format('d M Y h:i A') }}</p>
             </div>
         </div>
-
-
 
         <a href="{{ route('admin.orders') }}" class="btn btn-secondary">← Back to Orders</a>
     </div>
