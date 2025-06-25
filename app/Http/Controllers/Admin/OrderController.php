@@ -16,9 +16,8 @@ class OrderController extends Controller
             return $query->where('status', $status);
         })->latest()->get();
 
-        return view('admin.orders', compact('orders', 'status'));
+        return view('admin.orders.index', compact('orders', 'status'));
     }
-
 
     public function updateStatus(Request $request, $id)
     {
@@ -33,4 +32,8 @@ class OrderController extends Controller
         return back()->with('success', 'Order status updated successfully!');
     }
 
+    public function show(Order $order)
+    {
+        return view("admin.orders.show", compact('order'));
+    }
 }

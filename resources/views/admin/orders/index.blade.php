@@ -27,6 +27,7 @@
                             <th>Date</th>
                             <th>Status</th>
                             <th>Action</th>
+                            <th>View</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -62,6 +63,9 @@
                                             <option value="cancelled" {{ $order->status == 'cancelled' ? 'selected' : '' }}>Cancelled</option>
                                         </select>
                                     </form>
+                                </td>
+                                <td>
+                                    <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-sm btn-info">View</a>
                                 </td>
 
                             </tr>
