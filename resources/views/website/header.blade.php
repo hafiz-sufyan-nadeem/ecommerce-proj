@@ -48,6 +48,8 @@
                     <li class="nav-item active">
                         <a href="index.html" class="nav-link">Home</a>
                     </li>
+                    <a href="{{ route('user.orders') }}">My Orders</a>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle pe-3" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
                         <ul class="dropdown-menu border-0 p-3 rounded-0 shadow" aria-labelledby="pages">
