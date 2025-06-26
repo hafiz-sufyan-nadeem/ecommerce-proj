@@ -12,6 +12,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PromoController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserOrderController;
+use App\Http\Controllers\UserController;
 
 
 
@@ -128,4 +129,4 @@ Route::view('/thankyou', 'admin.orders.thankyou')->name('thankyou');
 
 Route::get('/my-orders',[UserOrderController::class, 'index'])->name('user.orders')->middleware('auth');
 
-Route::get('/profile', [UserController::class, 'profile'])->name('user.profile')->middleware('auth');
+Route::get('/profile', [UserController::class, 'profile'])->name('users.profile')->middleware('auth');

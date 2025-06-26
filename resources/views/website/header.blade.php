@@ -75,7 +75,7 @@
                     <li>
                         @auth
                             <div class="d-flex align-items-center">
-                                <a href="#" class="p-2 mx-1">
+                                <a href="{{ route('users.profile') }}" class="p-2 mx-1">
                                     <svg width="24" height="24"><use xlink:href="#user"></use></svg>
                                 </a>
                                 <a class="btn btn-primary ms-2" style="background: #e74a3b" href="{{route('logout')}}">
