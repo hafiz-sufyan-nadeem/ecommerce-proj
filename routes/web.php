@@ -11,6 +11,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PromoController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserOrderController;
 
 
 
@@ -79,33 +80,23 @@ Route::prefix('admin')->group(function () {
 
         //catgeory
         Route::get('/categories', [CategoryController::class, 'index'])->name('admin.categories');
-
         Route::get('/categories/create', [CategoryController::class, 'create'])->name('admin.categories.create');
-
         Route::get('/categories/edit/{category}', [CategoryController::class, 'edit'])->name('admin.categories.edit');
-
         Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('admin.categories.update');
-
         Route::get('/categories/show/{category}', [CategoryController::class, 'show'])->name('admin.categories.show');
-
         Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy');
-
         Route::post('/categories/store', [CategoryController::class, 'store'])->name('admin.categories.store');
 
         //blogs
         Route::get('/blogs',[BlogController::class, 'index'])->name('admin.blogs');
-
         Route::get('/blogs/create', [BlogController::class, 'create'])->name('admin.blogs.create');
-
         Route::get('/blogs/edit/{blog}', [BlogController::class, 'edit'])->name('admin.blogs.edit');
-
         Route::put('/blogs/{blog}', [BlogController::class, 'update'])->name('admin.blogs.update');
-
         Route::get('/blogs/show/{blog}', [BlogController::class, 'show'])->name('admin.blogs.show');
-
         Route::delete('/blogs/{id}', [BlogController::class, 'destroy'])->name('admin.blogs.destroy');
-
         Route::post('/blogs/store', [BlogController::class, 'store'])->name('admin.blogs.store');
+
+        Route::get('/orders', [\App\Http\Controllers\Admin\OrderController::class, 'index'])->name('admin.orders');
 
     });
 
@@ -131,7 +122,8 @@ Route::post('delete-item', [CartItemController::class, 'deleteItem'])->name('del
 
 Route::post('apply-promo-code', [PromoController::class, 'applyPromoCode'])->name('apply.promo.code');
 
-Route::get('/orders', [\App\Http\Controllers\Admin\OrderController::class, 'index'])->name('admin.orders');
 Route::put('/admin/orders/{id}/update-status', [\App\Http\Controllers\Admin\OrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
 Route::get('/admin/orders/{order}', [\App\Http\Controllers\Admin\OrderController::class, 'show'])->name('admin.orders.show');
 Route::view('/thankyou', 'admin.orders.thankyou')->name('thankyou');
+
+Route::get('/my-orders',[UserOrderController::class, 'index'])->name('user.orders')->middleware('auth');
