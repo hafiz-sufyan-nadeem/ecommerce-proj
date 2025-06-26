@@ -127,3 +127,5 @@ Route::get('/admin/orders/{order}', [\App\Http\Controllers\Admin\OrderController
 Route::view('/thankyou', 'admin.orders.thankyou')->name('thankyou');
 
 Route::get('/my-orders',[UserOrderController::class, 'index'])->name('user.orders')->middleware('auth');
+
+Route::get('/profile', [UserController::class, 'profile'])->name('user.profile')->middleware('auth');
