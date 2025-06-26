@@ -65,7 +65,7 @@ class CheckoutController extends Controller
                 'price' => $item->price,
                 'total' => $item->total_price
             ];
-        })->toArray(); // <-- ye zaroori hai
+        })->toArray();
 
         $order = Order::create([
             'user_id' => Auth::id(),
@@ -80,8 +80,11 @@ class CheckoutController extends Controller
             'card_expiration' => $request->card_expiration,
             'card_cvv' => $request->card_cvv,
             'total_price' => $totalPrice,
-            'cart_items' => json_encode($cartSnapshot),
+            'cart_items' => json_encode($cartSnapshot),    //Ye PHP ka array (jo ek full cart snapshot hai) ko JSON string me convert karta hai, taake hum usse ek TEXT column me database me save kar saken.
+            //Baad me usse json_decode karke dobara array bana ke show kar lete hain.
         ]);
+
+        CartItem::where('user_id', Auth::id())->delete();
 
         return redirect()->route('thankyou')->with('success', 'Order placed successfully!');
     }
