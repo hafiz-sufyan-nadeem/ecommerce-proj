@@ -13,6 +13,7 @@ use App\Http\Controllers\PromoController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserOrderController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReviewController;
 
 
 
@@ -130,3 +131,7 @@ Route::view('/thankyou', 'admin.orders.thankyou')->name('thankyou');
 Route::get('/my-orders',[UserOrderController::class, 'index'])->name('user.orders')->middleware('auth');
 
 Route::get('/profile', [UserController::class, 'profile'])->name('users.profile')->middleware('auth');
+
+Route::post('/reviews',[ReviewController::class, 'store'])->name('reviews.store')->middleware('auth');
+Route::get('/product/{id}', [HomeController::class, 'productDetail'])->name('product.detail');
+Route::delete('/reviews/{id}',[ReviewController::class, 'destroy'])->name('reviews.destroy')->middleware('auth');

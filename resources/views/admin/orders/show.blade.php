@@ -52,17 +52,5 @@
         <a href="{{ route('admin.orders') }}" class="btn btn-secondary">← Back to Orders</a>
     </div>
 
-    <form action="{{ route('reviews.store') }}" method="POST">
-        @csrf
-        <input type="hidden" name="product_id" value="{{ $product->id }}">
-
-        <label>Rating (1-5):</label>
-        <input type="number" name="rating" min="1" max="5" required>
-
-        <label>Your Review:</label>
-        <textarea name="review" required></textarea>
-
-        <button type="submit">Submit Review</button>
-    </form>
 
 @endsection

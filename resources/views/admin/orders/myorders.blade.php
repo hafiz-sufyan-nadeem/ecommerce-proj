@@ -39,4 +39,5 @@
             <p class="text-muted">No orders found.</p>
         @endforelse
     </div>
+
 @endsection

@@ -44,5 +44,17 @@ class HomeController extends Controller
             'featured_products' => $featured_products,
         ]);
     }
+
+    public function productDetail($id)
+    {
+        $product = Product::with('reviews.user')->find($id);
+
+        if (!$product) {
+            abort(404);
+        }
+
+        return view('website.product-detail', compact('product'));
+    }
+
 }
 

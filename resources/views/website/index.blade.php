@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/vendor.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/style.css')}}">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
@@ -528,9 +528,11 @@
                 <div class="product-item swiper-slide">
                   <figure>
 
-                    <a href="index.html" title="Product Title">
-                      <img src="{{asset('/admin-images/products/'.$product->image)}}" alt="Product Thumbnail" class="tab-image" style="width: 186px; height:200px;">
-                    </a>
+                      <a href="{{ route('product.detail', $product->id) }}" style="text-decoration: none;">
+                          <img src="{{ asset('admin-images/products/' . $product->image) }}" alt="{{ $product->name }}">
+                          <h5>{{ $product->name }}</h5>
+                      </a>
+
 
                   </figure>
                   <div class="d-flex flex-column text-center">
