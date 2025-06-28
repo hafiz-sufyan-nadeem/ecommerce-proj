@@ -20,6 +20,11 @@ class Product extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'category_id', 'id'); // ✅ Correct relation
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany('reviews', 'product_id', 'id');
     }
 }
