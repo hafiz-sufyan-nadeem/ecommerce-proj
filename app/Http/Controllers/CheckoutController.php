@@ -60,6 +60,7 @@ class CheckoutController extends Controller
 
         $cartSnapshot = $cartItems->map(function ($item) {
             return [
+                'product_id' => $item->product->id ?? null,
                 'product_name' => $item->product->name ?? 'N/A',
                 'quantity' => $item->quantity,
                 'price' => $item->price,
