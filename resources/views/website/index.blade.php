@@ -397,8 +397,9 @@
                           <div class="col">
                               <div class="product-item">
                                   <figure>
-                                      <a href="index.html" title="Product Title">
-                                          <img src="{{asset('admin-images/products/'. $product->image)}}" alt="product image" class="img-fluid">
+                                      <a href="{{ route('product.detail', $product->id) }}" style="text-decoration: none;">
+                                          <img src="{{ asset('admin-images/products/' . $product->image) }}" alt="{{ $product->name }}" style="width: 210px" height="210px">
+                                          <h5>{{ $product->name }}</h5>
                                       </a>
                                   </figure>
                                   <div class="d-flex flex-column text-center">
@@ -527,13 +528,10 @@
 
                 <div class="product-item swiper-slide">
                   <figure>
-
                       <a href="{{ route('product.detail', $product->id) }}" style="text-decoration: none;">
-                          <img src="{{ asset('admin-images/products/' . $product->image) }}" alt="{{ $product->name }}">
+                          <img src="{{ asset('admin-images/products/' . $product->image) }}" alt="{{ $product->name }}" style="width: 210px" height="210px">
                           <h5>{{ $product->name }}</h5>
                       </a>
-
-
                   </figure>
                   <div class="d-flex flex-column text-center">
                     <h3 class="fs-6 fw-normal">{{$product->name}}</h3>
@@ -651,9 +649,10 @@
                   @foreach($products as $product)
                 <div class="product-item swiper-slide">
                   <figure>
-                    <a href="index.html" title="Product Title">
-                      <img src="{{asset('/admin-images/products/' .$product->image)}}" alt="Product Thumbnail" class="tab-image" style="width: 210px; height: 210px";>
-                    </a>
+                      <a href="{{ route('product.detail', $product->id) }}" style="text-decoration: none;">
+                          <img src="{{ asset('admin-images/products/' . $product->image) }}" alt="{{ $product->name }}" style="width: 210px" height="210px">
+                          <h5>{{ $product->name }}</h5>
+                      </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
                     <h3 class="fs-6 fw-normal">{{$product->name}}</h3>
@@ -731,9 +730,10 @@
                   @foreach($just_arrived_products as $product)
                 <div class="product-item swiper-slide">
                   <figure>
-                    <a href="index.html" title="Product Title">
-                      <img src="{{asset('admin-images/products/' .$product->image)}}" alt="Product Thumbnail" class="tab-image" style="width: 210px; height: 200px";>
-                    </a>
+                      <a href="{{ route('product.detail', $product->id) }}" style="text-decoration: none;">
+                          <img src="{{ asset('admin-images/products/' . $product->image) }}" alt="{{ $product->name }}" style="width: 210px" height="210px">
+                          <h5>{{ $product->name }}</h5>
+                      </a>
                   </figure>
                   <div class="d-flex flex-column text-center">
                     <h3 class="fs-6 fw-normal">{{$product->name}}</h3>
