@@ -577,7 +577,19 @@
 
 
                               </div>
-                              <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
+                              @auth
+                                  <form method="POST" action="{{ route('wishlist.store') }}">
+                                      @csrf
+                                      <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                      <button type="submit" class="btn btn-outline-dark rounded-1 p-2 fs-6">
+                                          <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
+                                      </button>
+                                  </form>
+                              @else
+                                  <a href="{{ route('login') }}" class="btn btn-outline-dark rounded-1 p-2 fs-6">
+                                      <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
+                                  </a>
+                              @endauth
                           </div>
                       </div>
                   </div>

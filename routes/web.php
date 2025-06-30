@@ -14,6 +14,8 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserOrderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\WishListController;
+
 
 
 
@@ -98,6 +100,7 @@ Route::prefix('admin')->group(function () {
         Route::delete('/blogs/{id}', [BlogController::class, 'destroy'])->name('admin.blogs.destroy');
         Route::post('/blogs/store', [BlogController::class, 'store'])->name('admin.blogs.store');
 
+        //Admin Order
         Route::get('/orders', [\App\Http\Controllers\Admin\OrderController::class, 'index'])->name('admin.orders');
 
     });
@@ -124,14 +127,25 @@ Route::post('delete-item', [CartItemController::class, 'deleteItem'])->name('del
 
 Route::post('apply-promo-code', [PromoController::class, 'applyPromoCode'])->name('apply.promo.code');
 
+// ADMIN ORDERS
 Route::put('/admin/orders/{id}/update-status', [\App\Http\Controllers\Admin\OrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
 Route::get('/admin/orders/{order}', [\App\Http\Controllers\Admin\OrderController::class, 'show'])->name('admin.orders.show');
 Route::view('/thankyou', 'admin.orders.thankyou')->name('thankyou');
+
 
 Route::get('/my-orders',[UserOrderController::class, 'index'])->name('user.orders')->middleware('auth');
 
 Route::get('/profile', [UserController::class, 'profile'])->name('users.profile')->middleware('auth');
 
+// USER REVIEW
 Route::post('/reviews',[ReviewController::class, 'store'])->name('reviews.store')->middleware('auth');
 Route::get('/product/{id}', [HomeController::class, 'productDetail'])->name('product.detail');
 Route::delete('/reviews/{id}',[ReviewController::class, 'destroy'])->name('reviews.destroy')->middleware('auth');
+
+
+// WISHLISTS
+Route::middleware('auth')->group(function () {
+   Route::get('/wishlist', [WishListController::class, 'index'])->name('wishlist.index');
+   Route::post('/wishlist', [WishListController::class, 'store'])->name('wishlist.store');
+   Route::delete('wishlist/{id}', [WishListController::class, 'destroy'])->name('wishlist.destroy');
+});
