@@ -779,7 +779,7 @@
                     </div>
                       <div class="button-area p-3 pt-0">
                           <div class="row g-1 mt-2 products_meta">
-                              <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity selected_quantity" value="1" min="0"></div>
+                              <div class="col-3"><input type="nrumber" name="quantity" class="form-control border-dark-subtle input-number quantity selected_quantity" value="1" min="0"></div>
                               <div class="col-7">
                                   @auth
                                       <a data-productId="{{$product->id}}" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart add_cart" ><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a>
