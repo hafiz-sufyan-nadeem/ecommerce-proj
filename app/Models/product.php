@@ -33,4 +33,9 @@ class Product extends Model
         return $this->reviews()->avg('rating');
     }
 
+    public function wishlists()
+    {
+        return $this->hasMany(wishlist::class);
+    }
+
 }

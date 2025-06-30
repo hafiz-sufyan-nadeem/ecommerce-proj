@@ -58,4 +58,9 @@ class User extends Authenticatable
         return $this->hasMany(Review::class, 'user_id');
     }
 
+    public function wishlists()
+    {
+        return $this->hasMany(wishlist::class);
+    }
+
 }
