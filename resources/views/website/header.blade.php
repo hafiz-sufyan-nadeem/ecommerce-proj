@@ -89,19 +89,42 @@
                             </a>
                         @endauth
                     </li>
+
+                    @auth
+                        <li class="nav-item">
+                            <a href="{{ route('wishlist.index') }}" class="p-2 mx-1 position-relative">
+                                <svg width="24" height="24" fill="currentColor" class="bi bi-bookmark-heart">
+                                    <use xlink:href="#heart"></use>
+                                </svg>
+                                {{-- count badge (optional) --}}
+                                @php $count = \App\Models\Wishlist::where('user_id', auth()->id())->count(); @endphp
+                                @if($count)
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                {{ $count }}
+                                    </span>
+                                @endif
+                            </a>
+                        </li>
+                    @endauth
+
+
+                    @php
+                        $cartCount = auth()->check()
+                            ? \App\Models\CartItem::where('user_id', auth()->id())->sum('quantity')
+                            : 0;
+                    @endphp
                     <li>
-                        <a href="#" class="p-2 mx-1">
-                            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bookmark-heart" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
-                                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="p-2 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                        <a href="#" class="p-2 mx-1 position-relative"
+                           data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+                           aria-controls="offcanvasCart">
                             <svg width="24" height="24" class="text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 25">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
                             </svg>
+                            @if($cartCount)
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{ $cartCount }}
+                                </span>
+                            @endif
                         </a>
                     </li>
                 </ul>
