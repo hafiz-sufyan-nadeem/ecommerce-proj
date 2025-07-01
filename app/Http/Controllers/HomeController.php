@@ -73,5 +73,17 @@ class HomeController extends Controller
         return view('website.product-detail', compact('product'));
     }
 
+    public function featuredProducts()
+    {
+        $products = Product::where('is_featured', 1)
+            ->withCount('reviews')
+            ->withAvg('reviews', 'rating')
+            ->orderByDesc('id')
+            ->paginate(12); 
+
+        return view('website.featured-products', compact('products'));
+    }
+
+
 }
 

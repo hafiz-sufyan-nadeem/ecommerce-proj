@@ -596,18 +596,39 @@
                       <div class="button-area p-3 pt-0">
                           <div class="row g-1 mt-2 products_meta">
                               <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity selected_quantity" value="1" min="0"></div>
-                              <div class="col-7">
+
+                              <div class="col-9 d-flex justify-content-between gap-2">
+                                  {{-- ADD TO CART --}}
                                   @auth
-                                      <a data-productId="{{$product->id}}" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart add_cart" ><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a>
+                                      <a  data-productId="{{ $product->id }}"
+                                          class="btn btn-primary rounded-1 p-2 fs-7 add_cart">
+                                          <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
+                                          Add to Cart
+                                      </a>
+                                  @else
+                                      <a href="{{ route('login') }}"
+                                         class="btn btn-primary rounded-1 p-2 fs-7">
+                                          Login
+                                      </a>
                                   @endauth
 
-                                  @guest
-                                      <a href="{{route('login')}}"  class="btn btn-primary rounded-1 p-2 fs-7 btn-cart add_cart" > Login </a>
-                                  @endguest
-
-
+                                  {{-- HEART / WISHLIST --}}
+                                  @auth
+                                      <form method="POST" action="{{ route('wishlist.store') }}">
+                                          @csrf
+                                          <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                          <button type="submit"
+                                                  class="btn btn-outline-dark rounded-1 p-2 fs-6 d-flex align-items-center">
+                                              <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
+                                          </button>
+                                      </form>
+                                  @else
+                                      <a href="{{ route('login') }}"
+                                         class="btn btn-outline-dark rounded-1 p-2 fs-6 d-flex align-items-center">
+                                          <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
+                                      </a>
+                                  @endauth
                               </div>
-                              <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
                           </div>
                       </div>
                   </div>
@@ -616,7 +637,6 @@
 
               </div>
             </div>
-            <!-- / products-carousel -->
 
           </div>
         </div>
@@ -723,18 +743,39 @@
                       <div class="button-area p-3 pt-0">
                           <div class="row g-1 mt-2 products_meta">
                               <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity selected_quantity" value="1" min="0"></div>
-                              <div class="col-7">
+
+                              <div class="col-9 d-flex justify-content-between gap-2">
+                                  {{-- ADD TO CART --}}
                                   @auth
-                                      <a data-productId="{{$product->id}}" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart add_cart" ><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a>
+                                      <a  data-productId="{{ $product->id }}"
+                                          class="btn btn-primary rounded-1 p-2 fs-7 add_cart">
+                                          <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
+                                          Add to Cart
+                                      </a>
+                                  @else
+                                      <a href="{{ route('login') }}"
+                                         class="btn btn-primary rounded-1 p-2 fs-7">
+                                          Login
+                                      </a>
                                   @endauth
 
-                                  @guest
-                                      <a href="{{route('login')}}"  class="btn btn-primary rounded-1 p-2 fs-7 btn-cart add_cart" > Login </a>
-                                  @endguest
-
-
+                                  {{-- HEART / WISHLIST --}}
+                                  @auth
+                                      <form method="POST" action="{{ route('wishlist.store') }}">
+                                          @csrf
+                                          <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                          <button type="submit"
+                                                  class="btn btn-outline-dark rounded-1 p-2 fs-6 d-flex align-items-center">
+                                              <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
+                                          </button>
+                                      </form>
+                                  @else
+                                      <a href="{{ route('login') }}"
+                                         class="btn btn-outline-dark rounded-1 p-2 fs-6 d-flex align-items-center">
+                                          <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
+                                      </a>
+                                  @endauth
                               </div>
-                              <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
                           </div>
                       </div>
                   </div>
@@ -810,18 +851,39 @@
                       <div class="button-area p-3 pt-0">
                           <div class="row g-1 mt-2 products_meta">
                               <div class="col-3"><input type="nrumber" name="quantity" class="form-control border-dark-subtle input-number quantity selected_quantity" value="1" min="0"></div>
-                              <div class="col-7">
+
+                              <div class="col-9 d-flex justify-content-between gap-2">
+                                  {{-- ADD TO CART --}}
                                   @auth
-                                      <a data-productId="{{$product->id}}" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart add_cart" ><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a>
+                                      <a  data-productId="{{ $product->id }}"
+                                          class="btn btn-primary rounded-1 p-2 fs-7 add_cart">
+                                          <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
+                                          Add to Cart
+                                      </a>
+                                  @else
+                                      <a href="{{ route('login') }}"
+                                         class="btn btn-primary rounded-1 p-2 fs-7">
+                                          Login
+                                      </a>
                                   @endauth
 
-                                  @guest
-                                      <a href="{{route('login')}}"  class="btn btn-primary rounded-1 p-2 fs-7 btn-cart add_cart" > Login </a>
-                                  @endguest
-
-
+                                  {{-- HEART / WISHLIST --}}
+                                  @auth
+                                      <form method="POST" action="{{ route('wishlist.store') }}">
+                                          @csrf
+                                          <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                          <button type="submit"
+                                                  class="btn btn-outline-dark rounded-1 p-2 fs-6 d-flex align-items-center">
+                                              <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
+                                          </button>
+                                      </form>
+                                  @else
+                                      <a href="{{ route('login') }}"
+                                         class="btn btn-outline-dark rounded-1 p-2 fs-6 d-flex align-items-center">
+                                          <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
+                                      </a>
+                                  @endauth
                               </div>
-                              <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
                           </div>
                       </div>
                   </div>
@@ -832,7 +894,6 @@
 
               </div>
             </div>
-            <!-- / products-carousel -->
 
           </div>
         </div>
