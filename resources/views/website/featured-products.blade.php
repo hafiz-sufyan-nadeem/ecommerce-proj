@@ -6,81 +6,77 @@
 
         <div class="row">
             @forelse ($products as $product)
-                <div class="col">
-                    <div class="product-item">
-                        <figure>
-                            <a href="{{ route('product.detail', $product->id) }}" style="text-decoration: none;">
-                                <img src="{{ asset('admin-images/products/' . $product->image) }}" alt="{{ $product->name }}" style="width: 210px" height="210px">
-                                <h5>{{ $product->name }}</h5>
-                            </a>
-                        </figure>
-                        <div class="d-flex flex-column text-center">
-                            <h3 class="fs-6 fw-normal">{{$product->name}}</h3>
-                            <div>
-                                          <span class="rating">
-                                            @if($product->reviews_count > 0)
-                                                  @php $avg = round($product->reviews_avg_rating); @endphp
-                                                  @for($i = 1; $i <= 5; $i++)
-                                                      @if($i <= $avg)
-                                                          <span style="color: gold;">★</span>
-                                                      @else
-                                                          <span style="color: lightgray;">★</span>
-                                                      @endif
-                                                  @endfor
-                                                  <small>({{ $product->reviews_count }} reviews)</small>
-                                              @else
-                                                  <small>No reviews yet</small>
-                                              @endif
+                <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                    {{-- product image --}}
+                    <a href="{{ route('product.detail', $product->id) }}" class="text-decoration-none">
+                        <img src="{{ asset('admin-images/products/' . $product->image) }}"
+                             class="card-img-top" alt="{{ $product->name }}"
+                             style="height: 210px; object-fit: cover;">
+                    </a>
 
-                                          </span>
+                    <div class="card-body d-flex flex-column text-center">
+                        {{-- product name --}}
+                        <h5 class="card-title mb-2">{{ $product->name }}</h5>
+
+                        {{-- rating stars --}}
+                        <div class="mb-1">
+                            @if($product->reviews_count > 0)
+                                @php $avg = round($product->reviews_avg_rating); @endphp
+                                @for($i = 1; $i <= 5; $i++)
+                                    <span style="color: {{ $i <= $avg ? 'gold' : 'lightgray' }}">★</span>
+                                @endfor
+                                <small>({{ $product->reviews_count }})</small>
+                            @else
+                                <small>No reviews yet</small>
+                            @endif
+                        </div>
+
+                        {{-- price --}}
+                        <span class="fw-semibold mb-2">Rs {{ number_format($product->price) }}</span>
+
+                        {{-- qty + buttons --}}
+                        <div class="mt-auto">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <input type="number" class="form-control form-control-sm w-50"
+                                       name="quantity" min="1" value="1">
                             </div>
-                            <div class="d-flex justify-content-center align-items-center gap-2">
-                                <span class="text-dark fw-semibold">Rs {{$product->price}}</span>
+
+                            <div class="d-flex justify-content-between gap-2">
+                                {{-- add to cart --}}
+                                @auth
+                                    <a  data-productId="{{ $product->id }}"
+                                        class="btn btn-primary flex-grow-1 add_cart">
+                                        <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
+                                        Add to Cart
+                                    </a>
+                                @else
+                                    <a href="{{ route('login') }}"
+                                       class="btn btn-primary flex-grow-1">Login</a>
+                                @endauth
+
+                                {{-- heart / wishlist --}}
+                                @auth
+                                    <form method="POST" action="{{ route('wishlist.store') }}">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                        <button type="submit" class="btn btn-outline-dark">
+                                            <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
+                                        </button>
+                                    </form>
+                                @else
+                                    <a href="{{ route('login') }}" class="btn btn-outline-dark">
+                                        <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
+                                    </a>
+                                @endauth
                             </div>
-                            <div class="button-area p-3 pt-0">
-                                <div class="row g-1 mt-2 products_meta align-items-center">
-                                    {{-- quantity input --}}
-                                    <div class="col-3">
-                                        <input  type="number"
-                                                name="quantity"
-                                                class="form-control border-dark-subtle input-number quantity selected_quantity"
-                                                value="1"
-                                                min="1">
-                                    </div>
+                        </div>
+                    </div>
+                </div>
 
-                                    {{-- add‑to‑cart & heart in ONE flex box --}}
-                                    <div class="col-9 d-flex justify-content-between gap-2">
-                                        {{-- ADD TO CART --}}
-                                        @auth
-                                            <a  data-productId="{{ $product->id }}"
-                                                class="btn btn-primary rounded-1 p-2 fs-7 add_cart">
-                                                <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
-                                                Add to Cart
-                                            </a>
-                                        @else
-                                            <a href="{{ route('login') }}"
-                                               class="btn btn-primary rounded-1 p-2 fs-7">
-                                                Login
-                                            </a>
-                                        @endauth
-
-                                        {{-- HEART / WISHLIST --}}
-                                        @auth
-                                            <form method="POST" action="{{ route('wishlist.store') }}">
-                                                @csrf
-                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                <button type="submit"
-                                                        class="btn btn-outline-dark rounded-1 p-2 fs-6 d-flex align-items-center">
-                                                    <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
-                                                </button>
-                                            </form>
-                                        @else
-                                            <a href="{{ route('login') }}"
-                                               class="btn btn-outline-dark rounded-1 p-2 fs-6 d-flex align-items-center">
-                                                <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
-                                            </a>
-                                        @endauth
-                                    </div>
+            @empty
+                <p>No featured products found.</p>
+            @endforelse
+        </div>
 
         <div class="mt-4">
             {{ $products->links() }} {{-- pagination --}}

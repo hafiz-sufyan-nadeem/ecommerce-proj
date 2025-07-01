@@ -544,7 +544,7 @@
               <h2 class="section-title">Featured products</h2>
 
               <div class="d-flex align-items-center">
-                <a href="#" class="btn btn-primary me-2">View All</a>
+                  <a href="{{ route('products.featured') }}" class="btn btn-primary me-2">View All</a>
                 <div class="swiper-buttons">
                   <button class="swiper-prev products-carousel-prev btn btn-primary">❮</button>
                   <button class="swiper-next products-carousel-next btn btn-primary">❯</button>
