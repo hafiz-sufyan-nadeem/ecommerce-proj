@@ -149,3 +149,6 @@ Route::middleware('auth')->group(function () {
    Route::post('/wishlist', [WishListController::class, 'store'])->name('wishlist.store');
    Route::delete('wishlist/{id}', [WishListController::class, 'destroy'])->name('wishlist.destroy');
 });
+
+
+Route::get('/products/featured', [HomeController::class, 'featuredProducts'])->name('products.featured');

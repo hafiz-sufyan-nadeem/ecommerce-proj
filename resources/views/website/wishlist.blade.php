@@ -26,7 +26,7 @@
             <p class="text-muted">No items in wishlist.</p>
         @endforelse
     </div>
-    <a href="{{ route('home') }}" class="btn btn-secondary mb-3">
+    <a href="{{ route('home') }}" class="btn btn-secondary mb-3" style="background: rgba(0,0,0,0.8)">
         ← Back to Home
     </a>
 
