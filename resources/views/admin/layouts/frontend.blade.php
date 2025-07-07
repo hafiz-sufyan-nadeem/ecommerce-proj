@@ -22,6 +22,11 @@
     <div class="container">
         <a class="navbar-brand" href="{{route('home')}}">MyShop</a>
     </div>
+
+{{--    <a href="{{ route('home') }}" class="btn btn-secondary mb-0" style="background: rgba(0,0,0,0.8)">--}}
+{{--        ← Back to Home--}}
+{{--    </a>--}}
+    <button {{route('home')}} style="background:  rgba(0,0,0,0.8)" class="btn btn-secondary">🏠︎Back</button>
 </nav>
 
 <div class="container">
