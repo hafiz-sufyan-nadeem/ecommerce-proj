@@ -1,6 +1,21 @@
 @extends('admin.layouts.frontend')
 
 @section('content')
+
+    @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+            {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <div class="container py-4">
         <h2 class="mb-4">All Featured Products</h2>
 
@@ -44,19 +59,24 @@
                                                class="form-control form-control-sm text-center">
                                     </div>
 
-                                    {{-- cart + heart --}}
                                     <div class="col-8 d-flex justify-content-between gap-1">
-                                        {{-- Add to Cart --}}
                                         @auth
-                                            <a data-productId="{{ $product->id }}"
-                                               class="btn btn-primary btn-sm flex-grow-1 add_cart d-flex align-items-center justify-content-center gap-1">
-                                                <svg width="16" height="16"><use xlink:href="#cart"></use></svg>
-                                                <span>Add to Cart</span>
-                                            </a>
+                                            <form method="POST" action="{{ route('add.to.cart') }}">
+                                                @csrf
+                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                <input type="hidden" name="quantity" value="1">
+                                                <button type="submit" class="btn btn-primary btn-sm flex-grow-1 add_cart d-flex align-items-center justify-content-center gap-1">
+                                                    <svg width="16" height="16"><use xlink:href="#cart"></use></svg>
+                                                    <span>Add to Cart</span>
+                                                </button>
+                                            </form>
                                         @else
-                                            <a href="{{ route('login') }}"
-                                               class="btn btn-primary btn-sm flex-grow-1">Login</a>
+                                            <a href="{{ route('login') }}" class="btn btn-primary btn-sm flex-grow-1">
+                                                Login
+                                            </a>
                                         @endauth
+
+
 
                                         {{-- Wishlist --}}
                                         @auth
