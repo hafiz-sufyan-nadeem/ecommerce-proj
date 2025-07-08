@@ -101,12 +101,20 @@ class HomeController extends Controller
         $products = Product::withCount('reviews')
             ->withAvg('reviews', 'rating')
             ->orderByDesc('reviews_avg_rating')
-            ->orderByDesc('reviews_count') // Optional
-            ->paginate(9); // View All page pe zyadah results dikhane ke liye paginate
+//            ->orderByDesc('reviews_count')
+            ->paginate(9);
 
         return view('website.most-popular', compact('products'));
     }
 
+    public function justArrivedProducts()
+    {
+        $products = Product::withCount('reviews')
+            ->withAvg('reviews', 'rating')
+            ->orderBy('id', 'DESC')
+            ->get();
+        return view('website.just-arrived', compact('products'));
+    }
 
 }
 
