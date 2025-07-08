@@ -79,9 +79,14 @@ class HomeController extends Controller
             ->withCount('reviews')
             ->withAvg('reviews', 'rating')
             ->orderByDesc('id')
-            ->paginate(12); 
+            ->paginate(12);
 
         return view('website.featured-products', compact('products'));
+    }
+
+    public function bestSellingProducts()
+    {
+        $products = Product::
     }
 
 
