@@ -942,8 +942,6 @@
                 </div>
                   @endforeach
 
-
-
               </div>
             </div>
 
