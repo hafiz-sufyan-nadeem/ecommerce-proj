@@ -30,7 +30,7 @@
                         </select>
                     </div>
                     <div class="col-11 col-md-7">
-                        <form id="search-form" class="text-center" action="index.html" method="post">
+                        <form id="search-form" class="text-center" action="{{ route('search') }}" method="GET">
                             <input type="text" class="form-control border-0 bg-transparent" placeholder="Search for more than 20,000 products">
                         </form>
                     </div>

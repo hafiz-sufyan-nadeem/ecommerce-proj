@@ -21,12 +21,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container">
         <a class="navbar-brand" href="{{route('home')}}">MyShop</a>
+        <a href="{{ route('home') }}" class="btn btn-secondary" style="background: rgba(0,0,0,0.8)">
+            🏠︎ Home
+        </a>
     </div>
-
-{{--    <a href="{{ route('home') }}" class="btn btn-secondary mb-0" style="background: rgba(0,0,0,0.8)">--}}
-{{--        ← Back to Home--}}
-{{--    </a>--}}
-    <button {{route('home')}} style="background:  rgba(0,0,0,0.8)" class="btn btn-secondary">🏠Home</button>
 </nav>
 
 <div class="container">
