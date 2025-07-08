@@ -152,5 +152,6 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('/products/featured', [HomeController::class, 'featuredProducts'])->name('products.featured');
+Route::get('/products/best-selling', [HomeController::class, 'bestSellingProducts'])->name('products.best.selling');
 
 Route::get('/search',[ProductController::class, 'search'])->name('search');
