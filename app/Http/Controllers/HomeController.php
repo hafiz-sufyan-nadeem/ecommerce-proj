@@ -86,7 +86,15 @@ class HomeController extends Controller
 
     public function bestSellingProducts()
     {
-        $products = Product::
+        $products = Product::withCount('reviews')
+            ->withAvg('reviews', 'rating')
+            ->join('cart_items', 'products.id', '=', 'cart_items.product_id')
+            ->select('products.*', DB::raw('COUNT(cart_items.id) as cart_count'))
+            ->groupBy('products.id')
+            ->orderByDesc('cart_count')
+            ->limit(6)
+            ->get();
+
     }
 
 
