@@ -92,10 +92,11 @@ class HomeController extends Controller
             ->select('products.*', DB::raw('COUNT(cart_items.id) as cart_count'))
             ->groupBy('products.id')
             ->orderByDesc('cart_count')
-            ->limit(6)
-            ->get();
+            ->paginate(12);
 
+        return view('website.best-selling', compact('products'));
     }
+
 
 
 }
