@@ -96,7 +96,14 @@ class HomeController extends Controller
 
         return view('website.best-selling', compact('products'));
     }
-
+    public function mostPopularProducts()
+    {
+        $products = Product::withCount('reviews')
+            ->withAvg('reviews', 'rating')
+            ->orderByDesc('reviews_avg_rating')
+            ->limit(6)
+            ->get();
+    }
 
 }
 
