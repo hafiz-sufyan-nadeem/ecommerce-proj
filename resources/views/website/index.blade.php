@@ -383,7 +383,7 @@
               <h2 class="section-title">Best selling products</h2>
 
               <div class="d-flex align-items-center">
-                <a href="#" class="btn btn-primary rounded-1">View All</a>
+                <a href="{{route('products.best.selling')}}" class="btn btn-primary rounded-1">View All</a>
               </div>
             </div>
 
