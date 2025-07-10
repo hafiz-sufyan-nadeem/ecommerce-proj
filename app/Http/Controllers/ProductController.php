@@ -92,4 +92,12 @@ class ProductController extends Controller
 
         return redirect()->route('products')->with('success', 'Product deleted successfully!');
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $products = Product::withCount('reviews')->withAvg('reviews','rating')->where('name', 'LIKE', "%{$search}%")->paginate(5)->withQueryString();
+
+        return view('website.search-results', compact('products', 'search'));
+    }
 }
