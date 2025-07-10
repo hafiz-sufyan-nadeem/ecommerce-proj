@@ -12,7 +12,7 @@ use function Pest\Laravel\get;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         // Fetch products based on the count in cart_items
         $bestselling_products = Product::withCount('reviews')

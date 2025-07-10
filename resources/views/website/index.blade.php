@@ -247,6 +247,21 @@
 
 @include('website.header')
 
+    @if(isset($search))
+        <h4>Results for "{{ $search }}"</h4>
+
+        @if($searchResults->count())
+            <div class="row">
+                @foreach($searchResults as $product)
+                    {{-- Tumhara card design yahan lagao --}}
+                    @include('website.search-results', ['product' => $product])
+                @endforeach
+            </div>
+        @else
+            <p>No results found.</p>
+        @endif
+    @endif
+
     <section style="background-image: url({{asset('assets/images/banner-1.jpg')}});background-repeat: no-repeat;background-size: cover;">
       <div class="container-lg">
         <div class="row">

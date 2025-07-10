@@ -30,8 +30,9 @@
                         </select>
                     </div>
                     <div class="col-11 col-md-7">
-                        <form id="search-form" class="text-center" action="{{ route('search') }}" method="GET">
-                            <input type="text" class="form-control border-0 bg-transparent" placeholder="Search for more than 20,000 products">
+                        <form action="{{ route('search') }}" method="GET" class="d-flex">
+                            <input type="text" name="search" class="form-control me-2" placeholder="Search products..." required>
+                            <button type="submit" class="btn btn-outline-primary">Search</button>
                         </form>
                     </div>
                     <div class="col-1">
