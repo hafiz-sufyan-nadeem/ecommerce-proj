@@ -10,7 +10,7 @@
     @endif
 
     <div class="container py-4">
-        <h2 class="mb-4">All Featured Products</h2>
+        <h2 class="mb-4">Just Arrived Products</h2>
 
         <div class="row">
             @forelse ($products as $product)

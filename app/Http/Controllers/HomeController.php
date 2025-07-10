@@ -112,7 +112,7 @@ class HomeController extends Controller
         $products = Product::withCount('reviews')
             ->withAvg('reviews', 'rating')
             ->orderBy('id', 'DESC')
-            ->get();
+            ->paginate(11);
         return view('website.just-arrived', compact('products'));
     }
 
