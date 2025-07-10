@@ -26,7 +26,7 @@ class ProductController extends Controller
             'name' => 'required',
             'image' => 'required|image',
             'price' => 'required|numeric',
-            'category_id' => 'required|exists:categories,id',
+            'category_id' => 'required|nullable',
             'quantity' => 'required|integer',
             'stock' => 'required|string',
             'is_featured' => 'nullable',
@@ -61,7 +61,7 @@ class ProductController extends Controller
             'name' => 'required',
             'image' => 'nullable|image',
             'price' => 'required|numeric',
-            'category_id' => 'required|exists:categories,id',
+            'category_id' => 'nullable',
             'quantity' => 'required|integer',
             'stock' => 'required|string',
             'is_featured' => 'nullable',
@@ -75,7 +75,7 @@ class ProductController extends Controller
 
         $product->name = $request->name;
         $product->price = $request->price;
-        $product->category_id = $request->category_id;
+//        $product->category_id = $request->category_id;
         $product->quantity = $request->quantity;
         $product->stock = $request->stock;
         $product->is_featured = $request->is_featured == 'on' ? 1 : 0;
