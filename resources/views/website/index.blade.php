@@ -637,24 +637,43 @@
                         <span class="text-dark fw-semibold">Rs {{$product->price}}</span>
 {{--                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>--}}
                     </div>
+
+                      <div class="mt-1">
+                          @if($product->stock > 0)
+                              <span class="badge bg-success">In Stock</span>
+                          @else
+                              <span class="badge bg-danger">Out of Stock</span>
+                          @endif
+                      </div>
+
                       <div class="button-area p-3 pt-0">
                           <div class="row g-1 mt-2 products_meta">
                               <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity selected_quantity" value="1" min="0"></div>
 
                               <div class="col-9 d-flex justify-content-between gap-2">
-                                  {{-- IF USER IS LOGGED IN --}}
+
+                                  {{-- === USER LOGGED‑IN === --}}
                                   @auth
-                                      {{-- ADD TO CART --}}
-                                      <form method="POST" action="{{ route('add.to.cart') }}">
-                                          @csrf
-                                          <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                          <input type="hidden" name="quantity" value="1">
-                                          <button type="submit"
-                                                  class="btn btn-primary rounded-1 p-2 fs-7 d-flex align-items-center justify-content-center gap-1">
+                                      @if($product->stock > 0)
+                                          {{-- ADD TO CART (enabled) --}}
+                                          <form method="POST" action="{{ route('add.to.cart') }}">
+                                              @csrf
+                                              <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                              <input type="hidden" name="quantity" value="1">
+                                              <button type="submit"
+                                                      class="btn btn-primary rounded-1 p-2 fs-7 d-flex align-items-center justify-content-center gap-1">
+                                                  <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
+                                                  <span>Add to Cart</span>
+                                              </button>
+                                          </form>
+                                      @else
+                                          {{-- OUT OF STOCK (disabled) --}}
+                                          <button disabled
+                                                  class="btn btn-secondary rounded-1 p-2 fs-7 w-100 d-flex align-items-center justify-content-center gap-1">
                                               <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
-                                              <span>Add to Cart</span>
+                                              <span>Out&nbsp;of&nbsp;Stock</span>
                                           </button>
-                                      </form>
+                                      @endif
 
                                       {{-- WISHLIST --}}
                                       <form method="POST" action="{{ route('wishlist.store') }}">
@@ -667,22 +686,17 @@
                                       </form>
                                   @endauth
 
-                                  {{-- IF USER IS NOT LOGGED IN --}}
+                                  {{-- === USER NOT LOGGED‑IN === --}}
                                   @guest
-                                      <div class="d-flex w-100 gap-2">
-                                          {{-- LOGIN BUTTON IN PLACE OF ADD TO CART --}}
-                                          <a href="{{ route('login') }}"
-                                             class="btn btn-primary rounded-1 p-2 fs-7 w-100 d-flex align-items-center justify-content-center gap-1">
-                                              <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
-                                              <span>Login</span>
-                                          </a>
-
-                                          {{-- LOGIN BUTTON IN PLACE OF WISHLIST --}}
-                                          <a href="{{ route('login') }}"
-                                             class="btn btn-outline-dark rounded-1 p-2 fs-6 w-100 d-flex align-items-center justify-content-center">
-                                              <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
-                                          </a>
-                                      </div>
+                                      <a href="{{ route('login') }}"
+                                         class="btn btn-primary rounded-1 p-2 fs-7 w-100 d-flex align-items-center justify-content-center gap-1">
+                                          <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
+                                          <span>Login</span>
+                                      </a>
+                                      <a href="{{ route('login') }}"
+                                         class="btn btn-outline-dark rounded-1 p-2 fs-6 w-100 d-flex align-items-center justify-content-center">
+                                          <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
+                                      </a>
                                   @endguest
                               </div>
 
@@ -797,24 +811,43 @@
                     <div class="d-flex justify-content-center align-items-center gap-2">
                       <span class="text-dark fw-semibold">Rs {{$product->price}}</span>
                     </div>
+
+                      <div class="mt-1">
+                          @if($product->stock > 0)
+                              <span class="badge bg-success">In Stock</span>
+                          @else
+                              <span class="badge bg-danger">Out of Stock</span>
+                          @endif
+                      </div>
+
                       <div class="button-area p-3 pt-0">
                           <div class="row g-1 mt-2 products_meta">
                               <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity selected_quantity" value="1" min="0"></div>
 
                               <div class="col-9 d-flex justify-content-between gap-2">
-                                  {{-- IF USER IS LOGGED IN --}}
+
+                                  {{-- === USER LOGGED‑IN === --}}
                                   @auth
-                                      {{-- ADD TO CART --}}
-                                      <form method="POST" action="{{ route('add.to.cart') }}">
-                                          @csrf
-                                          <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                          <input type="hidden" name="quantity" value="1">
-                                          <button type="submit"
-                                                  class="btn btn-primary rounded-1 p-2 fs-7 d-flex align-items-center justify-content-center gap-1">
+                                      @if($product->stock > 0)
+                                          {{-- ADD TO CART (enabled) --}}
+                                          <form method="POST" action="{{ route('add.to.cart') }}">
+                                              @csrf
+                                              <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                              <input type="hidden" name="quantity" value="1">
+                                              <button type="submit"
+                                                      class="btn btn-primary rounded-1 p-2 fs-7 d-flex align-items-center justify-content-center gap-1">
+                                                  <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
+                                                  <span>Add to Cart</span>
+                                              </button>
+                                          </form>
+                                      @else
+                                          {{-- OUT OF STOCK (disabled) --}}
+                                          <button disabled
+                                                  class="btn btn-secondary rounded-1 p-2 fs-7 w-100 d-flex align-items-center justify-content-center gap-1">
                                               <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
-                                              <span>Add to Cart</span>
+                                              <span>Out&nbsp;of&nbsp;Stock</span>
                                           </button>
-                                      </form>
+                                      @endif
 
                                       {{-- WISHLIST --}}
                                       <form method="POST" action="{{ route('wishlist.store') }}">
@@ -827,22 +860,17 @@
                                       </form>
                                   @endauth
 
-                                  {{-- IF USER IS NOT LOGGED IN --}}
+                                  {{-- === USER NOT LOGGED‑IN === --}}
                                   @guest
-                                      <div class="d-flex w-100 gap-2">
-                                          {{-- LOGIN BUTTON IN PLACE OF ADD TO CART --}}
-                                          <a href="{{ route('login') }}"
-                                             class="btn btn-primary rounded-1 p-2 fs-7 w-100 d-flex align-items-center justify-content-center gap-1">
-                                              <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
-                                              <span>Login</span>
-                                          </a>
-
-                                          {{-- LOGIN BUTTON IN PLACE OF WISHLIST --}}
-                                          <a href="{{ route('login') }}"
-                                             class="btn btn-outline-dark rounded-1 p-2 fs-6 w-100 d-flex align-items-center justify-content-center">
-                                              <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
-                                          </a>
-                                      </div>
+                                      <a href="{{ route('login') }}"
+                                         class="btn btn-primary rounded-1 p-2 fs-7 w-100 d-flex align-items-center justify-content-center gap-1">
+                                          <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
+                                          <span>Login</span>
+                                      </a>
+                                      <a href="{{ route('login') }}"
+                                         class="btn btn-outline-dark rounded-1 p-2 fs-6 w-100 d-flex align-items-center justify-content-center">
+                                          <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
+                                      </a>
                                   @endguest
                               </div>
 
@@ -918,24 +946,43 @@
                     <div class="d-flex justify-content-center align-items-center gap-2">
                       <span class="text-dark fw-semibold">Rs {{$product->price}}</span>
                     </div>
+
+                      <div class="mt-1">
+                          @if($product->stock > 0)
+                              <span class="badge bg-success">In Stock</span>
+                          @else
+                              <span class="badge bg-danger">Out of Stock</span>
+                          @endif
+                      </div>
+
                       <div class="button-area p-3 pt-0">
                           <div class="row g-1 mt-2 products_meta">
                               <div class="col-3"><input type="nrumber" name="quantity" class="form-control border-dark-subtle input-number quantity selected_quantity" value="1" min="0"></div>
 
                               <div class="col-9 d-flex justify-content-between gap-2">
-                                  {{-- IF USER IS LOGGED IN --}}
+
+                                  {{-- === USER LOGGED‑IN === --}}
                                   @auth
-                                      {{-- ADD TO CART --}}
-                                      <form method="POST" action="{{ route('add.to.cart') }}">
-                                          @csrf
-                                          <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                          <input type="hidden" name="quantity" value="1">
-                                          <button type="submit"
-                                                  class="btn btn-primary rounded-1 p-2 fs-7 d-flex align-items-center justify-content-center gap-1">
+                                      @if($product->stock > 0)
+                                          {{-- ADD TO CART (enabled) --}}
+                                          <form method="POST" action="{{ route('add.to.cart') }}">
+                                              @csrf
+                                              <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                              <input type="hidden" name="quantity" value="1">
+                                              <button type="submit"
+                                                      class="btn btn-primary rounded-1 p-2 fs-7 d-flex align-items-center justify-content-center gap-1">
+                                                  <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
+                                                  <span>Add to Cart</span>
+                                              </button>
+                                          </form>
+                                      @else
+                                          {{-- OUT OF STOCK (disabled) --}}
+                                          <button disabled
+                                                  class="btn btn-secondary rounded-1 p-2 fs-7 w-100 d-flex align-items-center justify-content-center gap-1">
                                               <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
-                                              <span>Add to Cart</span>
+                                              <span>Out&nbsp;of&nbsp;Stock</span>
                                           </button>
-                                      </form>
+                                      @endif
 
                                       {{-- WISHLIST --}}
                                       <form method="POST" action="{{ route('wishlist.store') }}">
@@ -948,25 +995,19 @@
                                       </form>
                                   @endauth
 
-                                  {{-- IF USER IS NOT LOGGED IN --}}
+                                  {{-- === USER NOT LOGGED‑IN === --}}
                                   @guest
-                                      <div class="d-flex w-100 gap-2">
-                                          {{-- LOGIN BUTTON IN PLACE OF ADD TO CART --}}
-                                          <a href="{{ route('login') }}"
-                                             class="btn btn-primary rounded-1 p-2 fs-7 w-100 d-flex align-items-center justify-content-center gap-1">
-                                              <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
-                                              <span>Login</span>
-                                          </a>
-
-                                          {{-- LOGIN BUTTON IN PLACE OF WISHLIST --}}
-                                          <a href="{{ route('login') }}"
-                                             class="btn btn-outline-dark rounded-1 p-2 fs-6 w-100 d-flex align-items-center justify-content-center">
-                                              <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
-                                          </a>
-                                      </div>
+                                      <a href="{{ route('login') }}"
+                                         class="btn btn-primary rounded-1 p-2 fs-7 w-100 d-flex align-items-center justify-content-center gap-1">
+                                          <svg width="18" height="18"><use xlink:href="#cart"></use></svg>
+                                          <span>Login</span>
+                                      </a>
+                                      <a href="{{ route('login') }}"
+                                         class="btn btn-outline-dark rounded-1 p-2 fs-6 w-100 d-flex align-items-center justify-content-center">
+                                          <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
+                                      </a>
                                   @endguest
                               </div>
-
                           </div>
                       </div>
                   </div>
