@@ -440,6 +440,16 @@
                                       <div class="d-flex justify-content-center align-items-center gap-2">
                                           <span class="text-dark fw-semibold">Rs {{$product->price}}</span>
                                       </div>
+
+                                      <div class="mt-1">
+                                          @if($product->stock > 0)
+                                              <span class="badge bg-success">In Stock</span>
+                                          @else
+                                              <span class="badge bg-danger">Out of Stock</span>
+                                          @endif
+                                      </div>
+
+
                                       <div class="button-area p-3 pt-0">
                                           <div class="row g-1 mt-2 products_meta align-items-center">
                                               {{-- quantity input --}}

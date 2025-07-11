@@ -19,6 +19,10 @@ class CartItemController extends Controller
         if (!$userId){
             return redirect()->route('login')->with('error', 'Please login first');
         }
+        if ($product->stock < $request->quantity) {
+            return redirect()->back()->with('error', 'Not enough stock available.');
+        }
+
 
         $existingCartItem = CartItem::where('user_id', $userId)->where('product_id', $request->productId)->first();
         if ($existingCartItem){
