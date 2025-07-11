@@ -120,7 +120,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // ADD TO CART ROUTES
 Route::get('cartitems', [CartItemController::class, 'index'])->name('cartitems');
-Route::post('add-to-cart', [CartItemController::class, 'addToCart'])->name('add.to.cart')->middleware('auth');
+Route::post('/add-to-cart', [CartItemController::class, 'addToCart'])->name('add.to.cart')->middleware('auth');
 Route::get('get-cart-items', [CartItemController::class, 'getCartItems'])->name('get.cart.items');
 Route::post('update-quantity', [CartItemController::class, 'updateQuantity'])->name('update.quantity');
 Route::post('delete-item', [CartItemController::class, 'deleteItem'])->name('delete.item');
