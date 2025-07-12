@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\models\Order;
 use Illuminate\Http\Request;
-
+use App\Models\Product;
 class OrderController extends Controller
 {
     public function index(Request $request)
@@ -26,11 +26,29 @@ class OrderController extends Controller
         ]);
 
         $order = Order::findOrFail($id);
+
+        if ($request->status === 'completed' && $order->status !== 'completed') {
+
+            $items = json_decode($order->cart_items ?? '[]', true);
+
+            foreach ($items as $item) {
+                $product = Product::find($item['product_id'] ?? null);
+
+                if ($product && isset($item['quantity'])) {
+                    $product->stock -= $item['quantity'];
+                    if ($product->stock < 0) { $product->stock = 0; }
+                    $product->save();
+                }
+            }
+        }
+
         $order->status = $request->status;
         $order->save();
 
         return back()->with('success', 'Order status updated successfully!');
     }
+
+
 
     public function show(Order $order)
     {
