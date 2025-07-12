@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\models\Order;
-use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Http\Request;
+
 class OrderController extends Controller
 {
     public function index(Request $request)
@@ -18,7 +19,6 @@ class OrderController extends Controller
 
         return view('admin.orders.index', compact('orders', 'status'));
     }
-
     public function updateStatus(Request $request, $id)
     {
         $request->validate([
@@ -27,11 +27,14 @@ class OrderController extends Controller
 
         $order = Order::findOrFail($id);
 
+        // 👉 Only when moving to completed & not already completed
         if ($request->status === 'completed' && $order->status !== 'completed') {
 
+            // cart_items JSON -> array
             $items = json_decode($order->cart_items ?? '[]', true);
 
             foreach ($items as $item) {
+                // expect keys: product_id, quantity
                 $product = Product::find($item['product_id'] ?? null);
 
                 if ($product && isset($item['quantity'])) {
