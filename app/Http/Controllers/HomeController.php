@@ -29,7 +29,7 @@ class HomeController extends Controller
         /* ---------- MOST‑POPULAR ---------- */
         $most_popular_products = Product::withCount('reviews')
             ->withAvg('reviews', 'rating')
-            ->orderByDesc('reviews_avg_rating')   // rating zyāda to upar
+            ->orderByDesc('reviews_avg_rating')
             ->orderByDesc('reviews_count')        // tie‑break
             ->limit(6)
             ->get();
