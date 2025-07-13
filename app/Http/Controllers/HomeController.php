@@ -14,19 +14,23 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        // Fetch products based on the count in cart_items
-        $bestselling_products = Product::withCount('reviews')
-            ->withAvg('reviews', 'rating')
-            ->join('cart_items', 'products.id', '=', 'cart_items.product_id')
-            ->select('products.*', DB::raw('COUNT(cart_items.id) as cart_count'))
+        $bestselling_products = Product::select(
+            'products.*',
+            DB::raw('SUM(order_items.quantity) as total_sold')
+        )
+            ->join('order_items', 'products.id', '=', 'order_items.product_id')
             ->groupBy('products.id')
-            ->orderByDesc('cart_count')
+            ->orderByDesc('total_sold')
+            ->withCount('reviews')
+            ->withAvg('reviews', 'rating')
             ->limit(6)
             ->get();
 
+        /* ---------- MOST‑POPULAR ---------- */
         $most_popular_products = Product::withCount('reviews')
             ->withAvg('reviews', 'rating')
-            ->orderByDesc('reviews_avg_rating')
+            ->orderByDesc('reviews_avg_rating')   // rating zyāda to upar
+            ->orderByDesc('reviews_count')        // tie‑break
             ->limit(6)
             ->get();
 

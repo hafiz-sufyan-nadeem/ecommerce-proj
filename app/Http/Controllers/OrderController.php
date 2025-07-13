@@ -28,13 +28,23 @@ class OrderController extends Controller
         $total = $cartItems->sum('total_price');
 
         // 2. Order row create
-        $order              = new Order();
+        $order = new Order();
         $order->user_id     = $userId;
+        $order->name        = $request->name;
+        $order->last_name   = $request->last_name;
+        $order->email       = $request->email;
+        $order->country     = $request->country;
+        $order->card_name = $request->card_name;
+        $order->card_number = $request->card_number;
+        $order->card_expiration = $request->card_expiration;
+        $order->card_cvv = $request->card_cvv;
+
         $order->total_price = $total;
         $order->address     = $request->address;
         $order->payment_method = $request->payment_method;
         $order->status      = 'pending';
         $order->save();
+
 
         // 3. Har cart item → OrderItem mein daalo
         foreach ($cartItems as $item) {
