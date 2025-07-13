@@ -56,9 +56,9 @@ class CartItemController extends Controller
     {
         $userId = auth()->id();
 
-        if (!$userId) {
-            return response()->json(['error' => 'User not logged in'], 401);
-        }
+//        if (!$userId) {
+//            return response()->json(['error' => 'User not logged in'], 401);
+//        }
 
         $cartItems = CartItem::where('user_id', $userId)
             ->with('product')
