@@ -32,7 +32,7 @@ class OrderController extends Controller
         $order->user_id     = $userId;
         $order->total_price = $total;
         $order->address     = $request->address;
-        $order->payment_method = $request->paymentMethod;
+        $order->payment_method = $request->payment_method;
         $order->status      = 'pending';
         $order->save();
 
