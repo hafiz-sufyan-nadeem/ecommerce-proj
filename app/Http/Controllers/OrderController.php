@@ -4,20 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
-use App\Models\Product;          //  👈  stock kam karne ko product model chahiye
+use App\Models\Product;
 
 class OrderController extends Controller
 {
     public function store(Request $request)
     {
-        // 1️⃣  Validation
         $request->validate([
             'address'        => 'required|string',
             'paymentMethod'  => 'required|string',
         ]);
 
-        // 2️⃣  Cart items le lo  (jitni teri app ki logic ho)
-        // Example: session me cart_items JSON padha hai
         $cartItems = json_decode(session('cart_items', '[]'), true);   // expect [ [product_id, quantity], ... ]
         if (empty($cartItems)) {
             return back()->with('error', 'Cart is empty!');
