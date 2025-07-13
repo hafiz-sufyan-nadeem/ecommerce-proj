@@ -14,7 +14,7 @@ class OrderController extends Controller
     {
         $request->validate([
             'address'        => 'required|string',
-            'paymentMethod'  => 'required|string',
+            'payment_method'  => 'required|string',
         ]);
 
         $userId = auth()->id();
@@ -52,7 +52,9 @@ class OrderController extends Controller
             if ($product->stock < 0) {
                 $product->stock = 0;
             }
+
             $product->save();
+
         }
 
         //  5. Cart clear
