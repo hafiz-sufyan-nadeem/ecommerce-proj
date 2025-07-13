@@ -6,7 +6,7 @@
             <!-- Logo & Toggler -->
             <div class="col-auto text-center text-sm-start d-flex gap-3 justify-content-center justify-content-md-start">
                 <div class="d-flex align-items-center my-3 my-sm-0">
-                    <a href="index.html">
+                    <a href="{{route('home')}}">
                         <img src="{{asset('assets/images/logo.svg')}}" alt="logo" class="img-fluid">
                     </a>
                 </div>
