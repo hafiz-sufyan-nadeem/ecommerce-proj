@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\Product;
+use App\Models\CartItem;
 
 class OrderController extends Controller
 {
@@ -15,44 +17,48 @@ class OrderController extends Controller
             'paymentMethod'  => 'required|string',
         ]);
 
-        $cartItems = json_decode(session('cart_items', '[]'), true);   // expect [ [product_id, quantity], ... ]
-        if (empty($cartItems)) {
-            return back()->with('error', 'Cart is empty!');
+        $userId = auth()->id();
+
+        $cartItems = CartItem::where('user_id', $userId)->with('product')->get();
+
+        if ($cartItems->isEmpty()) {
+            return back()->with('error', 'Your cart is empty!');
         }
 
-        // 3️⃣  Total nikalo
-        $total = 0;
-        foreach ($cartItems as $ci) {
-            $product = Product::find($ci['product_id']);
-            if ($product) {
-                $total += $product->price * $ci['quantity'];
-            }
-        }
+        $total = $cartItems->sum('total_price');
 
-        // 4️⃣  Order row banao
+        // 2. Order row create
         $order              = new Order();
-        $order->user_id     = auth()->id();
+        $order->user_id     = $userId;
         $order->total_price = $total;
         $order->address     = $request->address;
         $order->payment_method = $request->paymentMethod;
-        $order->cart_items  = json_encode($cartItems);   // pura snapshot save
         $order->status      = 'pending';
         $order->save();
 
-        // 5️⃣  STOCK ↓  karo
-        foreach ($cartItems as $ci) {
-            $product = Product::find($ci['product_id']);
-            if ($product) {
-                $product->stock -= $ci['quantity'];
-                if ($product->stock < 0) { $product->stock = 0; }
-                $product->save();
+        // 3. Har cart item → OrderItem mein daalo
+        foreach ($cartItems as $item) {
+            OrderItem::create([
+                'order_id'    => $order->id,
+                'product_id'  => $item->product_id,
+                'quantity'    => $item->quantity,
+                'price'       => $item->price,
+                'total_price' => $item->total_price,
+            ]);
+
+            //  4. Stock reduce karo
+            $product = $item->product;
+            $product->stock -= $item->quantity;
+            if ($product->stock < 0) {
+                $product->stock = 0;
             }
+            $product->save();
         }
 
-        // 6️⃣  Cart clear karo
-        session()->forget(['cart_items','cart_total']);
+        //  5. Cart clear
+        CartItem::where('user_id', $userId)->delete();
+        session()->forget(['cart_items', 'cart_total']);
 
-        return redirect()->route('thankyou')
-            ->with('success', 'Order placed & stock updated!');
+        return redirect()->route('thankyou')->with('success', 'Order placed successfully!');
     }
 }
