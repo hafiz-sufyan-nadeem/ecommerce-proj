@@ -86,12 +86,10 @@ class HomeController extends Controller
 
     public function bestSellingProducts()
     {
-        $products = Product::withCount('reviews')
-            ->withAvg('reviews', 'rating')
-            ->join('cart_items', 'products.id', '=', 'cart_items.product_id')
-            ->select('products.*', DB::raw('COUNT(cart_items.id) as cart_count'))
+        $products = Product::select('products.*', DB::raw('SUM(order_items.quantity) as total_sold'))
+            ->join('order_items', 'products.id', '=', 'order_items.product_id')
             ->groupBy('products.id')
-            ->orderByDesc('cart_count')
+            ->orderByDesc('total_sold')
             ->paginate(12);
 
         return view('website.best-selling', compact('products'));
