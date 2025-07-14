@@ -9,7 +9,6 @@ use App\Models\CartItem;
 use Illuminate\Support\Facades\DB;
 use function Laravel\Prompts\select;
 use function Pest\Laravel\get;
-use function ok\fg;
 
 class HomeController extends Controller
 {
