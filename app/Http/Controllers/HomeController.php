@@ -26,7 +26,7 @@ class HomeController extends Controller
             ->limit(6)
             ->get();
 
-        /* ---------- MOST‑POPULAR ---------- */
+        /* -------- MOST‑POPULAR -------- */
         $most_popular_products = Product::withCount('reviews')
             ->withAvg('reviews', 'rating')
             ->orderByDesc('reviews_avg_rating')
