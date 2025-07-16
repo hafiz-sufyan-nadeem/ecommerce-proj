@@ -103,7 +103,6 @@ class HomeController extends Controller
         $products = Product::withCount('reviews')
             ->withAvg('reviews', 'rating')
             ->orderByDesc('reviews_avg_rating')
-//            ->orderByDesc('reviews_count')
             ->paginate(9);
 
         return view('website.most-popular', compact('products'));
