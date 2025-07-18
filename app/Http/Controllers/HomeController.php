@@ -55,7 +55,6 @@ class HomeController extends Controller
             ->limit(6)
             ->get();
 
-        // View ko data bhejna
         return view('website.index', [
             'products' => $bestselling_products,
             'most_popular_products' => $most_popular_products,
