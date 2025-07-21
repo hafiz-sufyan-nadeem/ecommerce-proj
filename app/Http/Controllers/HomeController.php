@@ -40,7 +40,7 @@ class HomeController extends Controller
         $categories = DB::select("select * from categories order by id DESC LIMIT 6");
         $blogs = DB::select("select * from blogs order by id DESC");
 
-        // Show latest products on Just Arrived section
+        // Show latest products on just Arrived section
         $just_arrived_products = Product::withCount('reviews')
             ->withAvg('reviews', 'rating')
             ->orderBy('id', 'DESC')
