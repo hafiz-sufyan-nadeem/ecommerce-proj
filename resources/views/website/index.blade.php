@@ -498,7 +498,7 @@
                                                       </form>
                                                   @endauth
 
-                                                  {{-- == USER NOT LOGGED‑IN === --}}
+                                                  {{-- == USER NOT LOGGED‑IN == --}}
                                                   @guest
                                                       <a href="{{ route('login') }}"
                                                          class="btn btn-primary rounded-1 p-2 fs-7 w-100 d-flex align-items-center justify-content-center gap-1">
