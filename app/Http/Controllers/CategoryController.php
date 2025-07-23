@@ -103,7 +103,16 @@ class CategoryController extends Controller
     public function view()
     {
         $categories = Category::all();
-        return view('frontend.categories.index', compact('categories'));
+        return view('website.categories', compact('categories'));
     }
+
+    public function showProducts($id)
+    {
+        $category = Category::findOrFail($id);
+        $products = $category->products;
+
+        return view('website.categories-prod', compact('category', 'products'));
+    }
+
 
 }

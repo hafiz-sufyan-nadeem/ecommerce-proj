@@ -161,4 +161,5 @@ Route::get('/search',[ProductController::class, 'search'])->name('search');
 
 Route::post('/place-order', [OrderController::class, 'store'])->name('order.store');
 
-Route::get('/categories', [CategoryController::class, 'view'])->name('categories.view');
+Route::get('/categories', [CategoryController::class, 'view'])->name('website.categories');
+Route::get('/category/{id}/products', [CategoryController::class, 'showProducts'])->name('category.products');
