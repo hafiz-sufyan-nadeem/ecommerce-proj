@@ -128,11 +128,12 @@
 </footer>
 <div id="footer-bottom">
     <div class="container-lg">
-        <div class="row">
-            <div class="col-md-6 copyright" style="text-align: center" >
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
                 <p>© 2024 Organic. All rights reserved.</p>
             </div>
-
         </div>
     </div>
+
+</div>
 </div>
