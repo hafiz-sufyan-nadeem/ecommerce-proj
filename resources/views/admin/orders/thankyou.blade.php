@@ -1,4 +1,4 @@
-@extends('admin.layouts.main')
+@extends('admin.layouts.frontend')
 
 @section('content')
     <div class="container text-center my-5">
