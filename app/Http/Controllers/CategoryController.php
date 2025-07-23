@@ -98,4 +98,12 @@ class CategoryController extends Controller
         $category->delete();
         return redirect()->route('admin.categories')->with('success', 'Category deleted successfully');
     }
+
+
+    public function view()
+    {
+        $categories = Category::all();
+        return view('frontend.categories.index', compact('categories'));
+    }
+
 }

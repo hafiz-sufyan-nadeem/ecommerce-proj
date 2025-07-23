@@ -160,3 +160,5 @@ Route::get('/just-arrived', [HomeController::class, 'justArrivedProducts'])->nam
 Route::get('/search',[ProductController::class, 'search'])->name('search');
 
 Route::post('/place-order', [OrderController::class, 'store'])->name('order.store');
+
+Route::get('/categories', [CategoryController::class, 'view'])->name('categories.view');

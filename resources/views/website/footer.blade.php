@@ -129,7 +129,7 @@
 <div id="footer-bottom">
     <div class="container-lg">
         <div class="row">
-            <div class="col-md-6 copyright">
+            <div class="col-md-6 copyright" style="text-align: center" >
                 <p>© 2024 Organic. All rights reserved.</p>
             </div>
 
