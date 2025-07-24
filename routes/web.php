@@ -18,7 +18,6 @@ use App\Http\Controllers\WishListController;
 
 
 
-//kjkjkkjkj
 
 // Default / Layout Routes
 Route::get('/', function () {
