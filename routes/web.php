@@ -45,7 +45,7 @@ Route::get('/auth_layout', function () {
 });
 
 
-// Authentication Routes
+// Authentication Route
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
 Route::post('/login', [AuthController::class, 'postLogin'])->name('login');
 
