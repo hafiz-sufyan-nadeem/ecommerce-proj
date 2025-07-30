@@ -11,43 +11,21 @@ use Illuminate\Queue\SerializesModels;
 
 class OrderCancelledMail extends Mailable
 {
-    use Queueable, SerializesModels;
+    public $order;
+    public $reason;
 
-    /**
-     * Create a new message instance.
-     */
-    public function __construct()
+    public function __construct(Order $order, $reason = null)
     {
-        //
+        $this->order = $order;
+        $this->reason = $reason;
     }
 
-    /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
+    public function build()
     {
-        return new Envelope(
-            subject: 'Order Cancelled Mail',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        return new Content(
-            markdown: 'emails.orders.cancelled',
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
-    public function attachments(): array
-    {
-        return [];
+        return $this->subject('Order Cancelled - #'.$this->order->id)
+            ->markdown('emails.orders.cancelled', [
+                'order' => $this->order,
+                'reason' => $this->reason
+            ]);
     }
 }

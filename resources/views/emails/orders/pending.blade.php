@@ -1,12 +1,13 @@
-<x-mail::message>
-# Introduction
+@component('mail::message')
+    # Thanks!, {{ $order->name }}!
 
-The body of your message.
+    Your order has been received and is in **Pending** status.
 
-<x-mail::button :url="''">
-Button Text
-</x-mail::button>
+    **Order ID:** #{{ $order->id }}
+    **Total Price:** Rs {{ $order->total_price }}
 
-Thanks,<br>
-{{ config('app.name') }}
-</x-mail::message>
+    We will update you when the order is approved or canceled.
+
+    Thanks,<br>
+    {{ config('app.name') }}
+@endcomponent
